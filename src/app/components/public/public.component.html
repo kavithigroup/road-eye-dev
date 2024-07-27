@@ -1,20 +1,22 @@
 <div class="app-container">
-  <div class="component-container">
-    <h1>Hello World!</h1>
-    <p>Page content (Depends on the component - sign up, login, 404 etc.</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div><---footer-below---></div>
-    <br>
-    <br>
-    <br>
-    <br>
-  </div>
+    <header>
+      <img routerLink="/" src="assets/images/logo.svg" alt="logo" class="logo">
+      <div class="nav">
+        <a routerLink="/">Home</a>
+        <a routerLink="/about">About</a>
+        <a routerLink="/contact">Contact</a>
+        <a routerLink="/vendors">Vendors</a>
+        <a routerLink="pricing">Pricing</a>
+        <a routerLink="/login">Login</a>
+        <a routerLink="/sign-up">Register</a>
+      </div>
+    </header>
+    <div class="component-container">
+      <div class="component-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   <div class="footer-container">
-    <app-footer></app-footer>
   </div>
 </div>
 

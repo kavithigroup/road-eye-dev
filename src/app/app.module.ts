@@ -31,6 +31,12 @@ import {MatListModule} from "@angular/material/list";
 import { LinkDeviceComponent } from './components/main/vehicles/link-device/link-device.component';
 import {QRCodeModule} from "angularx-qrcode";
 import { OrdersComponent } from './components/main/orders/orders.component';
+import { VehicleDetailsComponent } from './components/main/vehicles/vehicle-details/vehicle-details.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatTableModule} from "@angular/material/table";
+import { ComplainComponent } from './components/main/complain/complain.component';
+import { NewComplainComponent } from './components/main/complain/new-complain/new-complain.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +53,10 @@ import { OrdersComponent } from './components/main/orders/orders.component';
     AccountComponent,
     AddVehicleComponent,
     LinkDeviceComponent,
-    OrdersComponent
+    OrdersComponent,
+    VehicleDetailsComponent,
+    ComplainComponent,
+    NewComplainComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +75,10 @@ import { OrdersComponent } from './components/main/orders/orders.component';
     FormsModule,
     MatSelectModule,
     MatListModule,
-    QRCodeModule
+    QRCodeModule,
+    MatTabsModule,
+    MatGridListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

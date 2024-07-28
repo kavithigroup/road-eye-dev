@@ -1,0 +1,35 @@
+<button class="add-vehicle-btn" mat-button (click)="addVehicle()">Add Vehicle</button>
+
+<div class="card-container">
+  <div class="card">
+    <div class="card-title">
+      <h2>KS 2354 | Toyota Aqua </h2>
+      <div class="verified">Verified</div>
+    </div>
+
+
+    <h3>Driving: 20 - 44 kmh⁻¹</h3>
+    <h3>No recent suspicious activity</h3>
+    <button mat-button>
+      <mat-icon>pin_drop</mat-icon>
+      View on Map
+    </button>
+    <h5>Last updated less than 1m ago</h5>
+    <br>
+    <a routerLink="/vehicles/details" mat-button class="viewmore">
+      <mat-icon>arrow_drop_down</mat-icon>
+      View More</a>
+  </div>
+  <div class="card">
+    <div class="card-title">
+      <h2>KS 2354 | Toyota Aqua </h2>
+      <div class="notverified">Not Verified</div>
+    </div>
+    <button mat-button (click)="linkDevice()">Link device</button>
+    <br>
+    <button mat-button class="viewmore">
+      <mat-icon>arrow_drop_down</mat-icon>
+      View More
+    </button>
+  </div>
+</div>

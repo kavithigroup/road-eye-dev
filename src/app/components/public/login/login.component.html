@@ -1,0 +1,28 @@
+<h2>Welcome to <b>RoadEye!</b></h2>
+<h1>Sign in</h1>
+<p class="error">{{ error }}&nbsp;</p>
+<form [formGroup]="form">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Username or email address</mat-label>
+      <input matInput formControlName="username" required>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" [type]="showPassword? 'text':'password'" required>
+      <button mat-icon-button matSuffix (click)="showPassword = !showPassword">
+        <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-hint><a routerLink="/forgot-password" class="mute_link">Forgot Password?</a></mat-hint>
+    </mat-form-field>
+  </p>
+  <br>
+  <p>
+    <button mat-raised-button class="btn-submit">Sign in</button>
+  </p>
+</form>
+<p class="switch">
+  Haven't registered yet? <a routerLink="/sign-up">Sign up</a>
+</p>

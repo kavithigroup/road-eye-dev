@@ -1,0 +1,122 @@
+
+<h1>New Complaint</h1>
+
+<mat-divider></mat-divider>
+<br><br>
+
+<div class="complain-form">
+
+
+<!--<p class="error">{{ error }}</p>-->
+<!--<form [formGroup]="form">-->
+  <div class="row">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>District</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let district of districts" [value]="district">{{ district }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Nearest Police Station</mat-label>
+       <mat-select>
+         <mat-option *ngFor="let station of policeStations" [value]="station">{{ station }}</mat-option>
+       </mat-select>
+      </mat-form-field>
+    </p>
+  </div>
+
+
+  <div class="row">
+    <p style="flex: 100%">
+      <mat-form-field appearance="outline">
+        <mat-label>Complaint Type</mat-label>
+        <input matInput formControlName="type" value="Traffic & Road Safety" required>
+      </mat-form-field>
+    </p>
+
+  </div>
+
+<div class="row">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Your Name</mat-label>
+        <input matInput formControlName="name" required>
+    </mat-form-field>
+  </p>
+  <p>
+
+      <mat-form-field appearance="outline">
+        <mat-label>NIC</mat-label>
+        <input matInput formControlName="nic" required>
+      </mat-form-field>
+
+  </p>
+</div>
+
+<div class="row">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Your Address</mat-label>
+      <input matInput formControlName="address" required>
+    </mat-form-field>
+  </p>
+
+</div>
+
+<div class="row">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Contact Number</mat-label>
+      <input matInput formControlName="contact" required>
+    </mat-form-field>
+  </p>
+  <p>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input matInput formControlName="email" required>
+      </mat-form-field>
+
+  </p>
+</div>
+
+<div class="row">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Subject of the Complaint</mat-label>
+      <input matInput formControlName="subject" required>
+    </mat-form-field>
+  </p>
+
+</div>
+
+<div class="row">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Complaint</mat-label>
+      <textarea formControlName="complaint" matInput></textarea>
+    </mat-form-field>
+  </p>
+
+</div>
+
+<div class="row">
+
+  <button mat-button class="add-vehicle-btn">
+    Add Files
+  </button>
+
+</div>
+  <p>
+    <mat-checkbox class="example-margin" color="primary"> I need notification about status of the complaint</mat-checkbox>
+  </p>
+
+  <button mat-raised-button class="btn-submit">Submit</button>
+<!--</form>-->
+
+</div>
+
+

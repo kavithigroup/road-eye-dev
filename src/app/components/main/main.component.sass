@@ -1,0 +1,87 @@
+.full-page
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+header
+  position: sticky
+  top: 0
+  padding: 5px 80px
+  background: #fff
+  display: flex
+  justify-content: space-between
+  box-shadow: 0 0 2px #0004
+  z-index: 9
+  align-items: center
+
+  img.logo
+    cursor: pointer
+    height: 38px
+
+  .nav
+    display: flex
+    align-items: center
+
+    a
+      padding: 0 20px
+      text-decoration: none
+      color: inherit
+      font-weight: 500
+      font-size: 1rem
+      transition: color 400ms
+
+    a:hover
+      color: #006dab
+
+.main-container
+  flex: 100%
+  display: flex
+
+  .sidenav
+    flex: 290px
+    padding-top: 20px
+    background-color: #083048
+    color: #fff
+
+
+    .profile
+      text-align: center
+      cursor: pointer
+      .avatar
+        width: 130px
+    a
+      display: flex
+      align-items: center
+      //border-bottom: 1px solid black
+      padding: 13px 10px
+      color: inherit
+      text-decoration: none
+      transition: color 800ms, background-color 400ms
+      margin: 0 10px
+      mat-icon
+        margin-right: 10px
+        transition: margin-right 400ms
+    a:hover
+        mat-icon
+          margin-right: 15px
+
+
+    a:hover
+      //margin-left: 20px
+      color: #11394d
+      background-color: #ffffff
+
+
+
+  .main-content
+    flex: 100%
+    padding: 40px
+
+
+  .add-vehicle-btn
+    margin-bottom: 20px
+    background-color: #006dab
+    color: #FFFFFF !important
+
+
+

@@ -1,0 +1,91 @@
+<h2 mat-dialog-title>Register Vehicle</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content><br>
+  <form [formGroup]="form">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Vehicle Number</mat-label>
+        <input matInput formControlName="vehicleNumber" required>
+      </mat-form-field>
+    </p>
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Vehicle Type</mat-label>
+          <mat-select value="car">
+            <mat-option value="bus">Bus</mat-option>
+            <mat-option value="car">Car</mat-option>
+            <mat-option value="dual_purpose">Dual Purpose</mat-option>
+            <mat-option value="lorry">Lorry</mat-option>
+            <mat-option value="motorcycle">Motorcycle</mat-option>
+            <mat-option value="threewheel">Threewheel</mat-option>
+            <mat-option value="van">Van</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Year of Manufacture</mat-label>
+          <input matInput formControlName="yom" required>
+        </mat-form-field>
+      </p>
+    </div>
+
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Brand</mat-label>
+          <input matInput formControlName="brand" required>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Model</mat-label>
+          <input matInput formControlName="model" required>
+        </mat-form-field>
+      </p>
+    </div>
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Millage</mat-label>
+          <input matInput formControlName="millage">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>color</mat-label>
+          <input matInput formControlName="color" required>
+        </mat-form-field>
+      </p>
+    </div>
+    <p>
+      <mat-checkbox>Owned by Myself</mat-checkbox>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Owner</mat-label>
+        <input matInput formControlName="owner" required>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-checkbox>Have lease</mat-checkbox>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Leasing Company / Absolute Owner</mat-label>
+        <input matInput formControlName="absolute_owner">
+      </mat-form-field>
+    </p>
+  </form>
+
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions class="flex-right">
+  <button mat-button>Add Vehicle</button>
+  <button mat-button cdkFocusInitial>Cancel</button>
+</mat-dialog-actions>
+
+
+

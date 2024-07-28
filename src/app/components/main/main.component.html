@@ -1,0 +1,39 @@
+<div class="full-page">
+  <header>
+    <img routerLink="/dashboard" src="assets/images/logo.svg" alt="logo" class="logo">
+    <div class="nav">
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/map">Live Map</a>
+      <a routerLink="/vendors">Vendors</a>
+      <button mat-icon-button>
+        <mat-icon matBadge="9+">notifications</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Logout">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </header>
+  <div class="main-container">
+    <div class="sidenav">
+      <div class="profile">
+        <img class="avatar" src="assets/images/avatar.svg" alt="">
+        <p>
+          John Doe
+          <br>
+          jogn.doe@example.com
+        </p>
+      </div>
+      <a routerLink="/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</a>
+      <a routerLink="/vehicles"><mat-icon>commute</mat-icon>My vehicles</a>
+      <a routerLink="/complaints"><mat-icon>car_crash</mat-icon>Complaints</a>
+      <a routerLink=""><mat-icon>videocam</mat-icon>Video Captures</a>
+      <a routerLink=""><mat-icon>people_alt</mat-icon>Emergency Contacts</a>
+      <a routerLink=""><mat-icon>calendar_month</mat-icon>Appointments</a>
+      <a routerLink="/orders"><mat-icon>shopping_cart</mat-icon>My Orders</a>
+      <a routerLink=""><mat-icon>info</mat-icon>Inquiries</a>
+    </div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

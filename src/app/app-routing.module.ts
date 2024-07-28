@@ -11,6 +11,9 @@ import {VehiclesComponent} from "./components/main/vehicles/vehicles.component";
 import {MapComponent} from "./components/main/map/map.component";
 import {AccountComponent} from "./components/main/account/account.component";
 import {OrdersComponent} from "./components/main/orders/orders.component";
+import {VehicleDetailsComponent} from "./components/main/vehicles/vehicle-details/vehicle-details.component";
+import {ComplainComponent} from "./components/main/complain/complain.component";
+import {NewComplainComponent} from "./components/main/complain/new-complain/new-complain.component";
 
 const routes: Routes = [
   {
@@ -20,7 +23,10 @@ const routes: Routes = [
       {path: "vehicles", component: VehiclesComponent},
       {path: "reports", component: ReportsComponent},
       {path: "account", component: AccountComponent},
-      {path: "orders", component: OrdersComponent}
+      {path: "orders", component: OrdersComponent},
+      {path: "vehicles/details", component:VehicleDetailsComponent},
+      {path: "complaints", component:ComplainComponent},
+      {path: "complaints/new", component:NewComplainComponent},
     ]
   },
   {

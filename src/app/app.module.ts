@@ -37,6 +37,23 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatTableModule} from "@angular/material/table";
 import { ComplainComponent } from './components/main/complain/complain.component';
 import { NewComplainComponent } from './components/main/complain/new-complain/new-complain.component';
+import { ViewComplaintComponent } from './components/main/complain/view-complaint/view-complaint.component';
+import { EmergencyComponent } from './components/main/emergency/emergency.component';
+import { AddFamilyComponent } from './components/main/emergency/add-family/add-family.component';
+import { AddServiceComponent } from './components/main/emergency/add-service/add-service.component';
+import { AppointmentsComponent } from './components/main/appointments/appointments.component';
+import { NewAppointmentComponent } from './components/main/appointments/new-appointment/new-appointment.component';
+import { LocationrequestsComponent } from './components/main/locationrequests/locationrequests.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { CalendarComponent } from './components/main/appointments/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { NewRequestComponent } from './components/main/locationrequests/new-request/new-request.component';
+import { SearchRequestComponent } from './components/main/locationrequests/search-request/search-request.component';
+import { RequestHistoryComponent } from './components/main/locationrequests/request-history/request-history.component';
+import { ViewRequestComponent } from './components/main/locationrequests/view-request/view-request.component';
+import { CompanySubscriptionComponent } from './components/main/company-subscription/company-subscription.component';
+import { VideoCapturesComponent } from './components/main/video-captures/video-captures.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +73,21 @@ import { NewComplainComponent } from './components/main/complain/new-complain/ne
     OrdersComponent,
     VehicleDetailsComponent,
     ComplainComponent,
-    NewComplainComponent
+    NewComplainComponent,
+    ViewComplaintComponent,
+    EmergencyComponent,
+    AddFamilyComponent,
+    AddServiceComponent,
+    AppointmentsComponent,
+    NewAppointmentComponent,
+    LocationrequestsComponent,
+    CalendarComponent,
+    NewRequestComponent,
+    SearchRequestComponent,
+    RequestHistoryComponent,
+    ViewRequestComponent,
+    CompanySubscriptionComponent,
+    VideoCapturesComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +109,9 @@ import { NewComplainComponent } from './components/main/complain/new-complain/ne
     QRCodeModule,
     MatTabsModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

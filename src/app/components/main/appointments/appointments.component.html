@@ -1,8 +1,10 @@
-<h1>My Orders</h1>
+<h1>Your Appointments</h1>
 <mat-divider></mat-divider>
 
 <br /><br />
 
+<a class="add-vehicle-btn" routerLink="/appointments/new" mat-button><mat-icon>add_circle_outline</mat-icon>Add Appointment</a>
+<div class="container"><a class="add-vehicle-btn" routerLink="/appointments/calendar" mat-button><mat-icon>calendar_month</mat-icon> Calendar View</a></div>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -12,33 +14,21 @@
   </ng-container>
 
   <!-- Complaint Time Column -->
-  <ng-container matColumnDef="product">
-    <th mat-header-cell *matHeaderCellDef> Product </th>
-    <td mat-cell *matCellDef="let element"> {{element.product}} </td>
+  <ng-container matColumnDef="appointmentTime">
+    <th mat-header-cell *matHeaderCellDef> Appointment Time </th>
+    <td mat-cell *matCellDef="let element"> {{element.appointmentTime}} </td>
   </ng-container>
 
   <!-- Complaint Date Column -->
-  <ng-container matColumnDef="quantity">
-    <th mat-header-cell *matHeaderCellDef> Quantity </th>
-    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-  </ng-container>
-
-  <!-- Complaint Subject Column -->
-  <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef>Price </th>
-    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+  <ng-container matColumnDef="appointmentDate">
+    <th mat-header-cell *matHeaderCellDef> Appointment Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.appointmentDate}} </td>
   </ng-container>
 
   <!-- Complaint Subject Column -->
   <ng-container matColumnDef="vendor">
-    <th mat-header-cell *matHeaderCellDef>Vendor </th>
+    <th mat-header-cell *matHeaderCellDef> Vendor </th>
     <td mat-cell *matCellDef="let element"> {{element.vendor}} </td>
-  </ng-container>
-
-  <!-- Complaint Subject Column -->
-  <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef>Date </th>
-    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
   </ng-container>
 
   <!-- Status Column -->
@@ -46,8 +36,6 @@
     <th mat-header-cell *matHeaderCellDef> Status </th>
     <td mat-cell *matCellDef="let element"> {{element.status}} </td>
   </ng-container>
-
-
 
   <!-- Action Column -->
   <ng-container matColumnDef="action">
@@ -63,4 +51,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
+<br>
+
+
 

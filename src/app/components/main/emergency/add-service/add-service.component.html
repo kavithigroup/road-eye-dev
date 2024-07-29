@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Add Maintenance Service Provider</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content><br>
+  <form [formGroup]="form">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Service Provider Name</mat-label>
+        <mat-select value="name" formControlName="name" >
+          <mat-option value="John">John</mat-option>
+          <mat-option value="Peter">Peter</mat-option>
+          <mat-option value="Ruby">Ruby</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Priority</mat-label>
+        <mat-select value="priority" formControlName="priority" >
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="5">5</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </p>
+
+
+  </form>
+
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions class="flex-right">
+  <button mat-button>Add </button>
+  <button mat-button cdkFocusInitial>Cancel</button>
+</mat-dialog-actions>
+
+
+

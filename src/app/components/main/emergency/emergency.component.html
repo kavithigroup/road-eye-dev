@@ -1,0 +1,85 @@
+<h1>Your Emergency Contacts</h1>
+<mat-divider></mat-divider>
+<br>
+<mat-tab-group dynamicHeight>
+  <mat-tab label="Family Contacts">
+    <br>
+    <button class="add-vehicle-btn" mat-button (click)="addFamilycontact()" > <mat-icon>add_circle_outline</mat-icon>Add Family Contact</button>
+    <div class="card-container">
+      <div class="card">
+        <div class="card-title">
+          <h2>Contact 1 | Thesara Alwis </h2>
+        </div>
+
+
+        <h3>0771234567</h3>
+        <h3>Email : Thesara.Alwis@gmail.com  </h3>
+        <br>
+        <button mat-stroked-button color="warn">
+          <mat-icon>delete</mat-icon>
+          Remove
+        </button>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          <h2>Contact 2 | Miyuri Silva </h2>
+        </div>
+
+        <h3>0771234567</h3>
+        <h3>Email : Miyuri.Silva@gmail.com  </h3>
+        <br>
+        <button mat-stroked-button color="warn">
+          <mat-icon>delete</mat-icon>
+          Remove
+        </button>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Maintenance Service Providers">
+
+    <br />
+    <button class="add-vehicle-btn" mat-button (click)="addMSP()" > <mat-icon>add_circle_outline</mat-icon>Add Maintenance Service</button>
+
+    <div class="card-container">
+      <div class="card">
+        <div class="card-title">
+          <h2>Contact 1 | John Doe </h2>
+        </div>
+
+
+        <h3>0111234567</h3>
+        <h3>Priority 03</h3>
+
+        <h5>JD Services, Colombo 3</h5>
+        <button mat-stroked-button color="warn">
+          <mat-icon>delete</mat-icon>
+          Remove
+        </button>
+        <br>
+
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <h2>Contact 2 | John Smith </h2>
+        </div>
+
+
+        <h3>0111234567</h3>
+        <h3>Priority 01</h3>
+
+        <h5>JD Services, Colombo 3</h5>
+        <button mat-stroked-button color="warn">
+          <mat-icon>delete</mat-icon>
+          Remove
+        </button>
+        <br>
+
+      </div>
+
+    </div>
+
+  </mat-tab>
+
+</mat-tab-group>
+

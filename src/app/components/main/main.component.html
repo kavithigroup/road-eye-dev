@@ -23,14 +23,32 @@
           jogn.doe@example.com
         </p>
       </div>
+
+      <!--Driver/Vehicle Owner-->
       <a routerLink="/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</a>
       <a routerLink="/vehicles"><mat-icon>commute</mat-icon>My vehicles</a>
       <a routerLink="/complaints"><mat-icon>car_crash</mat-icon>Complaints</a>
-      <a routerLink=""><mat-icon>videocam</mat-icon>Video Captures</a>
-      <a routerLink=""><mat-icon>people_alt</mat-icon>Emergency Contacts</a>
-      <a routerLink=""><mat-icon>calendar_month</mat-icon>Appointments</a>
+      <a routerLink="video-captures"><mat-icon>videocam</mat-icon>Video Captures</a>
+      <a routerLink="/emergency"><mat-icon>people_alt</mat-icon>Emergency Contacts</a>
+      <a routerLink="/appointments"><mat-icon>calendar_month</mat-icon>Appointments</a>
       <a routerLink="/orders"><mat-icon>shopping_cart</mat-icon>My Orders</a>
+
+      <!--Corporate Company-->
+      <a routerLink="/locationrequests"><mat-icon>not_listed_location</mat-icon>Location Requests</a>
+      <a routerLink="/company-subscription"><mat-icon>currency_exchange</mat-icon>Your Subscription</a>
+
+
+      <!--Spare Parts suppliers-->
+
+      <!--Maintenance-->
+
+      <!--Police-->
+
+      <!--Admin-->
+
+      <!--Common -->
       <a routerLink=""><mat-icon>info</mat-icon>Inquiries</a>
+
     </div>
     <div class="main-content">
       <router-outlet></router-outlet>

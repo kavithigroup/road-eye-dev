@@ -1,0 +1,59 @@
+
+<h1>New Appointment</h1>
+
+<mat-divider></mat-divider>
+<br><br>
+
+<div class="appointment-form">
+
+  <form [formGroup]="form">
+
+
+  <div class="row">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Appointment Date</mat-label>
+        <input matInput formControlName="date" required>
+      </mat-form-field>
+    </p>
+    <p>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Appointment Time</mat-label>
+        <input matInput formControlName="time" required>
+      </mat-form-field>
+
+    </p>
+  </div>
+
+  <div class="row">
+    <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Vendor</mat-label>
+          <mat-select value="select vendor">
+            <mat-option value="bus">ABC Maintenance</mat-option>
+            <mat-option value="car">Jaya Maintenance</mat-option>
+            <mat-option value="dual_purpose">Bsc Maintenance</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </p>
+
+  </div>
+
+  <div class="row">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Remarks</mat-label>
+        <textarea formControlName="remarks" matInput></textarea>
+      </mat-form-field>
+    </p>
+
+  </div>
+
+
+  <button mat-raised-button class="btn-submit">Submit</button>
+  </form>
+
+</div>
+
+

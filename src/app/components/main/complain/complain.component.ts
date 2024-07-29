@@ -6,11 +6,11 @@ export interface Complaint {
   id: number;
   complaintTime: string;
   complaintDate: string;
-  complaintSubject: string;
+  complaintSubject: string; 
   status: string;
 }
 const COMPLAINT_DATA: Complaint[] = [
-  { id: 1, complaintTime: '14:30', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Pending' },
+  { id: 1, complaintTime: '14:30', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Pending Kavithma' },
   { id: 2, complaintTime: '15:00', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Resolved' },
   { id: 3, complaintTime: '16:15', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'In Progress' }
 ];

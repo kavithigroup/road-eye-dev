@@ -1,0 +1,75 @@
+
+<h1>New Vehicle searchHistory Request</h1>
+
+<mat-divider></mat-divider>
+<br><br>
+
+<div class="complain-form">
+
+<!--  <form [formGroup]="form">-->
+
+  <mat-form-field appearance="outline">
+    <mat-label>Vehicle Number</mat-label>
+    <input matInput formControlName="number" required>
+
+  </mat-form-field>
+  <div class="row">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Vehicle Type</mat-label>
+        <input matInput formControlName="type" required>
+
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Color</mat-label>
+        <input matInput formControlName="color" required>
+
+      </mat-form-field>
+    </p>
+
+  </div>
+
+  <div class="row">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Brand</mat-label>
+        <input matInput formControlName="brand" required>
+
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Model</mat-label>
+        <input matInput formControlName="model" required>
+
+      </mat-form-field>
+    </p>
+
+
+
+  </div>
+
+
+
+  <div class="row">
+
+    <button mat-button class="add-vehicle-btn">
+      Add Ownership Document
+    </button>
+
+    <button mat-button class="add-vehicle-btn">
+      Add Vehicle Image
+    </button>
+
+  </div>
+
+
+  <button mat-raised-button class="btn-submit">Submit</button>
+<!--  </form>-->
+
+</div>
+
+

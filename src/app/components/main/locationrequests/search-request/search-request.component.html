@@ -1,0 +1,21 @@
+<h1>Search Your Vehicle</h1>
+<mat-divider></mat-divider>
+
+<br /><br />
+
+<h2>Remaining Tokens : 12</h2>
+<form [formGroup]="form">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Select Vehicle Number</mat-label>
+      <mat-select value="name" formControlName="number" >
+        <mat-option value="John">KS4567</mat-option>
+        <mat-option value="Peter">AB7841</mat-option>
+        <mat-option value="Ruby">XV7465</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </p>
+<button mat-stroked-button class="add-vehicle-btn"> Search</button>
+
+</form>

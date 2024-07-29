@@ -1,0 +1,42 @@
+<div class="box">
+<h2 mat-dialog-title>Add Family Contact</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content><br>
+  <form [formGroup]="form">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>
+    </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required>
+        </mat-form-field>
+      </p>
+
+
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phoneNumber" required>
+        </mat-form-field>
+      </p>
+
+
+
+  </form>
+
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions class="flex-right">
+  <button mat-button>Add Contact</button>
+  <button mat-button cdkFocusInitial>Cancel</button>
+</mat-dialog-actions>
+</div>
+
+
+

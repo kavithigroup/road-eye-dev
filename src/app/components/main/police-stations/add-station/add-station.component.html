@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Register Vehicle</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content><br>
+  <form [formGroup]="form">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>station Name</mat-label>
+        <input matInput formControlName="stationName" required>
+      </mat-form-field>
+    </p>
+
+
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>District</mat-label>
+          <input matInput formControlName="district" required>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address" required>
+        </mat-form-field>
+      </p>
+    </div>
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phoneNumber">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required>
+        </mat-form-field>
+      </p>
+    </div>
+  </form>
+
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions class="flex-right">
+  <button mat-button>Add Station</button>
+  <button mat-button cdkFocusInitial>Cancel</button>
+</mat-dialog-actions>
+
+
+

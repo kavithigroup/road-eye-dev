@@ -53,6 +53,24 @@ import { RequestHistoryComponent } from './components/main/locationrequests/requ
 import { ViewRequestComponent } from './components/main/locationrequests/view-request/view-request.component';
 import { CompanySubscriptionComponent } from './components/main/company-subscription/company-subscription.component';
 import { VideoCapturesComponent } from './components/main/video-captures/video-captures.component';
+import { PoliceStationsComponent } from './components/main/police-stations/police-stations.component';
+import { SetOpeningHoursComponent } from './components/main/set-opening-hours/set-opening-hours.component';
+import { PortfolioComponent } from './components/main/portfolio/portfolio.component';
+import { AddStationComponent } from './components/main/police-stations/add-station/add-station.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { CoporateDashboardComponent } from './components/main/coporate-dashboard/coporate-dashboard.component';
+import { PaymentsComponent } from './components/main/payments/payments.component';
+import { InquiriesComponent } from './components/main/inquiries/inquiries.component';
+import { NotificationsComponent } from './components/main/notifications/notifications.component';
+import { ProductsComponent } from './components/main/products/products.component';
+import { AddProductComponent } from './components/main/products/add-product/add-product.component';
+import { UpdateProductComponent } from './components/main/products/update-product/update-product.component';
+import { AddInquiryComponent } from './components/main/inquiries/add-inquiry/add-inquiry.component';
+import { PublicContainerComponent } from './components/public/public-container/public-container.component';
+import { LandingContainerComponent } from './components/public/landing-container/landing-container.component';
+import { Home2Component } from './components/public/landing-container/home2/home2.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +106,21 @@ import { VideoCapturesComponent } from './components/main/video-captures/video-c
     ViewRequestComponent,
     CompanySubscriptionComponent,
     VideoCapturesComponent,
+    PoliceStationsComponent,
+    SetOpeningHoursComponent,
+    PortfolioComponent,
+    AddStationComponent,
+    CoporateDashboardComponent,
+    PaymentsComponent,
+    InquiriesComponent,
+    NotificationsComponent,
+    ProductsComponent,
+    AddProductComponent,
+    UpdateProductComponent,
+    AddInquiryComponent,
+    PublicContainerComponent,
+    LandingContainerComponent,
+    Home2Component,
   ],
   imports: [
     BrowserModule,
@@ -111,7 +144,10 @@ import { VideoCapturesComponent } from './components/main/video-captures/video-c
     MatGridListModule,
     MatTableModule,
     MatDatepickerModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatCardModule,
+    MatStepperModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

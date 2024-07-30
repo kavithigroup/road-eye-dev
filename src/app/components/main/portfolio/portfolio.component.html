@@ -1,0 +1,121 @@
+<h1>Your Portfolio</h1>
+<mat-divider></mat-divider>
+<br>
+
+
+<mat-stepper  #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>General Details</ng-template>
+
+      <div class="container">
+        <div class="profile-pic">
+          <img src="./assets/images/avatar.svg" alt="business profile">
+        </div>
+        <div class="profile-content">
+
+
+                <mat-form-field>
+                  <mat-label>Business Name</mat-label>
+                  <input matInput placeholder="Business Name" formControlName="bName" value="AutoSolution" required>
+                </mat-form-field>
+          <mat-form-field>
+            <mat-label>Owner Name</mat-label>
+            <input matInput placeholder="Last name, First name" formControlName="oName" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="0111234567" formControlName="contact" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="example@gmail.com" formControlName="email" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Pettah, Colombp" formControlName="location" required>
+          </mat-form-field>
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+      <div>
+        <button mat-stroked-button style="margin-right:25px" class="add-vehicle-btn"><mat-icon>edit</mat-icon>Update</button>
+        <button mat-stroked-button matStepperNext class="add-vehicle-btn"><mat-icon>navigate_next</mat-icon>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Services">
+    <form [formGroup]="secondFormGroup">
+      <div class="container">
+        <div class="profile-pic">
+          <img src="./assets/images/avatar.svg" alt="business profile">
+        </div>
+        <div class="profile-content">
+
+
+          <mat-form-field>
+            <mat-label>Brands Available</mat-label>
+            <input matInput placeholder="Toyota, Suzuki etc" formControlName="brands" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Service 1 </mat-label>
+            <input matInput placeholder="Service 1" formControlName="s1" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Service 2</mat-label>
+            <input matInput placeholder="Service 2" formControlName="s2" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Service 3</mat-label>
+            <input matInput placeholder="Service 3" formControlName="s3" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="description" formControlName="description" required>
+          </mat-form-field>
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious style="margin-right:25px" class="add-vehicle-btn" >Back</button>
+        <button mat-button style="margin-right:25px" class="add-vehicle-btn" >Update</button>
+        <button mat-button matStepperNext style="margin-right:25px" class="add-vehicle-btn">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious style="margin-right:25px" class="add-vehicle-btn">Back</button>
+<!--      <button mat-button (click)="stepper.reset()">Reset</button>-->
+    </div>
+  </mat-step>
+</mat-stepper>
+
+
+
+

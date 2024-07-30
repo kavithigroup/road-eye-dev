@@ -1,0 +1,27 @@
+<h2>Set Opening Hours</h2>
+<hr>
+<form>
+  <div class="day" *ngFor="let day of days">
+    <h2>{{day}}</h2>
+    <mat-checkbox>Closed</mat-checkbox>
+    <mat-form-field style="margin-right: 5px">
+      <mat-label>Opens at:</mat-label>
+      <mat-select>
+        <mat-option value="00.00">00.00</mat-option>
+        <mat-option value="00.00">00.00</mat-option>
+        <mat-option value="00.00">00.00</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Closes at:</mat-label>
+      <mat-select>
+        <mat-option value="00.00">00.00</mat-option>
+        <mat-option value="00.00">00.00</mat-option>
+        <mat-option value="00.00">00.00</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>
+
+
+

@@ -1,0 +1,147 @@
+<!--dashboard analytics card row-->
+
+<div class="dash-cards">
+  <div class="one-card">
+
+    <span class="card-content">
+     <p class="card-number">25</p>
+      <p>Location Requests</p>
+    </span>
+
+    <div class="vertical-line"></div>
+    <span class="card-icon">
+<mat-icon class="card-icon">not_listed_location</mat-icon>
+    </span>
+
+  </div>
+
+  <div class="one-card">
+
+    <span class="card-content">
+     <p class="card-number">14</p>
+      <p>Vehicles Found</p>
+    </span>
+
+    <div class="vertical-line"></div>
+    <span class="card-icon">
+<mat-icon class="card-icon">where_to_vote</mat-icon>
+    </span>
+
+  </div>
+
+  <div class="one-card">
+
+    <span class="card-content">
+     <p class="card-number">12</p>
+      <p>Tokens Remaining</p>
+    </span>
+
+    <div class="vertical-line"></div>
+    <span class="card-icon">
+<mat-icon class="card-icon">payments</mat-icon>
+    </span>
+
+  </div>
+
+  <div class="one-card">
+
+    <span class="card-content">
+     <p class="card-number">3</p>
+      <p>Payments</p>
+    </span>
+
+    <div class="vertical-line"></div>
+    <span class="card-icon">
+<mat-icon class="card-icon">attach_money</mat-icon>
+    </span>
+
+  </div>
+
+</div>
+
+
+<br >
+<!--dashboard table and calender-->
+
+
+<mat-divider></mat-divider>
+
+<br />
+
+<div class="dash-content">
+
+  <div class="dash-table">
+
+    <h2>Recent Location Requests</h2>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Complaint Time Column -->
+      <ng-container matColumnDef="vehicleNumber">
+        <th mat-header-cell *matHeaderCellDef> Vehicle Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.vehicleNumber}} </td>
+      </ng-container>
+
+      <!-- Complaint Date Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type</th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+
+      <!-- Complaint Subject Column -->
+      <ng-container matColumnDef="brand">
+        <th mat-header-cell *matHeaderCellDef> Brand</th>
+        <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+      </ng-container>
+
+      <!-- Complaint Subject Column -->
+      <ng-container matColumnDef="model">
+        <th mat-header-cell *matHeaderCellDef> Model</th>
+        <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+      </ng-container>
+
+      <!-- Complaint Subject Column -->
+      <ng-container matColumnDef="color">
+        <th mat-header-cell *matHeaderCellDef> Color </th>
+        <td mat-cell *matCellDef="let element"> {{element.color}} </td>
+      </ng-container>
+
+      <!-- Complaint Subject Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Sent Date</th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <a routerLink="/locationrequests/view"  mat-button ><mat-icon>arrow_forward_ios</mat-icon> </a>
+
+        </td>
+      </ng-container>
+
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+
+  <div class="dash-calender">
+    <h2>Upcoming Appointments</h2>
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+
+</div>

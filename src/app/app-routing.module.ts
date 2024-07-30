@@ -28,6 +28,19 @@ import {RequestHistoryComponent} from "./components/main/locationrequests/reques
 import {ViewRequestComponent} from "./components/main/locationrequests/view-request/view-request.component";
 import {CompanySubscriptionComponent} from "./components/main/company-subscription/company-subscription.component";
 import {VideoCapturesComponent} from "./components/main/video-captures/video-captures.component";
+import {PoliceStationsComponent} from "./components/main/police-stations/police-stations.component";
+import {PortfolioComponent} from "./components/main/portfolio/portfolio.component";
+import {SetOpeningHoursComponent} from "./components/main/set-opening-hours/set-opening-hours.component";
+import {AddStationComponent} from "./components/main/police-stations/add-station/add-station.component";
+import {CoporateDashboardComponent} from "./components/main/coporate-dashboard/coporate-dashboard.component";
+import {PaymentsComponent} from "./components/main/payments/payments.component";
+import {InquiriesComponent} from "./components/main/inquiries/inquiries.component";
+import {NotificationsComponent} from "./components/main/notifications/notifications.component";
+import {ProductsComponent} from "./components/main/products/products.component";
+import {AddProductComponent} from "./components/main/products/add-product/add-product.component";
+import {UpdateProductComponent} from "./components/main/products/update-product/update-product.component";
+import {PublicContainerComponent} from "./components/public/public-container/public-container.component";
+import {Home2Component} from "./components/public/landing-container/home2/home2.component";
 
 const routes: Routes = [
   {
@@ -38,32 +51,49 @@ const routes: Routes = [
       {path: "reports", component: ReportsComponent},
       {path: "account", component: AccountComponent},
       {path: "orders", component: OrdersComponent},
-      {path: "vehicles/details", component:VehicleDetailsComponent},
-      {path: "complaints", component:ComplainComponent},
-      {path: "complaints/new", component:NewComplainComponent},
-      {path: "complaints/view", component:ViewComplaintComponent},
-      {path: "emergency", component:EmergencyComponent},
-      {path: "emergency/add-family", component:AddFamilyComponent},
-      {path: "emergency/add-service", component:AddServiceComponent},
-      {path: "appointments", component:AppointmentsComponent},
-      {path: "appointments/new", component:NewAppointmentComponent},
-      {path: "appointments/calendar", component:CalendarComponent},
-      {path: "locationrequests", component:LocationrequestsComponent},
-      {path: "locationrequests/new", component:NewRequestComponent},
-      {path: "locationrequests/search", component:SearchRequestComponent},
-      {path: "locationrequests/history", component:RequestHistoryComponent},
-      {path: "locationrequests/view", component:ViewRequestComponent},
-      {path: "company-subscription", component:CompanySubscriptionComponent},
-      {path: "video-captures", component:VideoCapturesComponent}
+      {path: "vehicles/details", component: VehicleDetailsComponent},
+      {path: "complaints", component: ComplainComponent},
+      {path: "complaints/new", component: NewComplainComponent},
+      {path: "complaints/view", component: ViewComplaintComponent},
+      {path: "emergency", component: EmergencyComponent},
+      {path: "emergency/add-family", component: AddFamilyComponent},
+      {path: "emergency/add-service", component: AddServiceComponent},
+      {path: "appointments", component: AppointmentsComponent},
+      {path: "appointments/new", component: NewAppointmentComponent},
+      {path: "appointments/calendar", component: CalendarComponent},
+      {path: "locationrequests", component: LocationrequestsComponent},
+      {path: "locationrequests/new", component: NewRequestComponent},
+      {path: "locationrequests/search", component: SearchRequestComponent},
+      {path: "locationrequests/history", component: RequestHistoryComponent},
+      {path: "locationrequests/view", component: ViewRequestComponent},
+      {path: "company-subscription", component: CompanySubscriptionComponent},
+      {path: "video-captures", component: VideoCapturesComponent},
+      {path: "police-stations", component: PoliceStationsComponent},
+      {path: "police-stations/new", component: AddStationComponent},
+      {path: "portfolio", component: PortfolioComponent},
+      {path: "set-opening-hours", component: SetOpeningHoursComponent},
+      {path: "coporate-dashboard", component: CoporateDashboardComponent},
+      {path: "payments", component: PaymentsComponent},
+      {path: "inquiries", component: InquiriesComponent},
+      {path: "notifications", component: NotificationsComponent},
+      {path: "products", component: ProductsComponent},
+      {path: "products/add", component: AddProductComponent},
+      {path: "products/update", component: UpdateProductComponent},
     ]
   },
   {
     path: "", component: PublicComponent, children: [
+      {path: "home", component: Home2Component},
+    ]
+  },
+  {
+    path: "", component: PublicContainerComponent, children: [
       {path: "login", component: LoginComponent},
       {path: "sign-up", component: SignUpComponent},
-      {path: "**", component: NotFoundComponent}
+      {path: "**", component: NotFoundComponent},
     ]
   }
+
 ];
 
 @NgModule({

@@ -5,12 +5,12 @@
 
     <span class="card-content">
      <p class="card-number">25</p>
-      <p>Complaints</p>
+      <p>New Orders</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">car_crash</mat-icon>
+<mat-icon class="card-icon">inventory_2</mat-icon>
     </span>
 
   </div>
@@ -18,13 +18,13 @@
   <div class="one-card">
 
     <span class="card-content">
-     <p class="card-number">14</p>
-      <p>Orders</p>
+     <p class="card-number">23</p>
+      <p>Products</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">shopping_cart</mat-icon>
+<mat-icon class="card-icon">category</mat-icon>
     </span>
 
   </div>
@@ -32,13 +32,13 @@
   <div class="one-card">
 
     <span class="card-content">
-     <p class="card-number">10</p>
-      <p>Appointments</p>
+     <p class="card-number">15</p>
+      <p>Completed Orders</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">calendar_month</mat-icon>
+<mat-icon class="card-icon">done</mat-icon>
     </span>
 
   </div>
@@ -46,13 +46,13 @@
   <div class="one-card">
 
     <span class="card-content">
-     <p class="card-number">2</p>
-      <p>Vehicles</p>
+     <p class="card-number">3</p>
+      <p>info</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">directions_car</mat-icon>
+<mat-icon class="card-icon">attach_money</mat-icon>
     </span>
 
   </div>
@@ -61,6 +61,7 @@
 
 
 <br >
+<!--dashboard table and calender-->
 
 
 <mat-divider></mat-divider>
@@ -71,7 +72,7 @@
 
   <div class="dash-table">
 
-    <h2>Recent Complaints</h2>
+    <h2>Recent Orders</h2>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -81,27 +82,50 @@
       </ng-container>
 
       <!-- Complaint Time Column -->
-      <ng-container matColumnDef="complaintTime">
-        <th mat-header-cell *matHeaderCellDef> Complaint Time </th>
-        <td mat-cell *matCellDef="let element"> {{element.complaintTime}} </td>
+      <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef> Product </th>
+        <td mat-cell *matCellDef="let element"> {{element.product}} </td>
       </ng-container>
 
       <!-- Complaint Date Column -->
-      <ng-container matColumnDef="complaintDate">
-        <th mat-header-cell *matHeaderCellDef> Complaint Date </th>
-        <td mat-cell *matCellDef="let element"> {{element.complaintDate}} </td>
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
       </ng-container>
 
       <!-- Complaint Subject Column -->
-      <ng-container matColumnDef="complaintSubject">
-        <th mat-header-cell *matHeaderCellDef> Complaint Subject </th>
-        <td mat-cell *matCellDef="let element"> {{element.complaintSubject}} </td>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+      </ng-container>
+
+      <!-- Complaint Subject Column -->
+      <ng-container matColumnDef="vendor">
+        <th mat-header-cell *matHeaderCellDef>Vendor </th>
+        <td mat-cell *matCellDef="let element"> {{element.vendor}} </td>
+      </ng-container>
+
+      <!-- Complaint Subject Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
       </ng-container>
 
       <!-- Status Column -->
       <ng-container matColumnDef="status">
         <th mat-header-cell *matHeaderCellDef> Status </th>
         <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+
+
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <a routerLink="/complaints/view" mat-button ><mat-icon color="primary">edit</mat-icon></a>
+          <button mat-button color="warn" ><mat-icon>delete</mat-icon></button>
+        </td>
       </ng-container>
 
       <!-- Header and Row Definitions -->

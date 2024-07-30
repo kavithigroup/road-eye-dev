@@ -5,12 +5,12 @@
 
     <span class="card-content">
      <p class="card-number">25</p>
-      <p>Complaints</p>
+      <p>New Appointments</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">car_crash</mat-icon>
+<mat-icon class="card-icon">event</mat-icon>
     </span>
 
   </div>
@@ -19,12 +19,12 @@
 
     <span class="card-content">
      <p class="card-number">14</p>
-      <p>Orders</p>
+      <p>Completed Appointments</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">shopping_cart</mat-icon>
+<mat-icon class="card-icon">event_available</mat-icon>
     </span>
 
   </div>
@@ -32,13 +32,13 @@
   <div class="one-card">
 
     <span class="card-content">
-     <p class="card-number">10</p>
-      <p>Appointments</p>
+     <p class="card-number">4</p>
+      <p>Cancelled Appointments</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">calendar_month</mat-icon>
+<mat-icon class="card-icon">event_busy</mat-icon>
     </span>
 
   </div>
@@ -46,13 +46,13 @@
   <div class="one-card">
 
     <span class="card-content">
-     <p class="card-number">2</p>
-      <p>Vehicles</p>
+     <p class="card-number">5</p>
+      <p>Emergency Requests</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">directions_car</mat-icon>
+<mat-icon class="card-icon">emergency_share</mat-icon>
     </span>
 
   </div>
@@ -61,6 +61,7 @@
 
 
 <br >
+<!--dashboard table and calender-->
 
 
 <mat-divider></mat-divider>
@@ -71,7 +72,7 @@
 
   <div class="dash-table">
 
-    <h2>Recent Complaints</h2>
+    <h2>Recent Appointments</h2>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -81,21 +82,21 @@
       </ng-container>
 
       <!-- Complaint Time Column -->
-      <ng-container matColumnDef="complaintTime">
-        <th mat-header-cell *matHeaderCellDef> Complaint Time </th>
-        <td mat-cell *matCellDef="let element"> {{element.complaintTime}} </td>
+      <ng-container matColumnDef="appointmentTime">
+        <th mat-header-cell *matHeaderCellDef> Appointment Time </th>
+        <td mat-cell *matCellDef="let element"> {{element.appointmentTime}} </td>
       </ng-container>
 
       <!-- Complaint Date Column -->
-      <ng-container matColumnDef="complaintDate">
-        <th mat-header-cell *matHeaderCellDef> Complaint Date </th>
-        <td mat-cell *matCellDef="let element"> {{element.complaintDate}} </td>
+      <ng-container matColumnDef="appointmentDate">
+        <th mat-header-cell *matHeaderCellDef> Appointment Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.appointmentDate}} </td>
       </ng-container>
 
       <!-- Complaint Subject Column -->
-      <ng-container matColumnDef="complaintSubject">
-        <th mat-header-cell *matHeaderCellDef> Complaint Subject </th>
-        <td mat-cell *matCellDef="let element"> {{element.complaintSubject}} </td>
+      <ng-container matColumnDef="vendor">
+        <th mat-header-cell *matHeaderCellDef> Vendor </th>
+        <td mat-cell *matCellDef="let element"> {{element.vendor}} </td>
       </ng-container>
 
       <!-- Status Column -->

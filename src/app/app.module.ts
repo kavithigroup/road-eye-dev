@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -71,6 +72,15 @@ import { AddInquiryComponent } from './components/main/inquiries/add-inquiry/add
 import { PublicContainerComponent } from './components/public/public-container/public-container.component';
 import { LandingContainerComponent } from './components/public/landing-container/landing-container.component';
 import { Home2Component } from './components/public/landing-container/home2/home2.component';
+import { VendorsComponent } from './components/public/landing-container/vendors/vendors.component';
+import { PoliceDashboardComponent } from './components/main/police-dashboard/police-dashboard.component';
+import { MaintenanceDashboardComponent } from './components/main/maintenance-dashboard/maintenance-dashboard.component';
+import { VendorDashboardComponent } from './components/main/vendor-dashboard/vendor-dashboard.component';
+import { AnalyticsComponent } from './components/main/analytics/analytics.component';
+import { AdminDashboardComponent } from './components/main/admin-dashboard/admin-dashboard.component';
+import { UsersComponent } from './components/main/users/users.component';
+import { AllSubscriptionsComponent } from './components/main/all-subscriptions/all-subscriptions.component';
+import { AddNewPlanComponent } from './components/main/all-subscriptions/add-new-plan/add-new-plan.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +131,16 @@ import { Home2Component } from './components/public/landing-container/home2/home
     PublicContainerComponent,
     LandingContainerComponent,
     Home2Component,
+    VendorsComponent,
+    PoliceDashboardComponent,
+    MaintenanceDashboardComponent,
+    VendorDashboardComponent,
+    AnalyticsComponent,
+    AdminDashboardComponent,
+    UsersComponent,
+    AllSubscriptionsComponent,
+    AddNewPlanComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -147,7 +167,8 @@ import { Home2Component } from './components/public/landing-container/home2/home
     FullCalendarModule,
     MatCardModule,
     MatStepperModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

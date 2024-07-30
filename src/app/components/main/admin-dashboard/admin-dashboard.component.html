@@ -1,3 +1,4 @@
+
 <!--dashboard analytics card row-->
 
 <div class="dash-cards">
@@ -5,12 +6,12 @@
 
     <span class="card-content">
      <p class="card-number">25</p>
-      <p>Complaints</p>
+      <p>Inquiries</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">car_crash</mat-icon>
+<mat-icon class="card-icon">info</mat-icon>
     </span>
 
   </div>
@@ -18,13 +19,13 @@
   <div class="one-card">
 
     <span class="card-content">
-     <p class="card-number">14</p>
-      <p>Orders</p>
+     <p class="card-number">125</p>
+      <p>Users</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">shopping_cart</mat-icon>
+<mat-icon class="card-icon">account_circle</mat-icon>
     </span>
 
   </div>
@@ -32,13 +33,13 @@
   <div class="one-card">
 
     <span class="card-content">
-     <p class="card-number">10</p>
-      <p>Appointments</p>
+     <p class="card-number">250,000</p>
+      <p>Earnings</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">calendar_month</mat-icon>
+<mat-icon class="card-icon">payments</mat-icon>
     </span>
 
   </div>
@@ -46,13 +47,13 @@
   <div class="one-card">
 
     <span class="card-content">
-     <p class="card-number">2</p>
-      <p>Vehicles</p>
+     <p class="card-number">72</p>
+      <p>Vehicles Registered</p>
     </span>
 
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">directions_car</mat-icon>
+<mat-icon class="card-icon">commute</mat-icon>
     </span>
 
   </div>
@@ -62,7 +63,6 @@
 
 <br >
 
-
 <mat-divider></mat-divider>
 
 <br />
@@ -71,7 +71,7 @@
 
   <div class="dash-table">
 
-    <h2>Recent Complaints</h2>
+    <h2>Recent Payments</h2>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -82,25 +82,25 @@
 
       <!-- Complaint Time Column -->
       <ng-container matColumnDef="complaintTime">
-        <th mat-header-cell *matHeaderCellDef> Complaint Time </th>
+        <th mat-header-cell *matHeaderCellDef> Payment Time </th>
         <td mat-cell *matCellDef="let element"> {{element.complaintTime}} </td>
       </ng-container>
 
       <!-- Complaint Date Column -->
       <ng-container matColumnDef="complaintDate">
-        <th mat-header-cell *matHeaderCellDef> Complaint Date </th>
+        <th mat-header-cell *matHeaderCellDef> Payment Date </th>
         <td mat-cell *matCellDef="let element"> {{element.complaintDate}} </td>
       </ng-container>
 
       <!-- Complaint Subject Column -->
       <ng-container matColumnDef="complaintSubject">
-        <th mat-header-cell *matHeaderCellDef> Complaint Subject </th>
+        <th mat-header-cell *matHeaderCellDef> Subscription Type </th>
         <td mat-cell *matCellDef="let element"> {{element.complaintSubject}} </td>
       </ng-container>
 
       <!-- Status Column -->
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <th mat-header-cell *matHeaderCellDef> Payment Status </th>
         <td mat-cell *matCellDef="let element"> {{element.status}} </td>
       </ng-container>
 
@@ -111,9 +111,7 @@
     </table>
   </div>
 
-  <div class="dash-calender">
-    <h2>Upcoming Appointments</h2>
-    <full-calendar [options]="calendarOptions"></full-calendar>
-  </div>
+
 
 </div>
+

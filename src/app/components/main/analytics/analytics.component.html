@@ -1,0 +1,50 @@
+<div class="main-container">
+
+  <div class="row">
+    <div class="col">
+      <apx-chart
+        [series]="lineChartOptions.series"
+        [chart]="lineChartOptions.chart"
+        [xaxis]="lineChartOptions.xaxis"
+        [title]="lineChartOptions.title"
+        [yaxis]="lineChartOptions.yaxis"
+        [markers]="lineChartOptions.markers"
+        [colors]="lineChartOptions.colors"
+        [grid]="lineChartOptions.grid"
+      ></apx-chart>
+
+    </div>
+    <div class="col">
+      <apx-chart
+        [series]="pieChartOptions.series"
+        [chart]="pieChartOptions.chart"
+        [labels]="pieChartOptions.labels"
+        [title]="pieChartOptions.title"
+        [colors]="pieChartOptions.colors"
+      ></apx-chart>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <apx-chart
+        [series]="pieChartOptions2.series"
+        [chart]="pieChartOptions2.chart"
+        [labels]="pieChartOptions2.labels"
+        [title]="pieChartOptions2.title"
+        [colors]="pieChartOptions2.colors"
+      ></apx-chart>
+    </div>
+    <div class="col">
+      <apx-chart
+        [series]="barChartOptions.series"
+        [chart]="barChartOptions.chart"
+        [plotOptions]="barChartOptions.plotOptions"
+        [dataLabels]="barChartOptions.dataLabels"
+        [xaxis]="barChartOptions.xaxis"
+        [yaxis]="barChartOptions.yaxis"
+        [title]="barChartOptions.title"
+      ></apx-chart>
+    </div>
+  </div>
+</div>

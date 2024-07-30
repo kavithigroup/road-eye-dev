@@ -1,1 +1,44 @@
-<p>add-product works!</p>
+<h2 mat-dialog-title>New Product</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content><br>
+  <form [formGroup]="form">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="productName" required>
+      </mat-form-field>
+    </p>
+
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Product Brand</mat-label>
+          <input matInput formControlName="productBrand" required>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Quanitiy</mat-label>
+          <input matInput formControlName="quantity" required>
+        </mat-form-field>
+      </p>
+    </div>
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Unit Price</mat-label>
+          <input matInput formControlName="price">
+        </mat-form-field>
+      </p>
+    </div>
+  </form>
+
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions class="flex-right">
+  <button mat-button>Add Vehicle</button>
+  <button mat-button cdkFocusInitial>Cancel</button>
+</mat-dialog-actions>
+
+
+

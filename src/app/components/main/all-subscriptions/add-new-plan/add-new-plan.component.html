@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Add New Plan</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content><br>
+  <form [formGroup]="form">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Plane Name</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>
+    </p>
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" required>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Tokens</mat-label>
+          <input matInput formControlName="token" required>
+        </mat-form-field>
+      </p>
+    </div>
+  </form>
+
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions class="flex-right">
+  <button mat-button>Add Plan</button>
+  <button mat-button cdkFocusInitial>Cancel</button>
+</mat-dialog-actions>
+
+
+

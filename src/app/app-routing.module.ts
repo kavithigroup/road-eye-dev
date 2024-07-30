@@ -41,6 +41,15 @@ import {AddProductComponent} from "./components/main/products/add-product/add-pr
 import {UpdateProductComponent} from "./components/main/products/update-product/update-product.component";
 import {PublicContainerComponent} from "./components/public/public-container/public-container.component";
 import {Home2Component} from "./components/public/landing-container/home2/home2.component";
+import {VendorsComponent} from "./components/public/landing-container/vendors/vendors.component";
+import {PoliceDashboardComponent} from "./components/main/police-dashboard/police-dashboard.component";
+import {MaintenanceDashboardComponent} from "./components/main/maintenance-dashboard/maintenance-dashboard.component";
+import {VendorDashboardComponent} from "./components/main/vendor-dashboard/vendor-dashboard.component";
+import {AnalyticsComponent} from "./components/main/analytics/analytics.component";
+import {AdminDashboardComponent} from "./components/main/admin-dashboard/admin-dashboard.component";
+import {UsersComponent} from "./components/main/users/users.component";
+import {AllSubscriptionsComponent} from "./components/main/all-subscriptions/all-subscriptions.component";
+import {AddNewPlanComponent} from "./components/main/all-subscriptions/add-new-plan/add-new-plan.component";
 
 const routes: Routes = [
   {
@@ -79,11 +88,20 @@ const routes: Routes = [
       {path: "products", component: ProductsComponent},
       {path: "products/add", component: AddProductComponent},
       {path: "products/update", component: UpdateProductComponent},
+      {path: "police-dashboard", component: PoliceDashboardComponent},
+      {path: "maintenance-dashboard", component:MaintenanceDashboardComponent},
+      {path: "vendor-dashboard", component:VendorDashboardComponent},
+      {path: "analytics", component:AnalyticsComponent},
+      {path: "admin-dashboard", component:AdminDashboardComponent},
+      {path: "users", component:UsersComponent},
+      {path: "all-subscriptions", component:AllSubscriptionsComponent},
+      {path: "all-subscriptions/add-new-plan", component: AddNewPlanComponent},
     ]
   },
   {
     path: "", component: PublicComponent, children: [
       {path: "home", component: Home2Component},
+      {path: "vendors", component: VendorsComponent},
     ]
   },
   {

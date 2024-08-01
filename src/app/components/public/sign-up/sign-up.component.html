@@ -1,18 +1,18 @@
 <h2>Welcome to RoadEye!</h2>
 <h1>Sign up</h1>
 <p class="error">{{ error }}&nbsp;</p>
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="submit()">
   <div class="row">
     <p>
       <mat-form-field appearance="outline">
         <mat-label>First Name</mat-label>
-        <input matInput formControlName="firstName" required>
+        <input matInput formControlName="first_name" required>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Last Name</mat-label>
-        <input matInput formControlName="lastName" required>
+        <input matInput formControlName="last_name" required>
       </mat-form-field>
     </p>
   </div>
@@ -24,26 +24,26 @@
       </mat-form-field>
     </p>
     <p style="flex: auto; padding-top: 10px">
-      <button mat-flat-button color="primary">verify</button>
+      <button type="button" mat-flat-button color="primary" [disabled]="form.controls.email.invalid" (click)="verifyEmail()">verify</button>
     </p>
   </div>
   <div class="row">
     <p>
       <mat-form-field appearance="outline">
         <mat-label>OTP</mat-label>
-        <input matInput formControlName="otp" required>
+        <input matInput formControlName="otp" pattern="[0-9]{6}" required>
       </mat-form-field>
     </p>
     <p>
       <br>
-      We've just emailed you an OTP
+      <span *ngIf="otpSent">We've just emailed you an OTP</span>
     </p>
   </div>
   <div class="row">
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Contact Number</mat-label>
-        <input matInput formControlName="contact" required>
+        <input matInput formControlName="phone" required>
       </mat-form-field>
     </p>
     <p>
@@ -83,7 +83,7 @@
     <mat-checkbox class="example-margin" color="primary">I agree to <a routerLink="/terms" required>terms and conditions</a></mat-checkbox>
   </p>
 
-  <button mat-raised-button class="btn-submit">Sign Up</button>
+  <button mat-raised-button class="btn-submit" [disabled]="paused || done">{{ done ? 'Registration Successful!' : 'Sign Up' }}</button>
 </form>
 <p class="switch">
   I already have an account? <a routerLink="/login">Login</a>

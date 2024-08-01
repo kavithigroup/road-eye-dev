@@ -1,18 +1,19 @@
 <h2 mat-dialog-title>Register Vehicle</h2>
 <mat-divider></mat-divider>
 <mat-dialog-content><br>
-  <form [formGroup]="form">
+  <form [formGroup]="form" id="addVehicle" (ngSubmit)="submit()">
+    <p class="error">{{ error }}</p>
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Vehicle Number</mat-label>
-        <input matInput formControlName="vehicleNumber" required>
+        <input matInput formControlName="vehicle_number" required>
       </mat-form-field>
     </p>
     <div class="row">
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Vehicle Type</mat-label>
-          <mat-select value="car">
+          <mat-select formControlName="type">
             <mat-option value="bus">Bus</mat-option>
             <mat-option value="car">Car</mat-option>
             <mat-option value="dual_purpose">Dual Purpose</mat-option>
@@ -50,18 +51,18 @@
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Millage</mat-label>
-          <input matInput formControlName="millage">
+          <input matInput formControlName="millage" pattern="[0-9]{1,7}">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="outline">
-          <mat-label>color</mat-label>
+          <mat-label>Color</mat-label>
           <input matInput formControlName="color" required>
         </mat-form-field>
       </p>
     </div>
     <p>
-      <mat-checkbox>Owned by Myself</mat-checkbox>
+      <mat-checkbox (click)="setOwner()">Owned by Myself</mat-checkbox>
     </p>
     <p>
       <mat-form-field appearance="outline">
@@ -70,9 +71,9 @@
       </mat-form-field>
     </p>
     <p>
-      <mat-checkbox>Have lease</mat-checkbox>
+      <mat-checkbox [(ngModel)]="lease" [ngModelOptions]="{standalone: true}">Have lease</mat-checkbox>
     </p>
-    <p>
+    <p *ngIf="lease">
       <mat-form-field appearance="outline">
         <mat-label>Leasing Company / Absolute Owner</mat-label>
         <input matInput formControlName="absolute_owner">
@@ -83,8 +84,8 @@
 </mat-dialog-content>
 <mat-divider></mat-divider>
 <mat-dialog-actions class="flex-right">
-  <button mat-button>Add Vehicle</button>
-  <button mat-button cdkFocusInitial>Cancel</button>
+  <button mat-button type="submit" form="addVehicle">Add Vehicle</button>
+  <button mat-button cdkFocusInitial matDialogClose>Cancel</button>
 </mat-dialog-actions>
 
 

@@ -8,7 +8,7 @@
       <button mat-icon-button>
         <mat-icon matBadge="9+">notifications</mat-icon>
       </button>
-      <button mat-icon-button matTooltip="Logout">
+      <button mat-icon-button matTooltip="Logout" (click)="logout()">
         <mat-icon>logout</mat-icon>
       </button>
     </div>
@@ -18,53 +18,96 @@
       <div class="profile">
         <img class="avatar" src="assets/images/avatar.svg" alt="">
         <p>
-          John Doe
+          {{ auth.user?.first_name | titlecase }} {{ auth.user?.last_name | titlecase }}
           <br>
-          jogn.doe@example.com
+          {{ auth.user?.email | lowercase }}
         </p>
       </div>
+      <a routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon>
+        Dashboard</a>
+
 
       <!--Driver/Vehicle Owner-->
-      <a routerLink="/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</a>
+      <ng-container [ngSwitch]="role">
+        <ng-container *ngSwitchCase="0">
+          <a routerLink="/vehicles">
+            <mat-icon>commute</mat-icon>
+            My vehicles</a>
+          <a routerLink="/complaints">
+            <mat-icon>car_crash</mat-icon>
+            Complaints</a>
+          <a routerLink="video-captures">
+            <mat-icon>videocam</mat-icon>
+            Video Captures</a>
+          <a routerLink="/emergency">
+            <mat-icon>people_alt</mat-icon>
+            Emergency Contacts</a>
+          <a routerLink="/appointments">
+            <mat-icon>calendar_month</mat-icon>
+            Appointments</a>
+          <a routerLink="/orders">
+            <mat-icon>shopping_cart</mat-icon>
+            My Orders</a>
+        </ng-container>
 
-      <a routerLink="/vehicles"><mat-icon>commute</mat-icon>My vehicles</a>
-      <a routerLink="/complaints"><mat-icon>car_crash</mat-icon>Complaints</a>
-      <a routerLink="video-captures"><mat-icon>videocam</mat-icon>Video Captures</a>
-      <a routerLink="/emergency"><mat-icon>people_alt</mat-icon>Emergency Contacts</a>
-      <a routerLink="/appointments"><mat-icon>calendar_month</mat-icon>Appointments</a>
-      <a routerLink="/orders"><mat-icon>shopping_cart</mat-icon>My Orders</a>
+        <!--Corporate Company-->
+        <ng-container *ngSwitchCase="1">
+          <a routerLink="/locationrequests">
+            <mat-icon>not_listed_location</mat-icon>
+            Location Requests</a>
+          <a routerLink="/company-subscription">
+            <mat-icon>currency_exchange</mat-icon>
+            Your Subscription</a>
+          <a routerLink="/payments">
+            <mat-icon>attach_money</mat-icon>
+            Your Payments</a>
+        </ng-container>
 
+        <!--Spare Parts suppliers-->
+        <ng-container *ngSwitchCase="2">
+          <a routerLink="/products">
+            <mat-icon>category</mat-icon>
+            Products</a>
+        </ng-container>
 
-      <!--Corporate Company-->
-      <a routerLink="/coporate-dashboard"><mat-icon>dashboard</mat-icon>Dashboard 2</a>
-      <a routerLink="/locationrequests"><mat-icon>not_listed_location</mat-icon>Location Requests</a>
-      <a routerLink="/company-subscription"><mat-icon>currency_exchange</mat-icon>Your Subscription</a>
-      <a routerLink="/payments"><mat-icon>attach_money</mat-icon>Your Payments</a>
-
-
-      <!--Spare Parts suppliers-->
-      <a routerLink="/vendor-dashboard"><mat-icon>dashboard</mat-icon>Vendor Dashboard</a>
-      <a routerLink="/products"><mat-icon>category</mat-icon>Products</a>
-
-      <!--Maintenance-->
-      <a routerLink="/maintenance-dashboard"><mat-icon>dashboard</mat-icon>Maintenance Dashboard</a>
-      <a routerLink="/set-opening-hours"><mat-icon>work_history</mat-icon>Opening Hours</a>
-      <a routerLink="/portfolio"><mat-icon>store</mat-icon>Portfolio</a>
-      <!--Police-->
-      <a routerLink="/police-dashboard"><mat-icon>dashboard</mat-icon>Police Dashboard</a>
-      <a routerLink="/police-stations"><mat-icon>other_houses</mat-icon>Police Stations</a>
-
-      <!--Admin-->
-      <a routerLink="/admin-dashboard"><mat-icon>dashboard</mat-icon>Admin Dashboard</a>
-      <a routerLink="/analytics"><mat-icon>analytics</mat-icon>Analytics</a>
-      <a routerLink="/users"><mat-icon>people</mat-icon>Users</a>
-      <a routerLink="/all-subscriptions"><mat-icon>currency_exchange</mat-icon>All Subscriptions</a>
-
-      <!--Common -->
-      <a routerLink="/inquiries"><mat-icon>info</mat-icon>Inquiries</a>
-      <a routerLink="/notifications"><mat-icon>notifications</mat-icon>Notifications</a>
-
+        <ng-container *ngSwitchCase="5">
+          <!--Maintenance-->
+          <a routerLink="/set-opening-hours">
+            <mat-icon>work_history</mat-icon>
+            Opening Hours</a>
+          <a routerLink="/portfolio">
+            <mat-icon>store</mat-icon>
+            Portfolio</a>
+        </ng-container>
+        <ng-container *ngSwitchCase="4">
+          <!--Police-->
+          <a routerLink="/police-stations">
+            <mat-icon>other_houses</mat-icon>
+            Police Stations</a>
+        </ng-container>
+        <ng-container *ngSwitchCase="3">
+          <!--Admin-->
+          <a routerLink="/analytics">
+            <mat-icon>analytics</mat-icon>
+            Analytics</a>
+          <a routerLink="/users">
+            <mat-icon>people</mat-icon>
+            Users</a>
+          <a routerLink="/all-subscriptions">
+            <mat-icon>currency_exchange</mat-icon>
+            All Subscriptions</a>
+        </ng-container>
+        <!--Common -->
+        <a routerLink="/inquiries">
+          <mat-icon>info</mat-icon>
+          Inquiries</a>
+        <a routerLink="/notifications">
+          <mat-icon>notifications</mat-icon>
+          Notifications</a>
+      </ng-container>
     </div>
+
     <div class="main-content">
       <router-outlet></router-outlet>
     </div>

@@ -50,11 +50,18 @@ import {AdminDashboardComponent} from "./components/main/admin-dashboard/admin-d
 import {UsersComponent} from "./components/main/users/users.component";
 import {AllSubscriptionsComponent} from "./components/main/all-subscriptions/all-subscriptions.component";
 import {AddNewPlanComponent} from "./components/main/all-subscriptions/add-new-plan/add-new-plan.component";
+import {DashboardSwichComponent} from "./components/main/dashboard-swich/dashboard-swich.component";
 
 const routes: Routes = [
   {
+    path: "", component: PublicComponent, children: [
+      {path: "", component: Home2Component},
+      {path: "vendors", component: VendorsComponent},
+    ]
+  },
+  {
     path: "", component: MainComponent, children: [
-      {path: "dashboard", component: DashboardComponent},
+      {path: "dashboard", component: DashboardSwichComponent},
       {path: "map", component: MapComponent},
       {path: "vehicles", component: VehiclesComponent},
       {path: "reports", component: ReportsComponent},
@@ -89,19 +96,13 @@ const routes: Routes = [
       {path: "products/add", component: AddProductComponent},
       {path: "products/update", component: UpdateProductComponent},
       {path: "police-dashboard", component: PoliceDashboardComponent},
-      {path: "maintenance-dashboard", component:MaintenanceDashboardComponent},
-      {path: "vendor-dashboard", component:VendorDashboardComponent},
-      {path: "analytics", component:AnalyticsComponent},
-      {path: "admin-dashboard", component:AdminDashboardComponent},
-      {path: "users", component:UsersComponent},
-      {path: "all-subscriptions", component:AllSubscriptionsComponent},
+      {path: "maintenance-dashboard", component: MaintenanceDashboardComponent},
+      {path: "vendor-dashboard", component: VendorDashboardComponent},
+      {path: "analytics", component: AnalyticsComponent},
+      {path: "admin-dashboard", component: AdminDashboardComponent},
+      {path: "users", component: UsersComponent},
+      {path: "all-subscriptions", component: AllSubscriptionsComponent},
       {path: "all-subscriptions/add-new-plan", component: AddNewPlanComponent},
-    ]
-  },
-  {
-    path: "", component: PublicComponent, children: [
-      {path: "home", component: Home2Component},
-      {path: "vendors", component: VendorsComponent},
     ]
   },
   {

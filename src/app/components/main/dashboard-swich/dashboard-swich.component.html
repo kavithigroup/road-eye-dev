@@ -1,0 +1,8 @@
+<ng-container [ngSwitch]="role">
+  <app-dashboard *ngSwitchCase="0"></app-dashboard>
+  <app-coporate-dashboard *ngSwitchCase="1"></app-coporate-dashboard>
+  <app-vendor-dashboard *ngSwitchCase="2"></app-vendor-dashboard>
+  <app-admin-dashboard *ngSwitchCase="3"></app-admin-dashboard>
+  <app-maintenance-dashboard *ngSwitchCase="4"></app-maintenance-dashboard>
+  <app-police-dashboard *ngSwitchCase="5"></app-police-dashboard>
+</ng-container>

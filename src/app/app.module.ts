@@ -84,6 +84,7 @@ import {AddNewPlanComponent} from './components/main/all-subscriptions/add-new-p
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HttpClientModule} from "@angular/common/http";
 import { DashboardSwichComponent } from './components/main/dashboard-swich/dashboard-swich.component';
+import { PoliceRequestsComponent } from './components/main/police-requests/police-requests.component';
 
 @NgModule({
   declarations: [
@@ -144,6 +145,7 @@ import { DashboardSwichComponent } from './components/main/dashboard-swich/dashb
     AllSubscriptionsComponent,
     AddNewPlanComponent,
     DashboardSwichComponent,
+    PoliceRequestsComponent,
 
   ],
   imports: [

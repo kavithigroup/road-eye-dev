@@ -52,6 +52,7 @@ import {AllSubscriptionsComponent} from "./components/main/all-subscriptions/all
 import {AddNewPlanComponent} from "./components/main/all-subscriptions/add-new-plan/add-new-plan.component";
 import {DashboardSwichComponent} from "./components/main/dashboard-swich/dashboard-swich.component";
 import {PoliceRequestsComponent} from "./components/main/police-requests/police-requests.component";
+import {PoliceNewRequestComponent} from "./components/main/police-requests/police-new-request/police-new-request.component";
 
 const routes: Routes = [
   {
@@ -105,6 +106,8 @@ const routes: Routes = [
       {path: "all-subscriptions", component: AllSubscriptionsComponent},
       {path: "all-subscriptions/add-new-plan", component: AddNewPlanComponent},
       {path: "police-requests", component: PoliceRequestsComponent},
+      {path: "police-requests/new", component: PoliceNewRequestComponent},
+
     ]
   },
   {

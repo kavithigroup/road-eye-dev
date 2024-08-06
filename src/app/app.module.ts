@@ -85,6 +85,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HttpClientModule} from "@angular/common/http";
 import { DashboardSwichComponent } from './components/main/dashboard-swich/dashboard-swich.component';
 import { PoliceRequestsComponent } from './components/main/police-requests/police-requests.component';
+import { PoliceNewRequestComponent } from './components/main/police-requests/police-new-request/police-new-request.component';
 
 @NgModule({
   declarations: [
@@ -146,6 +147,7 @@ import { PoliceRequestsComponent } from './components/main/police-requests/polic
     AddNewPlanComponent,
     DashboardSwichComponent,
     PoliceRequestsComponent,
+    PoliceNewRequestComponent,
 
   ],
   imports: [

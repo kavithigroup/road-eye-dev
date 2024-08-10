@@ -86,6 +86,9 @@ import {HttpClientModule} from "@angular/common/http";
 import { DashboardSwichComponent } from './components/main/dashboard-swich/dashboard-swich.component';
 import { PoliceRequestsComponent } from './components/main/police-requests/police-requests.component';
 import { PoliceNewRequestComponent } from './components/main/police-requests/police-new-request/police-new-request.component';
+import { PoliceViewRequestComponent } from './components/main/police-requests/police-view-request/police-view-request.component';
+import { PoliceLocationHistoryComponent } from './components/main/police-requests/police-view-request/police-location-history/police-location-history.component';
+import { PoliceVehicleFootageComponent } from './components/main/police-requests/police-view-request/police-location-history/police-vehicle-footage/police-vehicle-footage.component';
 
 @NgModule({
   declarations: [
@@ -148,6 +151,9 @@ import { PoliceNewRequestComponent } from './components/main/police-requests/pol
     DashboardSwichComponent,
     PoliceRequestsComponent,
     PoliceNewRequestComponent,
+    PoliceViewRequestComponent,
+    PoliceLocationHistoryComponent,
+    PoliceVehicleFootageComponent,
 
   ],
   imports: [

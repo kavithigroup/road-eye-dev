@@ -53,6 +53,9 @@ import {AddNewPlanComponent} from "./components/main/all-subscriptions/add-new-p
 import {DashboardSwichComponent} from "./components/main/dashboard-swich/dashboard-swich.component";
 import {PoliceRequestsComponent} from "./components/main/police-requests/police-requests.component";
 import {PoliceNewRequestComponent} from "./components/main/police-requests/police-new-request/police-new-request.component";
+import {PoliceViewRequestComponent} from "./components/main/police-requests/police-view-request/police-view-request.component";
+import {PoliceLocationHistoryComponent} from "./components/main/police-requests/police-view-request/police-location-history/police-location-history.component";
+import {PoliceVehicleFootageComponent} from "./components/main/police-requests/police-view-request/police-location-history/police-vehicle-footage/police-vehicle-footage.component";
 
 const routes: Routes = [
   {
@@ -107,7 +110,11 @@ const routes: Routes = [
       {path: "all-subscriptions/add-new-plan", component: AddNewPlanComponent},
       {path: "police-requests", component: PoliceRequestsComponent},
       {path: "police-requests/new", component: PoliceNewRequestComponent},
+      {path: "police-requests/view", component: PoliceViewRequestComponent},
+      {path: "police-requests/view/history", component: PoliceLocationHistoryComponent},
+      {path: "police-requests/view/history/footage", component: PoliceVehicleFootageComponent},
 
+      
     ]
   },
   {

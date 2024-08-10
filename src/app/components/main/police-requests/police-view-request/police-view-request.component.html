@@ -1,0 +1,65 @@
+<h1>Request ID: {{ request?.id }}</h1>
+<mat-divider></mat-divider>
+<br />
+
+<div class="container">
+  <div class="main-content">
+    <div class="details">
+      <mat-list>
+        <mat-list-item>
+          <span matListItemTitle>{{ request?.type }}</span>
+          <span matListItemLine>Vehicle Type</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <span matListItemTitle>{{ request?.color }}</span>
+          <span matListItemLine>Vehicle Color</span>
+        </mat-list-item>
+
+        <mat-list-item>
+          <span matListItemTitle>{{ request?.vehicle_no }}</span>
+          <span matListItemLine>Vehicle Number Plat</span>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <span matListItemTitle>{{ request?.reason }}</span>
+          <span matListItemLine>Reason</span>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <span matListItemTitle>{{ request?.status }}</span>
+          <span matListItemLine>Status</span>
+        </mat-list-item>
+
+        <mat-list-item>
+          <span matListItemTitle>{{ request?.registration }}</span>
+          <span matListItemLine>Registed/Unregisted</span>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+      </mat-list>
+    </div>
+
+    <section>
+      <div class="button-row">
+        <a class="add-vehicle-btn" routerLink="/map" mat-button
+          ><mat-icon>add_circle_outline</mat-icon>Live Track</a
+        >
+        <a
+          class="add-vehicle-btn"
+          routerLink="/police-requests/view/history"
+          mat-button
+          style="margin-left: 1rem"
+          ><mat-icon>history</mat-icon>Tracking History</a
+        >
+      </div>
+    </section>
+  </div>
+  <div class="container-side"></div>
+</div>
+
+<div class="container"></div>

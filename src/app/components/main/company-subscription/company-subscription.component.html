@@ -1,64 +1,53 @@
-<div class="banner">
-  <div class="shopping-image">
-    <img src="./assets/images/token.jpg" alt="logo">
+<div class="subscription-container">
+  <div class="subscription-card">
+    <h2>Current Subscription</h2>
+    <div class="subscription-details" *ngIf="currentPlan">
+      <div class="detail-item">
+        <i class="fas fa-crown"></i>
+        <span>Plan: {{ currentPlan.name }}</span>
+      </div>
+      <div class="detail-item">
+        <i class="fas fa-dollar-sign"></i>
+        <span>Price: ${{ currentPlan.price }}/{{ currentPlan.duration }}</span>
+      </div>
+      <div class="detail-item">
+        <i class="fas fa-coins"></i>
+        <span>Tokens: {{ currentPlan.tokensPerMonth }} per month</span>
+      </div>
+      <div class="detail-item">
+        <i class="fas fa-search"></i>
+        <span>Searches: {{ currentPlan.searchesPerMonth }} per month</span>
+      </div>
+    </div>
   </div>
 
-  <div class="text">
-    <h4>
-      <span class="tokens"> 12 Tokens Remaining</span>
-    </h4>
-    <br />
-    <p>Current Plan Active: Free<p>
+  <div class="usage-card">
+    <h2>Usage Statistics</h2>
+    <div class="usage-details">
+      <div class="usage-item">
+        <div class="usage-label">Remaining Tokens</div>
+        <div class="usage-value">{{ remainingTokens }}</div>
+        <div class="progress-bar">
+          <!-- <div class="progress" [style.width.%]="(remainingTokens / currentPlan?.tokensPerMonth) * 100"></div> -->
+        </div>
+      </div>
+      <div class="usage-item">
+        <div class="usage-label">Days Left</div>
+        <div class="usage-value">{{ remainingDays }}</div>
+        <div class="progress-bar">
+          <!-- <div class="progress" [style.width.%]="(remainingDays / 30) * 100"></div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <a routerLink="/all-subscriptions" mat-button
+      ><mat-icon>pencil</mat-icon> View
+    </a>
+    <button class="update-btn" (click)="updateSubscription()">
+      Update Subscription
+    </button>
+    <button class="unsubscribe-btn" (click)="unsubscribe()">Unsubscribe</button>
   </div>
 </div>
-
-<div class="pricing">
-  <div class="plan popular">
-    <h2>Free</h2>
-    <div class="price">FREE</div>
-    <ul class="features">
-      <li> First Three Month Only</li>
-      <li>20 Tokens</li>
-      <li>20 Searches</li>
-      <li> Duration 1 month </li>
-      <li>No priority support</li>
-    </ul>
-    <button>Purchase</button>
-  </div>
-  <div class="plan popular">
-    <span>Most Popular</span>
-    <h2>Gold</h2>
-    <div class="price">$10/month</div>
-    <ul class="features">
-      <li> Upto 100 Searches</li>
-      <li>100 Tokens</li>
-      <li>100 Searches</li>
-      <li> Duration 3 month </li>
-      <li>Email support</li>
-    </ul>
-    <button>Purchase</button>
-  </div>
-  <div class="plan popular">
-    <h2>Platinum</h2>
-    <div class="price">$50/month</div>
-    <ul class="features">
-      <li>Buy Unlimited Searches</li>
-      <li>Unlimited Tokens</li>
-      <li>Unlimited Searches</li>
-      <li> Duration 5 month </li>
-      <li>24/7 support</li>
-    </ul>
-    <button>Purchase</button>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,55 @@
+<h1>All Requests</h1>
+<mat-divider></mat-divider>
+
+<br /><br />
+
+<a class="add-vehicle-btn" routerLink="/police-requests/new" mat-button
+  ><mat-icon>add_circle_outline</mat-icon>Submit a Request</a
+>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="requestTime">
+    <th mat-header-cell *matHeaderCellDef>Request Time</th>
+    <td mat-cell *matCellDef="let element">{{ element.RequestTime }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="requestDate">
+    <th mat-header-cell *matHeaderCellDef>Request Date</th>
+    <td mat-cell *matCellDef="let element">{{ element.RequestDate }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="vehicleId">
+    <th mat-header-cell *matHeaderCellDef>Vehicle Number</th>
+    <td mat-cell *matCellDef="let element">{{ element.VehicleId }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="registration">
+    <th mat-header-cell *matHeaderCellDef>Registrations</th>
+    <td mat-cell *matCellDef="let element">{{ element.Registration }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element">
+      <a routerLink="/police-requests/view" mat-button
+        ><mat-icon>pencil</mat-icon> View More</a
+      >
+      <button mat-button color="warn"><mat-icon>delete</mat-icon>Cancel</button>
+    </td>
+  </ng-container>
+
+  <!-- Header and Row Definitions -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

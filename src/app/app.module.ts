@@ -84,6 +84,12 @@ import {AddNewPlanComponent} from './components/main/all-subscriptions/add-new-p
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HttpClientModule} from "@angular/common/http";
 import { DashboardSwichComponent } from './components/main/dashboard-swich/dashboard-swich.component';
+import { PoliceRequestsComponent } from './components/main/police-requests/police-requests.component';
+import { PoliceNewRequestComponent } from './components/main/police-requests/police-new-request/police-new-request.component';
+import { PoliceViewRequestComponent } from './components/main/police-requests/police-view-request/police-view-request.component';
+import { PoliceLocationHistoryComponent } from './components/main/police-requests/police-view-request/police-location-history/police-location-history.component';
+import { PoliceVehicleFootageComponent } from './components/main/police-requests/police-view-request/police-location-history/police-vehicle-footage/police-vehicle-footage.component';
+import { SubscriptionComponent } from './components/main/subscription/subscription.component';
 import { VerificationCenterComponent } from './components/main/verification-center/verification-center.component';
 import { UserVerificationDetailsComponent } from './components/main/verification-center/user-verification-details/user-verification-details.component';
 import { VehicleVerificationDetailsComponent } from './components/main/verification-center/vehicle-verification-details/vehicle-verification-details.component';
@@ -154,6 +160,12 @@ import { LeaderboardComponent } from './components/public/landing-container/lead
     AllSubscriptionsComponent,
     AddNewPlanComponent,
     DashboardSwichComponent,
+    PoliceRequestsComponent,
+    PoliceNewRequestComponent,
+    PoliceViewRequestComponent,
+    PoliceLocationHistoryComponent,
+    PoliceVehicleFootageComponent,
+    SubscriptionComponent,
     VerificationCenterComponent,
     UserVerificationDetailsComponent,
     VehicleVerificationDetailsComponent,

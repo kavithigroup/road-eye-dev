@@ -57,12 +57,24 @@ import {PoliceViewRequestComponent} from "./components/main/police-requests/poli
 import {PoliceLocationHistoryComponent} from "./components/main/police-requests/police-view-request/police-location-history/police-location-history.component";
 import {PoliceVehicleFootageComponent} from "./components/main/police-requests/police-view-request/police-location-history/police-vehicle-footage/police-vehicle-footage.component";
 import {SubscriptionComponent} from "./components/main/subscription/subscription.component";
+import {VerificationCenterComponent} from "./components/main/verification-center/verification-center.component";
+import {UserVerificationDetailsComponent} from "./components/main/verification-center/user-verification-details/user-verification-details.component";
+import {MediaWallComponent} from "./components/public/landing-container/media-wall/media-wall.component";
+import {OneVideoComponent} from "./components/public/landing-container/media-wall/one-video/one-video.component";
+import {PostsComponent} from "./components/main/posts/posts.component";
+import {ViewPostComponent} from "./components/main/posts/view-post/view-post.component";
+import {AddNewPostComponent} from "./components/main/posts/add-new-post/add-new-post.component";
+import {LeaderboardComponent} from "./components/public/landing-container/leaderboard/leaderboard.component";
+
 
 const routes: Routes = [
   {
     path: "", component: PublicComponent, children: [
       {path: "", component: Home2Component},
       {path: "vendors", component: VendorsComponent},
+      {path: "media-wall", component:MediaWallComponent},
+      {path: "media-wall/one-video", component:OneVideoComponent},
+      {path: "leaderboard", component:LeaderboardComponent},
     ]
   },
   {
@@ -115,8 +127,12 @@ const routes: Routes = [
       {path: "police-requests/view/history", component: PoliceLocationHistoryComponent},
       {path: "police-requests/view/history/footage", component: PoliceVehicleFootageComponent},
       {path: "subscription", component: SubscriptionComponent},
+      {path: "verification-center", component: VerificationCenterComponent},
+      {path: "verification-center/user-verification-details", component: UserVerificationDetailsComponent},
+      {path: "posts", component:PostsComponent},
+      {path: "posts/view", component:ViewPostComponent},
+      {path: "posts/add-new", component:AddNewPostComponent},
 
-      
     ]
   },
   {

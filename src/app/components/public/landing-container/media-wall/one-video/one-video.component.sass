@@ -1,0 +1,90 @@
+
+
+$primary-color: #3685fb
+$primary-color-dark: #2f73d9
+$secondary-color: #fafcff
+$text-dark: #0d213f
+$text-light: #767268
+$extra-light: #ffffff
+$max-width: 1200px
+
+
+
+root
+  --primary-color: $primary-color
+  --primary-color-dark: $primary-color-dark
+  --secondary-color: $secondary-color
+  --text-dark: $text-dark
+  --text-light: $text-light
+  --extra-light: $extra-light
+  --max-width: $max-width
+
+
+.title
+  font-size: 2rem
+  font-weight: 600
+  color: $text-dark
+  margin-top: 2rem
+  margin-bottom: -50px
+  margin-left: $max-width / 8
+
+.title2
+  font-size: 1.5rem
+  font-weight: 400
+  color: $text-dark
+  margin-left: 30px
+  margin-top: -10px
+
+
+.row
+  display: flex
+  flex-direction: row
+  padding: 100px
+  margin: 10px
+  width: $max-width
+  .col1
+    flex: 3
+    margin-left: 5px
+  .col2
+    flex: 1
+    padding-left: 20px
+
+.example-card2
+  max-width: 300px
+  margin-bottom: 20px
+
+.example-card
+  max-width: 900px
+  img
+    height: 500px
+.user-name
+  font-size: 15px
+.comment
+  font-size: 17px
+
+.comment-box
+  height: 80px
+  z-index: 0
+
+
+.example-header-image
+  background-image: url('https://cdn.vectorstock.com/i/1000v/31/95/user-sign-icon-person-symbol-human-avatar-vector-12693195.avif')
+  background-size: cover
+
+.content-title
+  margin-top: 20px
+  font-size: 1.2rem
+  font-weight: 400
+
+.actions2
+  margin-top: -50px
+  z-index: 5
+
+.actions
+  margin-top: 10px
+
+.comment-btn
+  background-color: $primary-color
+  width: 200px
+  padding: 10px
+  color: white

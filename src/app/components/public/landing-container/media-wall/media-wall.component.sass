@@ -1,0 +1,62 @@
+
+
+$primary-color: #3685fb
+$primary-color-dark: #2f73d9
+$secondary-color: #fafcff
+$text-dark: #0d213f
+$text-light: #767268
+$extra-light: #ffffff
+$max-width: 1200px
+
+
+
+root
+  --primary-color: $primary-color
+  --primary-color-dark: $primary-color-dark
+  --secondary-color: $secondary-color
+  --text-dark: $text-dark
+  --text-light: $text-light
+  --extra-light: $extra-light
+  --max-width: $max-width
+
+
+.title
+  font-size: 2rem
+  font-weight: 600
+  color: $text-dark
+  margin-bottom: 1rem
+  margin-top: 2rem
+  margin-left: $max-width / 2
+
+.row
+  display: flex
+  flex-direction: row
+  padding: 100px
+  margin: 10px
+  width: $max-width
+  .col
+    flex: 1
+    width: 100px
+    margin-left: 5px
+
+.example-card
+  max-width: 400px
+  img
+    height: 250px
+    width: 294px
+
+
+
+.example-header-image
+  background-image: url('https://cdn.vectorstock.com/i/1000v/31/95/user-sign-icon-person-symbol-human-avatar-vector-12693195.avif')
+  background-size: cover
+
+.content-title
+  margin-top: 20px
+  font-size: 1.2rem
+  font-weight: 400
+
+.actions
+  margin-top: 10px
+  padding: 10px
+

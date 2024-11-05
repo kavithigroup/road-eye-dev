@@ -1,0 +1,54 @@
+<h1>Your Posts</h1>
+
+<mat-divider></mat-divider>
+
+<br /><br />
+
+<a class="add-vehicle-btn" routerLink="/posts/add-new" mat-button><mat-icon>add_circle_outline</mat-icon>Send a Post</a>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Post Time Column -->
+  <ng-container matColumnDef="PostTime">
+    <th mat-header-cell *matHeaderCellDef> Time </th>
+    <td mat-cell *matCellDef="let element"> {{element.PostTime}} </td>
+  </ng-container>
+
+  <!-- Post Date Column -->
+  <ng-container matColumnDef="PostDate">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.PostDate}} </td>
+  </ng-container>
+
+  <!-- Post Subject Column -->
+  <ng-container matColumnDef="PostSubject">
+    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <td mat-cell *matCellDef="let element"> {{element.PostSubject}} </td>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element">
+      <a routerLink="/posts/view" mat-button >View More</a>
+      <button mat-button color="warn" ><mat-icon>delete</mat-icon>Cancel</button>
+    </td>
+  </ng-container>
+
+  <!-- Header and Row Definitions -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+

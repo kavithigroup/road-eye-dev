@@ -22,7 +22,7 @@ const COMPLAINT_DATA: Complaint[] = [
 export class ComplainComponent {
 
   displayedColumns: string[] = ['id', 'complaintTime', 'complaintDate', 'complaintSubject', 'status', 'action'];
-  dataSource = COMPLAINT_DATA;
+  dataSource= COMPLAINT_DATA;
 
 
 }

@@ -10,14 +10,22 @@ $max-width: 1200px
 
 
 
+root
+  --primary-color: $primary-color
+  --primary-color-dark: $primary-color-dark
+  --secondary-color: $secondary-color
+  --text-dark: $text-dark
+  --text-light: $text-light
+  --extra-light: $extra-light
+  --max-width: $max-width
 
 
 .title
   font-size: 2rem
   font-weight: 600
   color: $text-dark
-  margin-top: 0.5rem
-  margin-bottom: -70px
+  margin-top: 2rem
+  margin-bottom: -50px
   margin-left: $max-width / 8
 
 .title2
@@ -25,11 +33,14 @@ $max-width: 1200px
   font-weight: 400
   color: $text-dark
   margin-left: 30px
-  margin-top: 10px
+  margin-top: -10px
 
 
 .row
-  margin: 30px
+  display: flex
+  flex-direction: row
+  padding: 100px
+  margin: 10px
   width: $max-width
   .col1
     flex: 3
@@ -43,11 +54,17 @@ $max-width: 1200px
   margin-bottom: 20px
 
 .example-card
-  max-width: 500px
+  max-width: 900px
   img
-    height: 400px
+    height: 500px
 .user-name
   font-size: 15px
+.comment
+  font-size: 17px
+
+.comment-box
+  height: 80px
+  z-index: 0
 
 
 .example-header-image
@@ -59,3 +76,15 @@ $max-width: 1200px
   font-size: 1.2rem
   font-weight: 400
 
+.actions2
+  margin-top: -50px
+  z-index: 5
+
+.actions
+  margin-top: 10px
+
+.comment-btn
+  background-color: $primary-color
+  width: 200px
+  padding: 10px
+  color: white

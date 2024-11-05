@@ -1,0 +1,18 @@
+<div class="gallery-container">
+  <h2>Footages Gallery</h2>
+  <div class="photo-grid">
+    <div
+      *ngFor="let photo of photos"
+      class="photo-item"
+      (click)="openPhoto(photo)"
+    >
+      <img [src]="photo.url" [alt]="photo.description" />
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selectedPhoto" class="fullscreen-overlay" (click)="closePhoto()">
+  <div class="fullscreen-content" (click)="$event.stopPropagation()">
+    <img [src]="selectedPhoto.url" [alt]="selectedPhoto.description" />
+  </div>
+</div>

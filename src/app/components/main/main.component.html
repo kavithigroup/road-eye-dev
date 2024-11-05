@@ -40,15 +40,18 @@
           <a routerLink="video-captures">
             <mat-icon>videocam</mat-icon>
             Video Captures</a>
-          <a routerLink="/emergency">
-            <mat-icon>people_alt</mat-icon>
-            Emergency Contacts</a>
-          <a routerLink="/appointments">
-            <mat-icon>calendar_month</mat-icon>
-            Appointments</a>
-          <a routerLink="/orders">
-            <mat-icon>shopping_cart</mat-icon>
-            My Orders</a>
+          <a routerLink="/posts">
+            <mat-icon>post_add</mat-icon>
+            My Posts</a>
+<!--          <a routerLink="/emergency">-->
+<!--            <mat-icon>people_alt</mat-icon>-->
+<!--            Emergency Contacts</a>-->
+<!--          <a routerLink="/appointments">-->
+<!--            <mat-icon>calendar_month</mat-icon>-->
+<!--            Appointments</a>-->
+<!--          <a routerLink="/orders">-->
+<!--            <mat-icon>shopping_cart</mat-icon>-->
+<!--            My Orders</a>-->
         </ng-container>
 
         <!--Corporate Company-->
@@ -88,6 +91,10 @@
         </ng-container>
         <ng-container *ngSwitchCase="3">
           <!--Admin-->
+          <a routerLink="/verification-center">
+            <mat-icon>domain_verification</mat-icon>
+            Verification Center
+          </a>
           <a routerLink="/analytics">
             <mat-icon>analytics</mat-icon>
             Analytics</a>

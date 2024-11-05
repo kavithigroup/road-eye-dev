@@ -1,0 +1,52 @@
+
+<h1>New Posts</h1>
+
+<mat-divider></mat-divider>
+<br><br>
+
+<div class="complain-form">
+
+
+  <!--<p class="error">{{ error }}</p>-->
+  <!--<form [formGroup]="form">-->
+  <div class="row">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Select Evidence Video</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let videos of Videos" [value]="videos">{{ videos }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+  </div>
+
+
+
+  <div class="row">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Post Name</mat-label>
+        <input matInput required>
+      </mat-form-field>
+    </p>
+
+  </div>
+
+  <div class="row">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Post Description</mat-label>
+        <input matInput required>
+      </mat-form-field>
+    </p>
+
+  </div>
+
+
+
+  <button mat-raised-button class="btn-submit">Post</button>
+  <!--</form>-->
+
+</div>
+
+

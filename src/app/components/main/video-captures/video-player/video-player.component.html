@@ -1,0 +1,22 @@
+<div>
+  <div class="video-container">
+    <video id="video-player" class="video-js vjs-default-skin" controls preload="auto" width="auto" height="480">
+      <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
+    </video>
+  </div>
+  <br>
+  <br>
+
+  <div class="container">
+    <mat-form-field appearance="fill">
+      <mat-label>Start Time (seconds)</mat-label>
+      <input matInput type="number" [(ngModel)]="startTime" id="start-time">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>End Time (seconds)</mat-label>
+      <input matInput type="number" [(ngModel)]="endTime" id="end-time">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="cropVideo()">Crop</button>
+  </div>
+
+</div>

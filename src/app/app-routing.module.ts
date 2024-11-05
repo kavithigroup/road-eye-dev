@@ -56,6 +56,7 @@ import {PoliceNewRequestComponent} from "./components/main/police-requests/polic
 import {PoliceViewRequestComponent} from "./components/main/police-requests/police-view-request/police-view-request.component";
 import {PoliceLocationHistoryComponent} from "./components/main/police-requests/police-view-request/police-location-history/police-location-history.component";
 import {PoliceVehicleFootageComponent} from "./components/main/police-requests/police-view-request/police-location-history/police-vehicle-footage/police-vehicle-footage.component";
+import {SubscriptionComponent} from "./components/main/subscription/subscription.component";
 
 const routes: Routes = [
   {
@@ -113,6 +114,7 @@ const routes: Routes = [
       {path: "police-requests/view", component: PoliceViewRequestComponent},
       {path: "police-requests/view/history", component: PoliceLocationHistoryComponent},
       {path: "police-requests/view/history/footage", component: PoliceVehicleFootageComponent},
+      {path: "subscription", component: SubscriptionComponent},
 
       
     ]

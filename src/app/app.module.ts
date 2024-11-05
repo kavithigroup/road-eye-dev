@@ -89,6 +89,7 @@ import { PoliceNewRequestComponent } from './components/main/police-requests/pol
 import { PoliceViewRequestComponent } from './components/main/police-requests/police-view-request/police-view-request.component';
 import { PoliceLocationHistoryComponent } from './components/main/police-requests/police-view-request/police-location-history/police-location-history.component';
 import { PoliceVehicleFootageComponent } from './components/main/police-requests/police-view-request/police-location-history/police-vehicle-footage/police-vehicle-footage.component';
+import { SubscriptionComponent } from './components/main/subscription/subscription.component';
 
 @NgModule({
   declarations: [
@@ -154,6 +155,7 @@ import { PoliceVehicleFootageComponent } from './components/main/police-requests
     PoliceViewRequestComponent,
     PoliceLocationHistoryComponent,
     PoliceVehicleFootageComponent,
+    SubscriptionComponent,
 
   ],
   imports: [

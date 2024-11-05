@@ -61,7 +61,7 @@ export class CompanySubscriptionComponent implements OnInit {
 
   updateSubscription() {
     console.log('Updating subscription...');
-    this.router.navigate(['/all-subscriptions']);
+    this.router.navigate(['/subscription']);
   }
 
   unsubscribe() {

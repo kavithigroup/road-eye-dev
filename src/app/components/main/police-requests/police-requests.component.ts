@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
+import {FormControl, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
+import {ApiService} from "../../../services/api.service";
+import {AuthService} from "../../../services/auth.service";
 
 
 
@@ -32,5 +36,46 @@ export class PoliceRequestsComponent {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// construcctor(private api: ApiService, private router: Router, private auth: AuthService) {
+
+// constructor(private api: ApiService, private router: Router, private auth: AuthService) {
+// }
+
+// submit() {
+//   this.api.post("/login", this.form.value).subscribe(httpResponse => {
+//     this.error = httpResponse.body
+//     if (this.error === "ok") {
+//       this.error = undefined
+//       setTimeout(() => {
+//         this.auth.updatesSession()
+//         this.router.navigateByUrl("/dashboard").then()
+//       }, 500)
+//     }
+//   })
+// }
 
 

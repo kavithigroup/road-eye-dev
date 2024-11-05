@@ -51,6 +51,8 @@ import {UsersComponent} from "./components/main/users/users.component";
 import {AllSubscriptionsComponent} from "./components/main/all-subscriptions/all-subscriptions.component";
 import {AddNewPlanComponent} from "./components/main/all-subscriptions/add-new-plan/add-new-plan.component";
 import {DashboardSwichComponent} from "./components/main/dashboard-swich/dashboard-swich.component";
+import {VerificationCenterComponent} from "./components/main/verification-center/verification-center.component";
+import {UserVerificationDetailsComponent} from "./components/main/verification-center/user-verification-details/user-verification-details.component";
 
 const routes: Routes = [
   {
@@ -103,6 +105,8 @@ const routes: Routes = [
       {path: "users", component: UsersComponent},
       {path: "all-subscriptions", component: AllSubscriptionsComponent},
       {path: "all-subscriptions/add-new-plan", component: AddNewPlanComponent},
+      {path: "verification-center", component: VerificationCenterComponent},
+      {path: "verification-center/user-verification-details", component: UserVerificationDetailsComponent},
     ]
   },
   {

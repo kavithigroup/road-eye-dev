@@ -84,6 +84,13 @@ import {AddNewPlanComponent} from './components/main/all-subscriptions/add-new-p
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {HttpClientModule} from "@angular/common/http";
 import { DashboardSwichComponent } from './components/main/dashboard-swich/dashboard-swich.component';
+import { MediaWallComponent } from './components/public/landing-container/media-wall/media-wall.component';
+import { OneVideoComponent } from './components/public/landing-container/media-wall/one-video/one-video.component';
+import { AddCommentComponent } from './components/public/landing-container/media-wall/add-comment/add-comment.component';
+import { PostsComponent } from './components/main/posts/posts.component';
+import { AddNewPostComponent } from './components/main/posts/add-new-post/add-new-post.component';
+import { ViewPostComponent } from './components/main/posts/view-post/view-post.component';
+import { LeaderboardComponent } from './components/public/landing-container/leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -144,6 +151,13 @@ import { DashboardSwichComponent } from './components/main/dashboard-swich/dashb
     AllSubscriptionsComponent,
     AddNewPlanComponent,
     DashboardSwichComponent,
+    MediaWallComponent,
+    OneVideoComponent,
+    AddCommentComponent,
+    PostsComponent,
+    AddNewPostComponent,
+    ViewPostComponent,
+    LeaderboardComponent
 
   ],
   imports: [

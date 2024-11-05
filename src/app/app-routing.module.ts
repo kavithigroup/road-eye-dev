@@ -51,12 +51,22 @@ import {UsersComponent} from "./components/main/users/users.component";
 import {AllSubscriptionsComponent} from "./components/main/all-subscriptions/all-subscriptions.component";
 import {AddNewPlanComponent} from "./components/main/all-subscriptions/add-new-plan/add-new-plan.component";
 import {DashboardSwichComponent} from "./components/main/dashboard-swich/dashboard-swich.component";
+import {MediaWallComponent} from "./components/public/landing-container/media-wall/media-wall.component";
+import {OneVideoComponent} from "./components/public/landing-container/media-wall/one-video/one-video.component";
+import {PostsComponent} from "./components/main/posts/posts.component";
+import {ViewPostComponent} from "./components/main/posts/view-post/view-post.component";
+import {AddNewPostComponent} from "./components/main/posts/add-new-post/add-new-post.component";
+import {LeaderboardComponent} from "./components/public/landing-container/leaderboard/leaderboard.component";
+
 
 const routes: Routes = [
   {
     path: "", component: PublicComponent, children: [
       {path: "", component: Home2Component},
       {path: "vendors", component: VendorsComponent},
+      {path: "media-wall", component:MediaWallComponent},
+      {path: "media-wall/one-video", component:OneVideoComponent},
+      {path: "leaderboard", component:LeaderboardComponent},
     ]
   },
   {
@@ -103,6 +113,9 @@ const routes: Routes = [
       {path: "users", component: UsersComponent},
       {path: "all-subscriptions", component: AllSubscriptionsComponent},
       {path: "all-subscriptions/add-new-plan", component: AddNewPlanComponent},
+      {path: "posts", component:PostsComponent},
+      {path: "posts/view", component:ViewPostComponent},
+      {path: "posts/add-new", component:AddNewPostComponent},
     ]
   },
   {

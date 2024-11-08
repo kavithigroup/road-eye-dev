@@ -1,122 +1,132 @@
-
 <h1>New Complaint</h1>
-
 <mat-divider></mat-divider>
 <br><br>
 
 <div class="complain-form">
+  <form [formGroup]="form" id="addComplain" (ngSubmit)="submit()">
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>District</mat-label>
+          <mat-select formControlName="district">
+            <mat-option *ngFor="let district of districts" [value]="district">{{ district }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Nearest Police Station</mat-label>
+          <mat-select formControlName="police_station">
+            <mat-option *ngFor="let station of policeStations" [value]="station">{{ station }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+    </div>
+
+    <div class="row">
+      <p style="flex: 100%">
+        <mat-form-field appearance="outline">
+          <mat-label>Complaint Type</mat-label>
+          <input matInput formControlName="type" required>
+        </mat-form-field>
+      </p>
+    </div>
+
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Your Name</mat-label>
+          <input  matInput formControlName="name">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>NIC</mat-label>
+          <input matInput formControlName="nic">
+        </mat-form-field>
+      </p>
+    </div>
+
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Your Address</mat-label>
+          <input matInput formControlName="address" required>
+        </mat-form-field>
+      </p>
+    </div>
+
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Contact Number</mat-label>
+          <input  matInput formControlName="contact">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input   matInput formControlName="email">
+        </mat-form-field>
+      </p>
+    </div>
+
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Subject of the Complaint</mat-label>
+          <input formControlName="subject"   matInput required>
+        </mat-form-field>
+      </p>
+    </div>
+
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Complaint</mat-label>
+          <textarea  matInput formControlName="complain"></textarea>
+        </mat-form-field>
+      </p>
+    </div>
 
 
-<!--<p class="error">{{ error }}</p>-->
-<!--<form [formGroup]="form">-->
-  <div class="row">
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>District</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let district of districts" [value]="district">{{ district }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Nearest Police Station</mat-label>
-       <mat-select>
-         <mat-option *ngFor="let station of policeStations" [value]="station">{{ station }}</mat-option>
-       </mat-select>
-      </mat-form-field>
-    </p>
-  </div>
+    <div class="row">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Video</mat-label>
+          <mat-select formControlName="proof">
+            <mat-option value="viddeo 1">Video 1</mat-option>
+            <mat-option value="video 2">Video 2</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+    </div>
 
+<!--    <div class="row">-->
+<!--      <button mat-button type="button" class="add-vehicle-btn" (click)="fileInput.click()">-->
+<!--        Add Files-->
+<!--      </button>-->
+<!--      &lt;!&ndash; Hidden file input &ndash;&gt;-->
+<!--      <input #fileInput type="file" (change)="onFileSelected($event)" style="display:none" />-->
+<!--    </div>-->
 
-  <div class="row">
-    <p style="flex: 100%">
-      <mat-form-field appearance="outline">
-        <mat-label>Complaint Type</mat-label>
-        <input matInput value="Traffic & Road Safety" required>
-      </mat-form-field>
-    </p>
+<!--    <div *ngIf="fileName">-->
+<!--      <p>Selected File: {{ fileName }}</p>-->
+<!--      <img *ngIf="filePreview" [src]="filePreview" alt="Preview" width="100" />-->
+<!--    </div>-->
 
-  </div>
+<!--    <div class="row">-->
+<!--      <button mat-button type="button" class="add-vehicle-btn">-->
+<!--        Add Files-->
+<!--      </button>-->
+<!--    </div>-->
 
-<div class="row">
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Your Name</mat-label>
-        <input matInput required>
-    </mat-form-field>
-  </p>
-  <p>
+<!--    <p>-->
+<!--      <mat-checkbox formControlName="notify" class="example-margin" color="primary">-->
+<!--        I need notification about status of the complaint-->
+<!--      </mat-checkbox>-->
+<!--    </p>-->
 
-      <mat-form-field appearance="outline">
-        <mat-label>NIC</mat-label>
-        <input matInput  required>
-      </mat-form-field>
-
-  </p>
+    <button mat-raised-button type="submit" color="primary" class="btn-submit">Submit</button>
+  </form>
 </div>
-
-<div class="row">
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Your Address</mat-label>
-      <input matInput required>
-    </mat-form-field>
-  </p>
-
-</div>
-
-<div class="row">
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Contact Number</mat-label>
-      <input matInput  required>
-    </mat-form-field>
-  </p>
-  <p>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Email Address</mat-label>
-        <input matInput required>
-      </mat-form-field>
-
-  </p>
-</div>
-
-<div class="row">
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Subject of the Complaint</mat-label>
-      <input matInput required>
-    </mat-form-field>
-  </p>
-
-</div>
-
-<div class="row">
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Complaint</mat-label>
-      <textarea matInput></textarea>
-    </mat-form-field>
-  </p>
-
-</div>
-
-<div class="row">
-
-  <button mat-button class="add-vehicle-btn">
-    Add Files
-  </button>
-
-</div>
-  <p>
-    <mat-checkbox class="example-margin" color="primary"> I need notification about status of the complaint</mat-checkbox>
-  </p>
-
-  <button mat-raised-button class="btn-submit">Submit</button>
-<!--</form>-->
-
-</div>
-
-

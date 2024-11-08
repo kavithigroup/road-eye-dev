@@ -21,6 +21,7 @@ export class AuthService {
     last_name: string
     email: string
     nic: string
+    phone : string
     role: number
     username: string
   }
@@ -42,6 +43,7 @@ export class AuthService {
       first_name: 'Vidath',
       last_name: 'Dhanushka',
       email: 'vidath@email.com',
+      phone: '0702564789',
       nic: "200045766457",
       role: Role.admin,
       username: 'admin'

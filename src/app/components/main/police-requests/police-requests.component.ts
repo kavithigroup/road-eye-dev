@@ -1,81 +1,46 @@
-import { Component } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
-import {FormControl, FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
-import {ApiService} from "../../../services/api.service";
-import {AuthService} from "../../../services/auth.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';  // Import Router
 
-
-
-export interface Request {
+interface PoliceRequest {
   id: number;
-  RequestTime: string;
-  RequestDate: string;
-  VehicleId: string;
-  Registration: string;
+  requestTime: string;
+  requestDate: string;
+  vehicleId: string;
+  registration: string;
   status: string;
-
 }
-
-const REQUEST_DATA: Request[] = [
-  { id: 1, RequestTime: '14:30', RequestDate: '2024-07-27', VehicleId: 'ABC123', Registration: 'Registed', status: 'Investigating' },
-  { id: 2, RequestTime: '15:00', RequestDate: '2024-07-27', VehicleId: 'DAC452', Registration: 'Unregisted', status: 'Complete' },
-  { id: 3, RequestTime: '16:15', RequestDate: '2024-07-27', VehicleId: 'AEQ243', Registration: 'Registed', status: 'Complete' }
-];
-
 
 @Component({
   selector: 'app-police-requests',
   templateUrl: './police-requests.component.html',
   styleUrls: ['./police-requests.component.sass']
 })
-export class PoliceRequestsComponent {
+export class PoliceRequestsComponent implements OnInit {
+  dataSource: PoliceRequest[] = [
+    // Initial data, replace with actual data or fetch from a service
+    { id: 1, requestTime: '2023-11-25 10:00 AM', requestDate: '2023-11-25', vehicleId: 'AB1234', registration: 'XYZ123', status: 'Pending' },
+    { id: 2, requestTime: '2023-11-26 02:00 PM', requestDate: '2023-11-26', vehicleId: 'CD5678', registration: 'PQR456', status: 'In Progress' }
+  ];
 
-  displayedColumns: string[] = ['id', 'requestTime', 'requestDate', 'vehicleId', 'registration', 'status', 'action'];
-  dataSource = REQUEST_DATA;
+  displayedColumns: string[] = ['id', 'requestTime', 'requestDate', 'vehicleId', 'registration', 'status', 'actions'];
 
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    // this.policeRequestService.getPoliceRequests().subscribe(data => {
+    //   this.dataSource = data;
+    // });
+  }
+
+  addRequest() {
+    this.router.navigate(['/police-requests/new']);
+  }
+
+  viewRequest(requestId: number) {
+    this.router.navigate(['/police-requests/view', requestId]);
+  }
+
+  cancelRequest(requestId: number) {
+    // Implement cancellation logic
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// construcctor(private api: ApiService, private router: Router, private auth: AuthService) {
-
-// constructor(private api: ApiService, private router: Router, private auth: AuthService) {
-// }
-
-// submit() {
-//   this.api.post("/login", this.form.value).subscribe(httpResponse => {
-//     this.error = httpResponse.body
-//     if (this.error === "ok") {
-//       this.error = undefined
-//       setTimeout(() => {
-//         this.auth.updatesSession()
-//         this.router.navigateByUrl("/dashboard").then()
-//       }, 500)
-//     }
-//   })
-// }
-
-

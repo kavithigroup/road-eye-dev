@@ -80,7 +80,7 @@ export class NewComplainComponent {
 
 
 
-
+//submit complain function
   submit() {
     if (this.form.invalid)
       return;

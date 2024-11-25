@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class ViewComplaintComponent implements OnInit{
 
+  //View complaint parameters
   complain?: {
     complain_id: number;
     send_time: string;

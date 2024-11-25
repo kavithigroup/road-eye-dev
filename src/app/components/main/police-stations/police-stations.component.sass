@@ -1,45 +1,74 @@
+/* Style for the Add Station Button */
 .add-vehicle-btn
+  /* Adds spacing below the button */
   margin-bottom: 20px
+  /* Sets the background color */
   background-color: #006dab
+  /* Ensures text is white and overrides any other styles */
   color: #FFFFFF !important
 
+/* Styles for the Container Holding All Cards */
 .card-container
+  /* Uses Flexbox for card layout */
   display: flex
+  /* Allows cards to wrap to the next line if needed */
   flex-wrap: wrap
+  /* Adds spacing between cards */
   gap: 15px
 
+  /* Styles for Individual Cards */
   .card
-
+    /* Adds rounded corners */
     border-radius: 8px
+    /* Padding inside the card for spacing */
     padding: 15px
+    /* Sets the background color */
     background-color: #edf1f1
+    /* Smooth transition for hover effects */
     transition: box-shadow 0.3s ease
 
+    /* Adds a shadow effect when hovering over a card */
     &:hover
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2)
 
+    /* Styles for the Card Title Section */
     .card-title
+      /* Aligns title and verification status side by side */
       display: flex
       justify-content: space-between
       align-items: center
+      /* Allows positioning of child elements */
       position: relative
 
+      /* Style for the 'Verified' Status */
       .verified
+        /* Adjusts the position relative to the parent */
         top: 3px
         right: 10px
+        /* Green color for verified status */
         color: #2be143
+        /* Adds spacing between status and title */
         margin-left: 20px
+        /* Smaller font size for the status label */
         font-size: 0.8rem
+        /* Custom font weight for emphasis */
         text-decoration-line: font-weight(7)
 
+      /* Style for the 'Not Verified' Status */
       .notverified
+        /* Adjusts the position relative to the parent */
         top: 3px
         right: 10px
+        /* Red color for not verified status */
         color: #e14128
+        /* Adds spacing between status and title */
         margin-left: 20px
+        /* Smaller font size for the status label */
         font-size: 0.8rem
+        /* Custom font weight for emphasis */
         text-decoration-line: font-weight(7)
 
+      /* View More Section - Reserved for future use */
       .viewmore
         top: 3px
         right: 10px
@@ -47,10 +76,15 @@
         margin-left: 20px
         font-size: 0.8rem
 
+/* Utility Class for Row Layout */
 .row
+  /* Makes elements stack vertically */
   display: flex
+  /* Sets the layout direction to column */
   flex-direction: column
+  /* Adds spacing between child elements */
   gap: 15px
+
+  /* Column Style for Flexible Width */
   .col
     flex: 1
-

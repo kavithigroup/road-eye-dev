@@ -1,54 +1,83 @@
+<!-- Header for the product list page -->
 <h1>Your Products</h1>
+
+<!-- Divider between header and content -->
 <mat-divider></mat-divider>
 
 <br />
 
+<!-- Button to add a new product. When clicked, triggers the addProduct() function -->
 <button class="add-vehicle-btn" mat-button (click)="addProduct()">Add Product</button>
+
 <br /><br />
+
+<!-- Row containing multiple product cards. Each product will be displayed in a column. -->
 <div class="row">
 
+  <!-- Start of the first product card -->
   <div class="col">
+    <!-- Material card to display product details -->
     <mat-card class="example-card" appearance="outlined">
+
+      <!-- Card header with product image and basic info -->
       <mat-card-header>
+        <!-- Placeholder for product image -->
         <div mat-card-avatar class="example-header-image"></div>
+
+        <!-- Title and subtitle of the product -->
         <mat-card-title>Engine Oil Filter</mat-card-title>
         <mat-card-subtitle>Bosch</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://t3.ftcdn.net/jpg/01/76/82/78/240_F_176827898_YU7qkekSkUF6ayDhIaUw01y2Qdx5ALfY.jpg" alt="Photo of a Shiba Inu">
+
+      <!-- Product image -->
+      <img mat-card-image src="https://t3.ftcdn.net/jpg/01/76/82/78/240_F_176827898_YU7qkekSkUF6ayDhIaUw01y2Qdx5ALfY.jpg" alt="Photo of Engine Oil Filter">
+
+      <!-- Product details like quantity and price -->
       <mat-card-content>
         <p>
-        Quantity: 15 <br>
+          Quantity: 15 <br>
           Price: $10
         </p>
       </mat-card-content>
+
+      <!-- Actions for the product, such as update and remove -->
       <mat-card-actions>
+        <!-- Link to update the product details -->
         <button routerLink="/products/update" mat-button color="primary">Update</button>
+        <!-- Button to remove the product -->
         <button mat-button color="warn">Remove</button>
       </mat-card-actions>
     </mat-card>
-
   </div>
+
+  <!-- Start of the second product card -->
   <div class="col">
     <mat-card class="example-card" appearance="outlined">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>Spark Plugs</mat-card-title>
-        <mat-card-subtitle> NGK</mat-card-subtitle>
+        <mat-card-subtitle>NGK</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://m.media-amazon.com/images/I/61qK29HFNhL._AC_UF894,1000_QL80_.jpg" alt="Photo of a Shiba Inu">
+      <!-- Product image -->
+      <img mat-card-image src="https://m.media-amazon.com/images/I/61qK29HFNhL._AC_UF894,1000_QL80_.jpg" alt="Photo of Spark Plugs">
+
       <mat-card-content>
         <p>
           Quantity: 15 <br>
           Price: $10
         </p>
       </mat-card-content>
+
       <mat-card-actions>
+        <!-- Link to update the product -->
         <a routerLink="/products/update" mat-button color="primary">Update</a>
+        <!-- Button to remove the product -->
         <button mat-button color="warn">Remove</button>
       </mat-card-actions>
     </mat-card>
-
   </div>
+
+  <!-- Start of the third product card -->
   <div class="col">
     <mat-card class="example-card" appearance="outlined">
       <mat-card-header>
@@ -56,7 +85,7 @@
         <mat-card-title>Engine Oil Filter</mat-card-title>
         <mat-card-subtitle>Bosch</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://t3.ftcdn.net/jpg/01/76/82/78/240_F_176827898_YU7qkekSkUF6ayDhIaUw01y2Qdx5ALfY.jpg" alt="Photo of a Shiba Inu">
+      <img mat-card-image src="https://t3.ftcdn.net/jpg/01/76/82/78/240_F_176827898_YU7qkekSkUF6ayDhIaUw01y2Qdx5ALfY.jpg" alt="Photo of Engine Oil Filter">
       <mat-card-content>
         <p>
           Quantity: 15 <br>
@@ -68,8 +97,9 @@
         <button mat-button color="warn">Remove</button>
       </mat-card-actions>
     </mat-card>
-
   </div>
+
+  <!-- Start of the fourth product card -->
   <div class="col">
     <mat-card class="example-card" appearance="outlined">
       <mat-card-header>
@@ -77,7 +107,7 @@
         <mat-card-title>Engine Oil Filter</mat-card-title>
         <mat-card-subtitle>Bosch</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://m.media-amazon.com/images/I/61qK29HFNhL._AC_UF894,1000_QL80_.jpg" alt="Photo of a Shiba Inu">
+      <img mat-card-image src="https://m.media-amazon.com/images/I/61qK29HFNhL._AC_UF894,1000_QL80_.jpg" alt="Photo of Engine Oil Filter">
       <mat-card-content>
         <p>
           Quantity: 15 <br>
@@ -89,7 +119,6 @@
         <button mat-button color="warn">Remove</button>
       </mat-card-actions>
     </mat-card>
-
   </div>
 
 </div>

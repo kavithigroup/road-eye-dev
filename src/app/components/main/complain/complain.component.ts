@@ -50,6 +50,7 @@ export class ComplainComponent implements OnInit{
     this.fetchComplaints();
   }
 
+  //fetch all complain API call
   fetchComplaints() {
     const userId = this.auth.user?.user_id;
     if (userId) {

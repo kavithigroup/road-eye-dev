@@ -1,7 +1,7 @@
 <h1>Your Posts</h1>
 <mat-divider></mat-divider>
 <br>
-<a class="add-vehicle-btn" routerLink="/posts/new-post" mat-button><mat-icon>add_circle_outline</mat-icon>Add New Post</a>
+<a class="add-vehicle-btn" routerLink="/posts/add-new" mat-button><mat-icon>add_circle_outline</mat-icon>Add New Post</a>
     <ng-container >
       <div class="card-container">
         <mat-card class="example-card" appearance="outlined" *ngFor="let video of [0,1,1,]">
@@ -19,7 +19,7 @@
           </mat-card-content>
           <mat-card-actions>
             <button mat-button>Share</button>
-            <button routerLink="/posts/view-post" mat-button>View More details</button>
+            <button routerLink="/posts/view" mat-button>View More details</button>
             <button mat-button color="warn">Delete</button>
           </mat-card-actions>
         </mat-card>

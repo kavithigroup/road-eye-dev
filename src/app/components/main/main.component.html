@@ -18,9 +18,9 @@
       <div class="profile">
         <img class="avatar" src="assets/images/avatar.svg" alt="">
         <p>
-          {{ auth.user?.first_name | titlecase }} {{ auth.user?.last_name | titlecase }}
+<!--          {{ auth.user?.first_name | titlecase }} {{ auth.user?.last_name | titlecase }}-->
           <br>
-          {{ auth.user?.email | lowercase }}
+<!--          {{ auth.user?.email | lowercase }}-->
         </p>
       </div>
       <a routerLink="/dashboard">
@@ -83,13 +83,22 @@
             <mat-icon>store</mat-icon>
             Portfolio</a>
         </ng-container>
+
+
+
+
         <ng-container *ngSwitchCase="4">
+
+
           <!--Police-->
           <a routerLink="/police-stations">
             <mat-icon>other_houses</mat-icon>
             Police Stations</a>
         </ng-container>
         <ng-container *ngSwitchCase="3">
+
+
+
           <!--Admin-->
           <a routerLink="/verification-center">
             <mat-icon>domain_verification</mat-icon>

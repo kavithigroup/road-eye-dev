@@ -1,35 +1,58 @@
+<!-- Page title for My Vehicles -->
 <h1>My Vehicles</h1>
+
+<!-- Divider for visual separation -->
 <mat-divider></mat-divider>
+
+<!-- Button to add a new vehicle -->
 <button class="add-vehicle-btn" mat-button (click)="addVehicle()">Add Vehicle</button>
 
+<!-- Container for the vehicle cards -->
 <div class="card-container">
+
+  <!-- Sample card for a specific vehicle -->
   <div class="card">
     <div class="card-title">
+      <!-- Vehicle Number and Brand/Model -->
       <h2>KS 2354 | Toyota Aqua </h2>
+      <!-- Verified status for this vehicle -->
       <div class="verified">Verified</div>
     </div>
-    <h3>Driving: 20 - 44 kmh⁻¹</h3>
+    <!-- Driving speed information -->
+    <h3>Driving: 20 - 44 km/h</h3>
+    <!-- Status of recent activity -->
     <h3>No recent suspicious activity</h3>
+    <!-- Button to view the vehicle's location on the map -->
     <button mat-button>
       <mat-icon>pin_drop</mat-icon>
       View on Map
     </button>
+    <!-- Last updated information -->
     <h5>Last updated less than 1m ago</h5>
     <br>
+    <!-- Button to view more details about the vehicle -->
     <a routerLink="/vehicles/details" mat-button class="viewmore">
       <mat-icon>arrow_drop_down</mat-icon>
-      View More</a>
+      View More
+    </a>
   </div>
+
+  <!-- Dynamic cards for each vehicle -->
   <div class="card" *ngFor="let vehicle of vehicles">
     <div class="card-title">
+      <!-- Display Vehicle Number, Brand, and Model with transformations -->
       <h2>{{ vehicle.vehicle_number | uppercase }} | {{ vehicle.brand | titlecase }} {{ vehicle.model | titlecase }}</h2>
+      <!-- Display verification status -->
       <div class="notverified">Not Verified</div>
     </div>
-    <button mat-button (click)="linkDevice()">Link device</button>
+    <!-- Button to link a device to the vehicle -->
+    <button mat-button (click)="linkDevice()">Link Device</button>
     <br>
+    <!-- Button to view more details for this specific vehicle -->
     <button mat-button class="viewmore" routerLink="/vehicles/details" [queryParams]="{id: vehicle.vehicle_id}">
       <mat-icon>arrow_drop_down</mat-icon>
       View More
     </button>
   </div>
+
 </div>

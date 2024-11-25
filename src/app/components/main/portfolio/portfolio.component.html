@@ -1,121 +1,144 @@
+<!-- Portfolio Page Title -->
 <h1>Your Portfolio</h1>
+<!-- Divider for separating the title from the stepper -->
 <mat-divider></mat-divider>
 <br>
 
+<!-- Angular Material Stepper -->
+<!-- #stepper is a template reference variable to access the stepper programmatically -->
+<mat-stepper #stepper>
 
-<mat-stepper  #stepper>
+  <!-- Step 1: General Details -->
   <mat-step [stepControl]="firstFormGroup">
+    <!-- FormGroup Binding -->
     <form [formGroup]="firstFormGroup">
+      <!-- Step Label -->
       <ng-template matStepLabel>General Details</ng-template>
 
+      <!-- General Details Section -->
       <div class="container">
+        <!-- Profile Picture Section -->
         <div class="profile-pic">
           <img src="./assets/images/avatar.svg" alt="business profile">
         </div>
+
+        <!-- Profile Content -->
         <div class="profile-content">
+          <!-- Business Name Field -->
+          <mat-form-field>
+            <mat-label>Business Name</mat-label>
+            <input matInput placeholder="Business Name" formControlName="bName" value="AutoSolution" required>
+          </mat-form-field>
 
-
-                <mat-form-field>
-                  <mat-label>Business Name</mat-label>
-                  <input matInput placeholder="Business Name" formControlName="bName" value="AutoSolution" required>
-                </mat-form-field>
+          <!-- Owner Name Field -->
           <mat-form-field>
             <mat-label>Owner Name</mat-label>
             <input matInput placeholder="Last name, First name" formControlName="oName" required>
           </mat-form-field>
 
+          <!-- Contact Number Field -->
           <mat-form-field>
-            <mat-label>Name</mat-label>
+            <mat-label>Contact</mat-label>
             <input matInput placeholder="0111234567" formControlName="contact" required>
           </mat-form-field>
 
+          <!-- Email Field -->
           <mat-form-field>
-            <mat-label>Name</mat-label>
+            <mat-label>Email</mat-label>
             <input matInput placeholder="example@gmail.com" formControlName="email" required>
           </mat-form-field>
+
+          <!-- Location Field -->
           <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input matInput placeholder="Pettah, Colombp" formControlName="location" required>
+            <mat-label>Location</mat-label>
+            <input matInput placeholder="Pettah, Colombo" formControlName="location" required>
           </mat-form-field>
-
-
-
-
-
-
-
-
-
-
         </div>
       </div>
 
+      <!-- Buttons for Navigation -->
       <div>
-        <button mat-stroked-button style="margin-right:25px" class="add-vehicle-btn"><mat-icon>edit</mat-icon>Update</button>
-        <button mat-stroked-button matStepperNext class="add-vehicle-btn"><mat-icon>navigate_next</mat-icon>Next</button>
+        <!-- Update Button -->
+        <button mat-stroked-button style="margin-right:25px" class="add-vehicle-btn">
+          <mat-icon>edit</mat-icon>Update
+        </button>
+
+        <!-- Next Button -->
+        <button mat-stroked-button matStepperNext class="add-vehicle-btn">
+          <mat-icon>navigate_next</mat-icon>Next
+        </button>
       </div>
     </form>
   </mat-step>
+
+  <!-- Step 2: Services -->
   <mat-step [stepControl]="secondFormGroup" label="Services">
     <form [formGroup]="secondFormGroup">
+      <!-- Services Section -->
       <div class="container">
+        <!-- Profile Picture Section -->
         <div class="profile-pic">
           <img src="./assets/images/avatar.svg" alt="business profile">
         </div>
+
+        <!-- Services Content -->
         <div class="profile-content">
-
-
+          <!-- Brands Field -->
           <mat-form-field>
             <mat-label>Brands Available</mat-label>
             <input matInput placeholder="Toyota, Suzuki etc" formControlName="brands" required>
           </mat-form-field>
 
+          <!-- Service 1 Field -->
           <mat-form-field>
-            <mat-label>Service 1 </mat-label>
+            <mat-label>Service 1</mat-label>
             <input matInput placeholder="Service 1" formControlName="s1" required>
           </mat-form-field>
 
+          <!-- Service 2 Field -->
           <mat-form-field>
             <mat-label>Service 2</mat-label>
             <input matInput placeholder="Service 2" formControlName="s2" required>
           </mat-form-field>
 
+          <!-- Service 3 Field -->
           <mat-form-field>
             <mat-label>Service 3</mat-label>
             <input matInput placeholder="Service 3" formControlName="s3" required>
           </mat-form-field>
+
+          <!-- Description Field -->
           <mat-form-field>
             <mat-label>Description</mat-label>
-            <input matInput placeholder="description" formControlName="description" required>
+            <input matInput placeholder="Description" formControlName="description" required>
           </mat-form-field>
-
-
-
-
-
-
-
-
-
         </div>
       </div>
+
+      <!-- Buttons for Navigation -->
       <div>
-        <button mat-button matStepperPrevious style="margin-right:25px" class="add-vehicle-btn" >Back</button>
-        <button mat-button style="margin-right:25px" class="add-vehicle-btn" >Update</button>
+        <!-- Back Button -->
+        <button mat-button matStepperPrevious style="margin-right:25px" class="add-vehicle-btn">Back</button>
+
+        <!-- Update Button -->
+        <button mat-button style="margin-right:25px" class="add-vehicle-btn">Update</button>
+
+        <!-- Next Button -->
         <button mat-button matStepperNext style="margin-right:25px" class="add-vehicle-btn">Next</button>
       </div>
     </form>
   </mat-step>
+
+  <!-- Step 3: Done -->
   <mat-step>
+    <!-- Step Label -->
     <ng-template matStepLabel>Done</ng-template>
+    <!-- Completion Message -->
     <p>You are now done.</p>
+    <!-- Buttons for Navigation -->
     <div>
+      <!-- Back Button -->
       <button mat-button matStepperPrevious style="margin-right:25px" class="add-vehicle-btn">Back</button>
-<!--      <button mat-button (click)="stepper.reset()">Reset</button>-->
     </div>
   </mat-step>
 </mat-stepper>
-
-
-
-

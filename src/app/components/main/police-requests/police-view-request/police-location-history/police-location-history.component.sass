@@ -1,0 +1,108 @@
+// Variables for colors and spacing
+$primary-color: #001f3f 
+$secondary-color: #000000
+$hover-color: rgba(0, 123, 255, 0.1)
+$background-color: #f8f9fa
+$font-family: 'Arial, sans-serif'
+$padding: 16px
+
+// Base styles
+body
+  font-family: $font-family
+  background-color: $background-color
+  margin: 0
+  padding: 0
+  color: $secondary-color
+
+h1
+  color: $primary-color
+  text-align: center
+  font-size: 2rem
+  font-weight: bold
+  margin-bottom: $padding
+
+mat-divider
+  margin: $padding 0
+  border-color: $secondary-color
+
+.table-container
+  margin: $padding auto
+  max-width: 1000px
+  overflow-x: auto
+  background: #000000
+  border-radius: 8px
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+
+table
+  width: 100%
+  border-collapse: collapse
+  margin-top: $padding
+
+  th
+    background-color: ($primary-color, 40%)
+    color: #000000
+    padding: $padding
+    text-align: left
+    font-weight: bold
+    font-size: 1rem
+
+  td
+    padding: $padding
+    color: $secondary-color
+    font-size: 0.95rem
+    border-bottom: 1px  ($primary-color, 50%)
+
+  tr:nth-child(even)
+    background-color: $hover-color
+
+.action-btn
+  color: $primary-color
+  font-weight: bold
+  text-transform: capitalize
+  display: inline-flex
+  align-items: center
+  transition: all 0.3s ease
+
+  &:hover
+    color: ($primary-color, 10%)
+    text-decoration: underline
+
+mat-icon
+  margin-right: 8px
+
+// Responsiveness
+@media (max-width: 1024px)
+  h1
+    font-size: 1.8rem
+
+  .table-container
+    padding: $padding / 2
+
+  table
+    font-size: 0.9rem
+
+  th, td
+    padding: 12px
+
+@media (max-width: 768px)
+  h1
+    font-size: 1.5rem
+
+  .table-container
+    padding: $padding / 3
+
+  table
+    font-size: 0.85rem
+
+  th, td
+    padding: 10px
+
+@media (max-width: 480px)
+  h1
+    font-size: 1.2rem
+
+  table
+    font-size: 0.8rem
+
+  th, td
+    padding: 8px

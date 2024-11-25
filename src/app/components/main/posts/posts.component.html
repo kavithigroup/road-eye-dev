@@ -1,30 +1,63 @@
 <h1>Your Posts</h1>
+<!-- Main heading for the posts page -->
+
 <mat-divider></mat-divider>
+<!-- Divider component from Angular Material to visually separate sections -->
+
 <br>
-<a class="add-vehicle-btn" routerLink="/posts/add-new" mat-button><mat-icon>add_circle_outline</mat-icon>Add New Post</a>
-    <ng-container >
-      <div class="card-container">
-        <mat-card class="example-card" appearance="outlined" *ngFor="let video of [0,1,1,]">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title >Incident report Post 1</mat-card-title>
-            <mat-card-subtitle>12/7/2024 - 15:30</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="https://www.shutterstock.com/image-photo/car-camera-260nw-527713312.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content class="content">
-            <p>
-              <br>
-              Vehicle Number - WP CAB 1234
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Share</button>
-            <button routerLink="/posts/view" mat-button>View More details</button>
-            <button mat-button color="warn">Delete</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+<!-- Adds spacing between the divider and the "Add New Post" button -->
 
+<!-- Button for navigating to the "Add New Post" page -->
+<a class="add-vehicle-btn" routerLink="/posts/add-new" mat-button>
+  <mat-icon>add_circle_outline</mat-icon>
+  Add New Post
+</a>
 
-    </ng-container>
+<ng-container>
+  <!-- Wrapper to contain and manage dynamic content rendering -->
 
+  <div class="card-container">
+    <!-- Container to hold a series of cards for displaying posts -->
+
+    <!-- Loop through a list of video posts (placeholder array in this case) -->
+    <mat-card class="example-card" appearance="outlined" *ngFor="let video of [0, 1, 1]">
+      <!-- Individual card for each post with a specific Angular Material styling -->
+
+      <mat-card-header>
+        <!-- Card header containing the title and subtitle -->
+        <div mat-card-avatar class="example-header-image"></div>
+        <!-- Placeholder for an avatar or profile image -->
+
+        <mat-card-title>Incident report Post 1</mat-card-title>
+        <!-- Title of the post -->
+
+        <mat-card-subtitle>12/7/2024 - 15:30</mat-card-subtitle>
+        <!-- Subtitle to display the date and time of the post -->
+      </mat-card-header>
+
+      <!-- Image section within the card, representing a visual related to the post -->
+      <img mat-card-image src="https://www.shutterstock.com/image-photo/car-camera-260nw-527713312.jpg" alt="Photo of a Shiba Inu">
+
+      <mat-card-content class="content">
+        <!-- Content section to display detailed information -->
+        <p>
+          <br>
+          Vehicle Number - WP CAB 1234
+          <!-- Placeholder for vehicle-related details -->
+        </p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <!-- Action buttons for user interactions related to the post -->
+        <button mat-button>Share</button>
+        <!-- Button to allow users to share the post -->
+
+        <button routerLink="/posts/view" mat-button>View More details</button>
+        <!-- Button to navigate to a detailed view of the post -->
+
+        <button mat-button color="warn">Delete</button>
+        <!-- Button to delete the post with a warning color for emphasis -->
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</ng-container>

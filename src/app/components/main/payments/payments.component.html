@@ -1,52 +1,74 @@
 <h1>Your Payments</h1>
+<!-- Main heading for the payments page -->
+
 <mat-divider></mat-divider>
+<!-- Angular Material divider for visual separation -->
 
 <br /><br />
-
+<!-- Adds spacing between the heading and the table -->
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Angular Material table to display payment records with elevated styling -->
 
+  <!-- ID Column -->
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>ID</th>
+    <!-- Table header for the ID column -->
     <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    <!-- Displays the unique ID of each payment record -->
   </ng-container>
 
-  <!-- Complaint Time Column -->
+  <!-- Time Column -->
   <ng-container matColumnDef="complaintTime">
-    <th mat-header-cell *matHeaderCellDef> Time </th>
+    <th mat-header-cell *matHeaderCellDef>Time</th>
+    <!-- Table header for the Time column -->
     <td mat-cell *matCellDef="let element"> {{element.complaintTime}} </td>
+    <!-- Displays the time when the payment was recorded -->
   </ng-container>
 
-  <!-- Complaint Date Column -->
+  <!-- Date Column -->
   <ng-container matColumnDef="complaintDate">
-    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <!-- Table header for the Date column -->
     <td mat-cell *matCellDef="let element"> {{element.complaintDate}} </td>
+    <!-- Displays the date when the payment was recorded -->
   </ng-container>
 
-  <!-- Complaint Subject Column -->
+  <!-- Remark Column -->
   <ng-container matColumnDef="complaintSubject">
-    <th mat-header-cell *matHeaderCellDef> Remark t </th>
+    <th mat-header-cell *matHeaderCellDef>Remark</th>
+    <!-- Table header for the Remark column -->
     <td mat-cell *matCellDef="let element"> {{element.complaintSubject}} </td>
+    <!-- Displays a remark or note associated with the payment -->
   </ng-container>
 
   <!-- Status Column -->
   <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <!-- Table header for the Status column -->
     <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    <!-- Displays the current status of the payment -->
   </ng-container>
 
   <!-- Action Column -->
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <!-- Table header for the Action column -->
     <td mat-cell *matCellDef="let element">
-      <a routerLink="/complaints/view" mat-button ><mat-icon>download</mat-icon></a>
-      <button mat-button color="warn" ><mat-icon>delete</mat-icon></button>
+      <!-- Button to download payment details -->
+      <a routerLink="/complaints/view" mat-button>
+        <mat-icon>download</mat-icon>
+      </a>
+      <!-- Button to delete the payment record -->
+      <button mat-button color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
     </td>
   </ng-container>
 
-  <!-- Header and Row Definitions -->
+  <!-- Table Header and Row Definitions -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <!-- Defines the structure of the table's header row -->
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
+  <!-- Defines the structure of the table's data rows -->
 </table>
-

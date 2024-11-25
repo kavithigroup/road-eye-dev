@@ -1,28 +1,73 @@
-import { Component } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import {Component, NgModule, OnInit} from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
+import {ApiService} from "../../../services/api.service";
+import {AuthService} from "../../../services/auth.service";
 
-
-export interface Complaint {
+export interface Complaint  {
   id: number;
   complaintTime: string;
   complaintDate: string;
   complaintSubject: string;
   status: string;
 }
-const COMPLAINT_DATA: Complaint[] = [
-  { id: 1, complaintTime: '14:30', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Complete' },
-  { id: 2, complaintTime: '15:00', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Complete' },
-  { id: 3, complaintTime: '16:15', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Complete' }
-];
+
+export interface ComplaintItem  {
+  complain_id: number;
+  send_time: string;
+  police_station: string;
+  subject: string;
+  status: string;
+  address: string;
+  complain:string;
+  contact:string;
+  district:string;
+  email:string;
+  name:string;
+  nic:string;
+  proof:string;
+  type:string;
+  user:number
+}
+
 @Component({
   selector: 'app-complain',
   templateUrl: './complain.component.html',
-  styleUrls: ['./complain.component.sass']
+  styleUrls: ['./complain.component.sass'],
+
 })
-export class ComplainComponent {
 
-  displayedColumns: string[] = ['id', 'complaintTime', 'complaintDate', 'complaintSubject', 'status', 'action'];
-  dataSource= COMPLAINT_DATA;
+export class ComplainComponent implements OnInit{
 
 
+  displayedColumns: string[] = ['complain_id', 'send_time', 'police_station', 'subject', 'status', 'action'];
+  dataSource: ComplaintItem[] = [];
+
+
+  constructor(private api: ApiService, private auth: AuthService) {}
+
+  ngOnInit() {
+
+    this.fetchComplaints();
+  }
+
+  //fetch all complain API call
+  fetchComplaints() {
+    const userId = this.auth.user?.user_id;
+    if (userId) {
+      this.api.post("/complain/user", { user: userId }).subscribe(
+        (httpResponse: any) => {
+          // console.log("Full Response: ", httpResponse);
+          if (httpResponse.body) {
+            this.dataSource = httpResponse.body
+            // console.log("Data Source: ", this.dataSource);
+          } else {
+            console.warn("Unexpected response structure or empty data.");
+          }
+        },
+        (error) => {
+          console.error("Error fetching complaints: ", error);
+        }
+      );
+    }
+  }
 }

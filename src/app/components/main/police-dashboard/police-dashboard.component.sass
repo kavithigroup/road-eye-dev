@@ -1,42 +1,38 @@
+/* Styling for Dashboard Cards */
 .dash-cards
   display: flex
   flex-wrap: wrap
-  gap: 15px
+  gap: 15px  // Space between cards
 
 
 .one-card
   display: flex
   flex: 1
-  box-sizing: border-box
-  background-color: #195773
-  border: 1px solid #ddd
+  background-color: #195773  // Dark teal background
+  border: 1px solid #ddd  // Light border
   padding: 20px
   margin: 5px
   border-radius: 5px
-  transition: box-shadow 0.3s ease
+  color: white  // White text for better contrast
+  transition: box-shadow 0.3s ease  // Hover effect
   font-size: 15px
-  color: white
 
-
-.one-card:hover
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.51)
-
-.dash-calender:hover
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.51)
+  &:hover
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.51)  // Shadow on hover
 
 
 
-
+/* Content inside cards */
 .card-content
   flex: 3
   display: flex
   flex-direction: column
   align-items: flex-start
 
+
 .card-number
-  font-size: 3em
+  font-size: 3em  // Large font size for numbers
   font-weight: bold
-  margin-top: 1rem
 
 
 .card-icon
@@ -44,43 +40,31 @@
   display: flex
   justify-content: center
   align-items: center
-  font-size: 25px
+  font-size: 25px  // Larger size for icons
 
 
+/* Divider between card sections */
 .vertical-line
   width: 2px
   height: 100%
   background-color: #ddd
   margin: 0 15px
 
+
+/* Styling for Dashboard Table and Calendar Section */
 .dash-content
   display: flex
   flex-wrap: wrap
   gap: 15px
-  height: 25rem
 
-  .dash-table
-    flex: 3
-    //background-color: #f5f5f5
-    padding: 12px
-    margin: 5px
-    border-radius: 5px
-  //border: solid #b2b0b0 1px
-  //transition: box-shadow 0.3s ease
+.dash-table
+  flex: 3
+  padding: 12px
+  margin: 5px
+  border-radius: 5px
+
   h2
     margin-left: 20px
-    margin-top: 10px
-    color: #b2b0b0
+    color: #b2b0b0 // Muted color for section headers
     font-size: 20px
-
-  .dash-calender
-    flex: 1
-    //background-color: #f5f5f5
-    padding: 12px
-    margin: 5px
-    border-radius: 5px
-    border: solid #b2b0b0 1px
-    transition: box-shadow 0.3s ease
-    width: 200px
-
 

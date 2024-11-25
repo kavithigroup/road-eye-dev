@@ -14,6 +14,8 @@ interface SubscriptionPlan {
   templateUrl: './company-subscription.component.html',
   styleUrls: ['./company-subscription.component.sass']
 })
+
+// parameters for subscription functions
 export class CompanySubscriptionComponent implements OnInit {
   currentPlan: SubscriptionPlan | undefined;
   remainingTokens: number | undefined;
@@ -45,7 +47,7 @@ export class CompanySubscriptionComponent implements OnInit {
   ];
 
   constructor(private router: Router) {}
-  
+
   ngOnInit() {
     this.getSubscriptionDetails();
   }

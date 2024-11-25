@@ -1,32 +1,55 @@
+<!-- Page Header -->
 <h1>Police Stations</h1>
+<!-- Divider for visual separation between header and content -->
 <mat-divider></mat-divider>
 <br>
+
+<!-- Button to Add a New Police Station -->
+<!-- (click)="addStation()" triggers the 'addStation()' method in the component -->
 <button class="add-vehicle-btn" mat-button (click)="addStation()">Add Station</button>
 
+<!-- Container for Displaying Police Station Cards -->
 <div class="card-container">
+
+  <!-- Card for the Colombo District, Kolpitty Branch -->
   <div class="card">
+    <!-- Title Section of the Card -->
     <div class="card-title">
-      <h2>Colombo District | Kolpitty Branch </h2>
+      <!-- District and Branch Name -->
+      <h2>Colombo District | Kolpitty Branch</h2>
+      <!-- Verified Status -->
       <div class="verified">Verified</div>
     </div>
 
-
+    <!-- Contact Details -->
     <h3>0111234567</h3>
     <h3>WR7X+JJV, Galle Rd, Colombo 00300</h3>
+
+    <!-- Button to View Location on a Map -->
     <button mat-button>
       <mat-icon>pin_drop</mat-icon>
       View on Map
     </button>
   </div>
+
+  <!-- Card for the Colombo District, Dehiwala Branch -->
   <div class="card">
+    <!-- Title Section of the Card -->
     <div class="card-title">
-      <h2>Colombo District | Dehiwala Branch </h2>
+      <!-- District and Branch Name -->
+      <h2>Colombo District | Dehiwala Branch</h2>
+      <!-- Not Verified Status -->
       <div class="notverified">Not Verified</div>
     </div>
+
+    <!-- Contact Details -->
     <h3>0111234789</h3>
     <h3>Hill St, Dehiwala-Mount Lavinia</h3>
+
+    <!-- Button to View Location on a Map -->
     <button mat-button>
       <mat-icon>pin_drop</mat-icon>
       View on Map
     </button>
+  </div>
 </div>

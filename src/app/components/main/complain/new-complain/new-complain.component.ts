@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormControl, FormGroup} from "@angular/forms";
+import {ApiService} from "../../../../services/api.service";
+import {AuthService} from "../../../../services/auth.service";
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+
 
 @Component({
   selector: 'app-new-complain',
@@ -9,6 +12,33 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrls: ['./new-complain.component.sass']
 })
 export class NewComplainComponent {
+
+
+  form = new FormGroup({
+    district: new FormControl(),
+    police_station: new FormControl(),
+    type: new FormControl(),
+    subject: new FormControl(),
+    contact : new FormControl(),
+    complain: new FormControl(),
+    proof: new FormControl(),
+    name: new FormControl(),
+    nic: new FormControl(),
+    email: new FormControl(),
+    address: new FormControl(),
+
+  })
+
+
+  error?: string;
+
+  constructor(
+    private api: ApiService,
+    protected auth: AuthService,
+    private snackBar: MatSnackBar
+  ) {}
+
+
 
   districts: string[] = [
     'Colombo', 'Gampaha', 'Kalutara', 'Kandy', 'Matale',
@@ -49,4 +79,29 @@ export class NewComplainComponent {
   ];
 
 
+
+//submit complain function
+  submit() {
+    if (this.form.invalid)
+      return;
+    let d: any = this.form.value
+    d["user"] = this.auth.user?.user_id
+    d["contact"] = this.auth.user?.phone
+    d["nic"] = this.auth.user?.nic
+    d["email"] = this.auth.user?.email
+    d["name"] = this.auth.user?.first_name
+    console.log(d);
+    this.api.post("/complain/create/", this.form.value).subscribe(httpResponse => {
+      this.error = httpResponse.body
+      if (this.error === "ok"){
+
+        this.snackBar.open('Complaint submitted successfully!', 'Close', {
+          duration: 3000, // The duration the message will be displayed (in milliseconds)
+          verticalPosition: 'top', // Position at the top of the screen
+          horizontalPosition: 'center', // Position in the center of the screen
+        })
+      }
+
+    })
+  }
 }

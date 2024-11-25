@@ -1,3 +1,5 @@
+// Using apex chart library for analytics for admin
+
 import { Component } from '@angular/core';
 import {
   ApexAxisChartSeries,

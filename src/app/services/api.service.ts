@@ -10,9 +10,6 @@ interface HttpParams {
   providedIn: 'root'
 })
 export class ApiService {
-
-
-  baseUrl = "http://localhost:5216/"
   baseUrl = "http://localhost:5216/api"
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {

@@ -1,4 +1,5 @@
-<h1>Complaint ID: C001</h1>
+<!--View one single complaint html-->
+<h1>Complaint ID :{{ complain?.complain_id}}</h1>
 <mat-divider></mat-divider>
 <br>
 
@@ -12,13 +13,13 @@
 
             <mat-list>
               <mat-list-item>
-                <span matListItemTitle>Colombo</span>
+                <span matListItemTitle> {{ complain?.district}}</span>
                 <span matListItemLine>District</span>
 
               </mat-list-item>
               <mat-divider></mat-divider>
               <mat-list-item>
-                <span matListItemTitle>Pettah</span>
+                <span matListItemTitle> {{ complain?.police_station}}</span>
                 <span matListItemLine>Nearest Police Station</span>
               </mat-list-item>
 
@@ -26,7 +27,7 @@
               <mat-divider></mat-divider>
 
               <mat-list-item>
-                <span matListItemTitle>Traffic & Road Safety</span>
+                <span matListItemTitle> {{ complain?.type}}</span>
                 <span matListItemLine>Complaint Type</span>
               </mat-list-item>
 
@@ -34,14 +35,14 @@
 
 
               <mat-list-item>
-                <span matListItemTitle>Subject of Complaint</span>
+                <span matListItemTitle> {{ complain?.subject}}</span>
                 <span matListItemLine>Subject of Complaint</span>
               </mat-list-item>
 
               <mat-divider></mat-divider>
 
               <mat-list-item>
-                <span matListItemTitle>2024/07/15 12:05 PM</span>
+                <span matListItemTitle>{{ complain?.send_time}}</span>
                 <span matListItemLine>Date & Time</span>
               </mat-list-item>
               <mat-divider></mat-divider>
@@ -53,27 +54,27 @@
             <mat-list>
 
               <mat-list-item>
-                <span matListItemTitle>Jayath Perera</span>
+                <span matListItemTitle>{{ complain?.name}}</span>
                 <span matListItemLine>Name</span>
               </mat-list-item>
               <mat-divider></mat-divider>
               <mat-list-item>
-                <span matListItemTitle>200198273087</span>
+                <span matListItemTitle>{{ complain?.nic}}</span>
                 <span matListItemLine>NIC</span>
               </mat-list-item>
               <mat-divider></mat-divider>
               <mat-list-item>
-                <span matListItemTitle>No 6, Flower road , Colombo 7</span>
+                <span matListItemTitle>{{ complain?.address}}</span>
                 <span matListItemLine>Address</span>
               </mat-list-item>
               <mat-divider></mat-divider>
               <mat-list-item>
-                <span matListItemTitle>Jayath.perera@gmail.com</span>
+                <span matListItemTitle>{{ complain?.email}}</span>
                 <span matListItemLine>Email</span>
               </mat-list-item>
               <mat-divider></mat-divider>
               <mat-list-item>
-                <span matListItemTitle>0711234567</span>
+                <span matListItemTitle>{{ complain?.contact}}</span>
                 <span matListItemLine>Phone Number</span>
               </mat-list-item>
               <mat-divider></mat-divider>
@@ -82,15 +83,6 @@
           </div>
 
         </div>
-
-
-
-
-
-
-
-
-
         <section>
 
           <div class="button-row">
@@ -104,8 +96,30 @@
 
       </div>
       <div class="container-side">
+        <div class="col1">
 
+          <mat-list>
+            <mat-list-item>
+              <span matListItemTitle> {{ complain?.complain}}</span>
+              <span matListItemLine>Complaint</span>
+
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              <span matListItemTitle> {{ complain?.proof}}</span>
+              <span matListItemLine>Proof Submitted</span>
+            </mat-list-item>
+
+
+            <mat-divider></mat-divider>
+
+
+          </mat-list>
+
+        </div>
       </div>
+
+
 
     </div>
 

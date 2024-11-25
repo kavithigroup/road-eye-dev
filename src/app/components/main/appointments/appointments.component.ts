@@ -6,6 +6,8 @@ export interface appointment {
   vendor: string;
   status: string;
 }
+
+//dummy data used for appointments
 const appointment_DATA: appointment[] = [
   { id: 1, appointmentTime: '14:30', appointmentDate: '2024-07-27', vendor: 'Jaya Maintenance', status: 'Pending' },
   { id: 2, appointmentTime: '15:00', appointmentDate: '2024-07-27', vendor: 'ABC Maintenance', status: 'Cancelled' },
@@ -18,6 +20,7 @@ const appointment_DATA: appointment[] = [
 })
 export class AppointmentsComponent {
 
+  //display columns for appointment table
   displayedColumns: string[] = ['id', 'appointmentTime', 'appointmentDate', 'vendor', 'status', 'action'];
   dataSource = appointment_DATA;
 

@@ -9,6 +9,7 @@ import {ApiService} from "../../services/api.service";
   styleUrls: ['./main.component.sass']
 })
 export class MainComponent implements OnInit, AfterViewInit {
+  // Role changes in main. default as driver
   role: number = 0
 
   constructor(private router: Router, protected auth: AuthService, private api: ApiService) {

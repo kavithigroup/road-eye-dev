@@ -28,6 +28,7 @@
     "angularx-qrcode": "^16.0.2",
     "apexcharts": "^3.51.0",
     "ng-apexcharts": "^1.8.0",
+    "road-eye-main-frontend": "file:",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

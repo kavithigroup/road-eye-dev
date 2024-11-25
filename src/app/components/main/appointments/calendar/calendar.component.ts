@@ -10,6 +10,8 @@ import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 })
 export class CalendarComponent {
 
+
+  //full calander options parameters
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin, interactionPlugin],
@@ -20,6 +22,7 @@ export class CalendarComponent {
     ]
   };
 
+  //date click function
   handleDateClick(arg: DateClickArg) {
     alert('date click! ' + arg.dateStr);
   }

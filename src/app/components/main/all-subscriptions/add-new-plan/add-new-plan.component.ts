@@ -9,6 +9,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class AddNewPlanComponent {
 
+  // Form group of add new subscription plan
 
   form=new FormGroup({
     name: new FormControl(),

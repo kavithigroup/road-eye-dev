@@ -6,6 +6,8 @@ import {FormControl, FormGroup} from "@angular/forms";
   templateUrl: './new-appointment.component.html',
   styleUrls: ['./new-appointment.component.sass']
 })
+
+//New appointment form controls
 export class NewAppointmentComponent {
   form=new FormGroup({
     vehicleNumber: new FormControl(),

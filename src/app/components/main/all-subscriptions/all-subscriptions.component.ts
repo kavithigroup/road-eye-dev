@@ -14,6 +14,7 @@ export class AllSubscriptionsComponent {
   constructor(private dialog: MatDialog) {
   }
 
+  // Dialog box for add new subscription
   addPlan() {
     this.dialog.open(AddNewPlanComponent)
   }

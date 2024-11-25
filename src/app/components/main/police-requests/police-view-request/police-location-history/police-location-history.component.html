@@ -1,33 +1,39 @@
 <h1>Tracking History</h1>
 <mat-divider></mat-divider>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <ng-container matColumnDef="Date">
-    <th mat-header-cell *matHeaderCellDef>Date</th>
-    <td mat-cell *matCellDef="let element">{{ element.Date }}</td>
-  </ng-container>
+<div class="table-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Date Column -->
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.Date }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="Time">
-    <th mat-header-cell *matHeaderCellDef>Time</th>
-    <td mat-cell *matCellDef="let element">{{ element.Time }}</td>
-  </ng-container>
+    <!-- Time Column -->
+    <ng-container matColumnDef="Time">
+      <th mat-header-cell *matHeaderCellDef>Time</th>
+      <td mat-cell *matCellDef="let element">{{ element.Time }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="Location">
-    <th mat-header-cell *matHeaderCellDef>Location</th>
-    <td mat-cell *matCellDef="let element">{{ element.Location }}</td>
-  </ng-container>
+    <!-- Location Column -->
+    <ng-container matColumnDef="Location">
+      <th mat-header-cell *matHeaderCellDef>Location</th>
+      <td mat-cell *matCellDef="let element">{{ element.Location }}</td>
+    </ng-container>
 
-  <!-- Action Column -->
-  <ng-container matColumnDef="Action">
-    <th mat-header-cell *matHeaderCellDef>See Footages</th>
-    <td mat-cell *matCellDef="let element">
-      <a routerLink="/police-requests/view/history/footage" mat-button
-        ><mat-icon>pencil</mat-icon> View
-      </a>
-    </td>
-  </ng-container>
+    <!-- Action Column -->
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef>See Footages</th>
+      <td mat-cell *matCellDef="let element">
+        <a class="action-btn" routerLink="/police-requests/view/history/footage">
+          <mat-icon>visibility</mat-icon>
+          View
+        </a>
+      </td>
+    </ng-container>
 
-  <!-- Header and Row Definitions -->
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+    <!-- Header and Row Definitions -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

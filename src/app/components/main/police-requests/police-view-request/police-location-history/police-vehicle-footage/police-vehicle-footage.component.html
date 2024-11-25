@@ -7,6 +7,9 @@
       (click)="openPhoto(photo)"
     >
       <img [src]="photo.url" [alt]="photo.description" />
+      <div class="photo-overlay">
+        <span>{{ photo.description }}</span>
+      </div>
     </div>
   </div>
 </div>
@@ -14,5 +17,6 @@
 <div *ngIf="selectedPhoto" class="fullscreen-overlay" (click)="closePhoto()">
   <div class="fullscreen-content" (click)="$event.stopPropagation()">
     <img [src]="selectedPhoto.url" [alt]="selectedPhoto.description" />
+    <button class="close-btn" (click)="closePhoto()">Close</button>
   </div>
 </div>

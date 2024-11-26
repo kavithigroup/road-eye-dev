@@ -37,7 +37,4 @@ export class VehiclesComponent implements OnInit {
     })
   }
 
-  linkDevice() {
-    this.dialog.open(LinkDeviceComponent)
-  }
 }

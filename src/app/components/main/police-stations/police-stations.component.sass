@@ -1,90 +1,145 @@
-/* Style for the Add Station Button */
+// Variables for styling
+$primary-color: #006dab
+$secondary-color: #6c757d
+$background-color: #f8f9fa
+$font-family: 'Arial, sans-serif'
+$padding: 16px
+
+// Page Header
+h1
+  font-size: 2.5rem
+  font-weight: bold
+  text-align: center
+  color: $primary-color
+  margin-bottom: $padding
+
+mat-divider
+  margin: $padding 0
+  border-color: $secondary-color
+
+// Add Station Button
 .add-vehicle-btn
-  /* Adds spacing below the button */
-  margin-bottom: 20px
-  /* Sets the background color */
-  background-color: #006dab
-  /* Ensures text is white and overrides any other styles */
-  color: #FFFFFF !important
+  display: block
+  margin: 0 auto $padding
+  background-color: $primary-color
+  color: #fff
+  font-weight: bold
+  padding: 10px 20px
+  border-radius: 4px
+  text-transform: capitalize
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+  transition: background-color 0.3s ease, transform 0.3s ease
 
-/* Styles for the Container Holding All Cards */
+  &:hover
+    background-color: darken($primary-color, 10%)
+    transform: scale(1.05)
+
+// Card Container
 .card-container
-  /* Uses Flexbox for card layout */
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+  gap: $padding
+  padding: $padding
+
+.card
+  background: #fff
+  border-radius: 8px
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+  padding: $padding
   display: flex
-  /* Allows cards to wrap to the next line if needed */
-  flex-wrap: wrap
-  /* Adds spacing between cards */
-  gap: 15px
-
-  /* Styles for Individual Cards */
-  .card
-    /* Adds rounded corners */
-    border-radius: 8px
-    /* Padding inside the card for spacing */
-    padding: 15px
-    /* Sets the background color */
-    background-color: #edf1f1
-    /* Smooth transition for hover effects */
-    transition: box-shadow 0.3s ease
-
-    /* Adds a shadow effect when hovering over a card */
-    &:hover
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2)
-
-    /* Styles for the Card Title Section */
-    .card-title
-      /* Aligns title and verification status side by side */
-      display: flex
-      justify-content: space-between
-      align-items: center
-      /* Allows positioning of child elements */
-      position: relative
-
-      /* Style for the 'Verified' Status */
-      .verified
-        /* Adjusts the position relative to the parent */
-        top: 3px
-        right: 10px
-        /* Green color for verified status */
-        color: #2be143
-        /* Adds spacing between status and title */
-        margin-left: 20px
-        /* Smaller font size for the status label */
-        font-size: 0.8rem
-        /* Custom font weight for emphasis */
-        text-decoration-line: font-weight(7)
-
-      /* Style for the 'Not Verified' Status */
-      .notverified
-        /* Adjusts the position relative to the parent */
-        top: 3px
-        right: 10px
-        /* Red color for not verified status */
-        color: #e14128
-        /* Adds spacing between status and title */
-        margin-left: 20px
-        /* Smaller font size for the status label */
-        font-size: 0.8rem
-        /* Custom font weight for emphasis */
-        text-decoration-line: font-weight(7)
-
-      /* View More Section - Reserved for future use */
-      .viewmore
-        top: 3px
-        right: 10px
-        color: #e14128
-        margin-left: 20px
-        font-size: 0.8rem
-
-/* Utility Class for Row Layout */
-.row
-  /* Makes elements stack vertically */
-  display: flex
-  /* Sets the layout direction to column */
   flex-direction: column
-  /* Adds spacing between child elements */
-  gap: 15px
+  justify-content: space-between
 
-  /* Column Style for Flexible Width */
-  .col
-    flex: 1
+  .card-title
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: $padding / 2
+
+    h2
+      font-size: 1.5rem
+      font-weight: bold
+      margin: 0
+      color: $primary-color
+
+    .verified
+      font-size: 0.9rem
+      color: green
+      font-weight: bold
+
+    .notverified
+      font-size: 0.9rem
+      color: red
+      font-weight: bold
+
+  .contact-info, .address
+    font-size: 1rem
+    color: $secondary-color
+    margin: 0 0 $padding / 2
+
+  .map-btn
+    align-self: flex-start
+    background-color: lighten($primary-color, 30%)
+    color: $primary-color
+    font-weight: bold
+    border-radius: 4px
+    text-transform: capitalize
+    transition: background-color 0.3s ease, transform 0.3s ease
+
+    &:hover
+      background-color: lighten($primary-color, 40%)
+      transform: scale(1.05)
+
+// Responsive Adjustments
+@media (max-width: 768px)
+  h1
+    font-size: 2rem
+
+  .add-vehicle-btn
+    font-size: 1rem
+    padding: 8px 16px
+
+  .card
+    padding: $padding / 2
+
+  .card-title h2
+    font-size: 1.3rem
+
+  .map-btn
+    font-size: 0.9rem
+
+// Search Bar
+.search-bar
+  display: flex
+  justify-content: flex-start
+  align-items: center
+  margin-bottom: $padding
+
+.search-input
+  width: 100%
+  max-width: 400px
+
+mat-form-field
+  width: 100%
+  background-color: $background-color
+  border-radius: 8px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+  padding: 8px
+  margin-right: $padding / 2
+
+  &::ng-deep .mat-form-field-outline
+    border: none
+
+input[matInput]
+  font-size: 1rem
+  color: $secondary-color
+  border-radius: 8px
+
+mat-icon-button
+  background-color: lighten($primary-color, 50%)
+  border-radius: 50%
+  transition: all 0.3s ease
+  color: $primary-color
+
+  &:hover
+    background-color: lighten($primary-color, 60%)

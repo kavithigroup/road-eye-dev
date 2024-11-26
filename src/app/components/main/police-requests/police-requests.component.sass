@@ -1,3 +1,4 @@
+
 // Variables for colors and spacing
 $primary-color: #006dab
 $secondary-color: #6c757d
@@ -6,20 +7,15 @@ $background-color: #f8f9fa
 $hover-color: rgba(0, 123, 255, 0.1)
 $font-family: 'Arial, sans-serif'
 $padding: 16px
-
-
 .add-vehicle-btn
   margin-bottom: 20px
   background-color: #006dab
   color: #FFFFFF !important
-
   &:hover
     background-color: darken($primary-color, 10%)
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15)
-
 mat-icon
   margin-right: 8px
-
 table
   width: 100%
   border-collapse: collapse
@@ -28,87 +24,66 @@ table
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
   border-radius: 8px
   overflow: hidden
-
 .mat-header-row
   background-color: lighten($primary-color, 40%)
   color: #fff
-
   th
     padding: $padding
     text-align: left
     font-weight: bold
     font-size: 1rem
-
 .mat-row
   &:nth-child(even)
     background-color: $hover-color
-
   td
     padding: $padding
     color: $secondary-color
     font-size: 0.95rem
-
 a[mat-button]
   text-transform: capitalize
   color: $primary-color
   font-weight: bold
   transition: all 0.3s ease
-
   &:hover
     text-decoration: underline
     transform: scale(1.05)
-
 button[mat-button]
   text-transform: capitalize
   font-weight: bold
   font-size: 0.9rem
-
   &.warn
     color: $danger-color
-
     &:hover
       background-color: rgba(220, 53, 69, 0.1)
-
 // Responsiveness
 @media (max-width: 1024px)
   h1
     font-size: 1.8rem
-
   .add-vehicle-btn
     font-size: 1rem
     padding: 10px 16px
-
   table
     font-size: 0.9rem
-
   th, td
     padding: 12px
-
 @media (max-width: 768px)
   h1
     font-size: 1.5rem
-
   .add-vehicle-btn
     padding: 8px 12px
     font-size: 0.9rem
-
   table
     font-size: 0.85rem
-
   th, td
     padding: 10px
-
 @media (max-width: 480px)
   h1
     font-size: 1.2rem
     margin-bottom: 12px
-
   .add-vehicle-btn
     font-size: 0.8rem
     padding: 6px 10px
-
   table
     font-size: 0.8rem
-
   th, td
     padding: 8px

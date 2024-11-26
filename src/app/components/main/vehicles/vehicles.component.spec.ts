@@ -9,8 +9,7 @@ describe('VehiclesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [VehiclesComponent]
     });
-    fixture = TestBed.createComponent(VehiclesComponent);
-    component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 

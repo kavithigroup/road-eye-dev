@@ -5,9 +5,6 @@
 
 <br /><br />
 
-
-<a class="add-vehicle-btn" routerLink="/police-requests/new" mat-button>
-
 <!-- Button to Navigate to Submit a New Request Page -->
 <!-- 'routerLink' navigates to the 'new request' page for submitting a request -->
 <a class="add-vehicle-btn" routerLink="/police-requests/new" mat-button>
@@ -21,9 +18,6 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!-- ID Column -->
-
-
-  <!-- Column: ID -->
   <!-- Displays the unique identifier for each request -->
   <ng-container matColumnDef="id">
     <!-- Table Header Cell for 'ID' -->
@@ -32,22 +26,15 @@
     <td mat-cell *matCellDef="let element">{{ element.id }}</td>
   </ng-container>
 
-
   <!-- Request Time Column -->
-
-  <!-- Column: Request Time -->
   <!-- Displays the time when the request was made -->
-
   <ng-container matColumnDef="requestTime">
     <th mat-header-cell *matHeaderCellDef>Request Time</th>
     <!-- Table Data Cell: Displays 'RequestTime' from the data -->
     <td mat-cell *matCellDef="let element">{{ element.RequestTime }}</td>
   </ng-container>
 
-
   <!-- Request Date Column -->
-
-  <!-- Column: Request Date -->
   <!-- Displays the date when the request was made -->
   <ng-container matColumnDef="requestDate">
     <th mat-header-cell *matHeaderCellDef>Request Date</th>
@@ -55,22 +42,15 @@
     <td mat-cell *matCellDef="let element">{{ element.RequestDate }}</td>
   </ng-container>
 
-
   <!-- Vehicle Number Column -->
-
-  <!-- Column: Vehicle Number -->
   <!-- Displays the vehicle number associated with the request -->
-
   <ng-container matColumnDef="vehicleId">
     <th mat-header-cell *matHeaderCellDef>Vehicle Number</th>
     <!-- Table Data Cell: Displays 'VehicleId' -->
     <td mat-cell *matCellDef="let element">{{ element.VehicleId }}</td>
   </ng-container>
 
-
   <!-- Registrations Column -->
-
-  <!-- Column: Registration -->
   <!-- Displays registration details related to the request -->
   <ng-container matColumnDef="registration">
     <th mat-header-cell *matHeaderCellDef>Registrations</th>
@@ -78,44 +58,32 @@
     <td mat-cell *matCellDef="let element">{{ element.Registration }}</td>
   </ng-container>
 
-
   <!-- Status Column -->
-
-  <!-- Column: Status -->
   <!-- Displays the current status of the request (e.g., Pending, Approved) -->
-
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef>Status</th>
     <!-- Table Data Cell: Displays 'status' -->
     <td mat-cell *matCellDef="let element">{{ element.status }}</td>
   </ng-container>
 
-  <!-- Column: Action -->
+  <!-- Action Column -->
   <!-- Provides action buttons for each request (e.g., View, Cancel) -->
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef>Action</th>
     <td mat-cell *matCellDef="let element">
-
+      <!-- Link to View More Details About the Request -->
+      <!-- Navigates to a detailed view of the specific request -->
       <a class="action-btn view-btn" routerLink="/police-requests/view" mat-button>
+        <!-- Visibility icon to symbolize 'view' -->
         <mat-icon>visibility</mat-icon>
         View More
       </a>
-      <button class="action-btn cancel-btn" mat-button color="warn">
-        <mat-icon>delete</mat-icon>
-        Cancel
-
-      <!-- Link to View More Details About the Request -->
-      <!-- Navigates to a detailed view of the specific request -->
-      <a routerLink="/police-requests/view" mat-button>
-        <!-- Pencil icon to symbolize 'edit/view' -->
-        <mat-icon>pencil</mat-icon> View More
-      </a>
       <!-- Button to Cancel the Request -->
       <!-- Uses 'warn' color for the cancel button for emphasis -->
-      <button mat-button color="warn">
+      <button class="action-btn cancel-btn" mat-button color="warn">
         <!-- Delete icon to represent cancel -->
-        <mat-icon>delete</mat-icon> Cancel
-
+        <mat-icon>delete</mat-icon>
+        Cancel
       </button>
     </td>
   </ng-container>
@@ -124,9 +92,7 @@
   <!-- Header Row: Defines which columns appear in the table header -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
   <!-- Data Row: Defines the data rows based on the 'displayedColumns' configuration -->
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>

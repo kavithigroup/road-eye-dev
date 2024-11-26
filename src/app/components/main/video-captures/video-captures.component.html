@@ -1,8 +1,10 @@
+<!-- Page Title -->
 <h1>Your Video Captures</h1>
 <mat-divider></mat-divider>
 
 <br/><br/>
 
+<!-- Toggle Group for View Mode (Grid/List) -->
 <mat-button-toggle-group [(ngModel)]="gridView">
   <mat-button-toggle [value]="true">
     <mat-icon>grid_view</mat-icon>
@@ -11,94 +13,99 @@
     <mat-icon>view_list</mat-icon>
   </mat-button-toggle>
 </mat-button-toggle-group>
-<br>
-<br>
-<ng-container  *ngIf="!gridView">
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<br><br>
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>ID</th>
-    <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
-  </ng-container>
+<!-- If List View (Table) is Selected -->
+<ng-container *ngIf="!gridView">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
+    </ng-container>
 
-  <!-- Capture Time Column -->
-  <ng-container matColumnDef="captureTime">
-    <th mat-header-cell *matHeaderCellDef> Capture Time</th>
-    <td mat-cell *matCellDef="let element"> {{ element.captureTime }}</td>
-  </ng-container>
+    <!-- Capture Time Column -->
+    <ng-container matColumnDef="captureTime">
+      <th mat-header-cell *matHeaderCellDef> Capture Time</th>
+      <td mat-cell *matCellDef="let element"> {{ element.captureTime }}</td>
+    </ng-container>
 
-  <!-- Vehicle Date Column -->
-  <ng-container matColumnDef="captureDate">
-    <th mat-header-cell *matHeaderCellDef> Capture Date</th>
-    <td mat-cell *matCellDef="let element"> {{ element.captureDate }}</td>
-  </ng-container>
+    <!-- Capture Date Column -->
+    <ng-container matColumnDef="captureDate">
+      <th mat-header-cell *matHeaderCellDef> Capture Date</th>
+      <td mat-cell *matCellDef="let element"> {{ element.captureDate }}</td>
+    </ng-container>
 
-  <!-- Vehicle Column -->
-  <ng-container matColumnDef="vehicleNumber">
-    <th mat-header-cell *matHeaderCellDef> Vehicle Number</th>
-    <td mat-cell *matCellDef="let element"> {{ element.vehicleNumber }}</td>
-  </ng-container>
+    <!-- Vehicle Number Column -->
+    <ng-container matColumnDef="vehicleNumber">
+      <th mat-header-cell *matHeaderCellDef> Vehicle Number</th>
+      <td mat-cell *matCellDef="let element"> {{ element.vehicleNumber }}</td>
+    </ng-container>
 
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status</th>
+      <td mat-cell *matCellDef="let element"> {{ element.status }}</td>
+    </ng-container>
 
-  <!-- Status Column -->
-  <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef> Status</th>
-    <td mat-cell *matCellDef="let element"> {{ element.status }}</td>
-  </ng-container>
+    <!-- Image Column (Empty for now) -->
+    <ng-container matColumnDef="captureImage">
+      <th mat-header-cell *matHeaderCellDef> Image</th>
+      <td mat-cell *matCellDef="let element">
+        <!-- Image Placeholder or Actual Image Content -->
+      </td>
+    </ng-container>
 
-  <!-- Image Column -->
-  <ng-container matColumnDef="captureImage">
-    <th mat-header-cell *matHeaderCellDef> Image</th>
-    <td mat-cell *matCellDef="let element">
+    <!-- Action Column (Download and Delete buttons) -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action</th>
+      <td mat-cell *matCellDef="let element">
+        <a mat-button>
+          <mat-icon color="primary">download</mat-icon>
+        </a>
+        <button mat-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
-    </td>
-  </ng-container>
-
-  <!-- Action Column -->
-  <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action</th>
-    <td mat-cell *matCellDef="let element">
-      <a mat-button>
-        <mat-icon color="primary">download</mat-icon>
-      </a>
-      <button mat-button color="warn">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </td>
-  </ng-container>
-
-  <!-- Header and Row Definitions -->
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-</table>
-<br>
-
-
+    <!-- Table Header and Row Definitions -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <br>
 </ng-container>
+
+<!-- If Grid View is Selected -->
 <ng-container *ngIf="gridView">
   <div class="card-container">
-  <mat-card class="example-card" appearance="outlined" *ngFor="let video of [0,1,1,1,1,1]">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title >Video Capture 1</mat-card-title>
-      <mat-card-subtitle>12/7/2024 - 15:30</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://www.shutterstock.com/image-photo/car-camera-260nw-527713312.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content class="content">
-      <p>
-        <br>
-      Vehicle Number - WP CAB 1234
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button style="background-color: #001f3f; color: white">Download</button>
-      <button mat-raised-button color="warn" style="margin-left: 5px"><mat-icon style="color: white">delete</mat-icon> Delete</button>
-      <button mat-raised-button style="margin-left: 5px;background-color: #2f73d9"><mat-icon>share</mat-icon> share</button>
-    </mat-card-actions>
-  </mat-card>
+    <mat-card class="example-card" appearance="outlined" *ngFor="let video of [0, 1, 1, 1, 1, 1]">
+      <mat-card-header>
+        <!-- Card Avatar (Could be a Thumbnail of the Video) -->
+        <div mat-card-avatar class="example-header-image"></div>
+        <!-- Title and Subtitle with Capture Date -->
+        <mat-card-title>Video Capture 1</mat-card-title>
+        <mat-card-subtitle>12/7/2024 - 15:30</mat-card-subtitle>
+      </mat-card-header>
+      <!-- Sample Image (Replace with Actual Image or Video Preview) -->
+      <img mat-card-image src="https://www.shutterstock.com/image-photo/car-camera-260nw-527713312.jpg" alt="Sample Video Capture">
+      <mat-card-content class="content">
+        <!-- Video Vehicle Number Info -->
+        <p>
+          Vehicle Number - WP CAB 1234
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- Download, Delete, and Share Buttons -->
+        <button mat-raised-button style="background-color: #001f3f; color: white">Download</button>
+        <button mat-raised-button color="warn" style="margin-left: 5px">
+          <mat-icon style="color: white">delete</mat-icon> Delete
+        </button>
+        <button mat-raised-button style="margin-left: 5px; background-color: #2f73d9">
+          <mat-icon>share</mat-icon> Share
+        </button>
+      </mat-card-actions>
+    </mat-card>
   </div>
-
-
 </ng-container>

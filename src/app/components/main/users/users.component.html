@@ -1,55 +1,58 @@
+<!-- Main heading for the page -->
 <h1>All Users</h1>
+
+<!-- Divider for visual separation -->
 <mat-divider></mat-divider>
 
+<!-- Space for better readability -->
 <br /><br />
 
-
+<!-- Table to display the list of users -->
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+  <!-- Column for displaying the user ID -->
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>ID</th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    <th mat-header-cell *matHeaderCellDef>ID</th> <!-- Header for ID column -->
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td> <!-- Data cell for user ID -->
   </ng-container>
 
-  <!-- Complaint Time Column -->
+  <!-- Column for displaying the user name -->
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <th mat-header-cell *matHeaderCellDef> Name </th> <!-- Header for Name column -->
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td> <!-- Data cell for user name -->
   </ng-container>
 
-  <!-- Complaint Date Column -->
+  <!-- Column for displaying the user contact -->
   <ng-container matColumnDef="contact">
-    <th mat-header-cell *matHeaderCellDef> Contact </th>
-    <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
+    <th mat-header-cell *matHeaderCellDef> Contact </th> <!-- Header for Contact column -->
+    <td mat-cell *matCellDef="let element"> {{element.contact}} </td> <!-- Data cell for user contact -->
   </ng-container>
 
-  <!-- Complaint Subject Column -->
+  <!-- Column for displaying the user email -->
   <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef>Email </th>
-    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    <th mat-header-cell *matHeaderCellDef>Email </th> <!-- Header for Email column -->
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td> <!-- Data cell for user email -->
   </ng-container>
 
-  <!-- Complaint Subject Column -->
+  <!-- Column for displaying the user type (e.g., admin, user) -->
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef>User Type </th>
-    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    <th mat-header-cell *matHeaderCellDef>User Type </th> <!-- Header for User Type column -->
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td> <!-- Data cell for user type -->
   </ng-container>
 
-
-
-
-  <!-- Action Column -->
+  <!-- Action column for user actions (e.g., disable, delete) -->
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <th mat-header-cell *matHeaderCellDef> Action </th> <!-- Header for Action column -->
     <td mat-cell *matCellDef="let element">
-<!--      <a routerLink="/complaints/view" mat-button ><mat-icon color="primary">edit</mat-icon></a>-->
-      <button mat-button color="warn" ><mat-icon>delete</mat-icon>Disable</button>
+      <!-- Button to disable or delete the user (currently a placeholder for delete) -->
+      <button mat-button color="warn" ><mat-icon>delete</mat-icon>Disable</button> <!-- Button with an icon and label -->
     </td>
   </ng-container>
 
   <!-- Header and Row Definitions -->
+  <!-- Define table header row using the displayedColumns array -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <!-- Define table row to iterate over dataSource and display rows -->
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
-

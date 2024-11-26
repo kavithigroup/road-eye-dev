@@ -1,83 +1,50 @@
 <!-- Title of the Dialog -->
-<h2 mat-dialog-title>Register Vehicle</h2>
-<!-- Divider for separating title from content -->
+<h2 mat-dialog-title>Register Police Station</h2>
 <mat-divider></mat-divider>
 
 <!-- Content Section of the Dialog -->
 <mat-dialog-content>
-  <br>
-
-  <!-- Reactive Form Binding -->
-  <!-- The [formGroup] directive binds the form to the 'form' property in the component -->
+  <br />
+  <!-- Form Section -->
   <form [formGroup]="form">
-
     <!-- Form Field for Station Name -->
-    <p>
-      <mat-form-field appearance="outline">
-        <!-- Label for the input field -->
-        <mat-label>Station Name</mat-label>
-        <!-- Input field with binding to the 'stationName' form control -->
-        <input matInput formControlName="stationName" required>
-      </mat-form-field>
-    </p>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Station Name</mat-label>
+      <input matInput formControlName="stationName" required />
+    </mat-form-field>
 
     <!-- Row for District and Address Fields -->
     <div class="row">
-      <!-- Form Field for District -->
-      <p>
-        <mat-form-field appearance="outline">
-          <!-- Label for the District input field -->
-          <mat-label>District</mat-label>
-          <!-- Input field bound to the 'district' form control -->
-          <input matInput formControlName="district" required>
-        </mat-form-field>
-      </p>
+      <mat-form-field class="half-width" appearance="outline">
+        <mat-label>District</mat-label>
+        <input matInput formControlName="district" required />
+      </mat-form-field>
 
-      <!-- Form Field for Address -->
-      <p>
-        <mat-form-field appearance="outline">
-          <!-- Label for the Address input field -->
-          <mat-label>Address</mat-label>
-          <!-- Input field bound to the 'address' form control -->
-          <input matInput formControlName="address" required>
-        </mat-form-field>
-      </p>
+      <mat-form-field class="half-width" appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" required />
+      </mat-form-field>
     </div>
 
     <!-- Row for Phone Number and Email Fields -->
     <div class="row">
-      <!-- Form Field for Phone Number -->
-      <p>
-        <mat-form-field appearance="outline">
-          <!-- Label for the Phone Number input field -->
-          <mat-label>Phone Number</mat-label>
-          <!-- Input field bound to the 'phoneNumber' form control -->
-          <input matInput formControlName="phoneNumber">
-        </mat-form-field>
-      </p>
+      <mat-form-field class="half-width" appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phoneNumber" />
+      </mat-form-field>
 
-      <!-- Form Field for Email -->
-      <p>
-        <mat-form-field appearance="outline">
-          <!-- Label for the Email input field -->
-          <mat-label>Email</mat-label>
-          <!-- Input field bound to the 'email' form control -->
-          <input matInput formControlName="email" required>
-        </mat-form-field>
-      </p>
+      <mat-form-field class="half-width" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required />
+      </mat-form-field>
     </div>
   </form>
 </mat-dialog-content>
 
-<!-- Divider for separating content and actions -->
 <mat-divider></mat-divider>
 
-<!-- Action Buttons for the Dialog -->
+<!-- Action Buttons -->
 <mat-dialog-actions class="flex-right">
-  <!-- Add Station Button -->
-  <button mat-button>Add Station</button>
-
-  <!-- Cancel Button -->
-  <!-- cdkFocusInitial sets this button as the initial focus when the dialog opens -->
-  <button mat-button cdkFocusInitial>Cancel</button>
+  <button mat-button class="action-btn">Add Station</button>
+  <button mat-button class="cancel-btn" cdkFocusInitial>Cancel</button>
 </mat-dialog-actions>

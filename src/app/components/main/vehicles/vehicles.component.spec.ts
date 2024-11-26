@@ -4,7 +4,6 @@ import { VehiclesComponent } from './vehicles.component';
 
 describe('VehiclesComponent', () => {
   let component: VehiclesComponent;
-  let fixture: ComponentFixture<VehiclesComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

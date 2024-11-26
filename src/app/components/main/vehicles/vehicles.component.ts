@@ -8,8 +8,7 @@ import {AuthService} from "../../../services/auth.service";
 
 @Component({
   selector: 'app-vehicles',
-  templateUrl: './vehicles.component.html',
-  styleUrls: ['./vehicles.component.sass']
+
 })
 export class VehiclesComponent implements OnInit {
 

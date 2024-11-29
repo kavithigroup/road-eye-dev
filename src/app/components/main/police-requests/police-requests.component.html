@@ -1,99 +1,70 @@
-
 <h1>All Requests</h1>
-<!-- Divider for a clean separation between header and content -->
 <mat-divider></mat-divider>
 
 <br /><br />
 
-<!-- Button to Navigate to Submit a New Request Page -->
-<!-- 'routerLink' navigates to the 'new request' page for submitting a request -->
-<a class="add-vehicle-btn" routerLink="/police-requests/new" mat-button>
-  <!-- Material Icon for a '+' symbol to indicate adding -->
+<!-- Button to Submit a New Request -->
+<a class="add-vehicle-btn" (click)="addRequest()" mat-button>
   <mat-icon>add_circle_outline</mat-icon>
   Submit a Request
 </a>
 
-<!-- Table to Display All Requests -->
-<!-- Material table with elevation for a shadow effect -->
+<!-- Table to Display Requests -->
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
   <!-- ID Column -->
-  <!-- Displays the unique identifier for each request -->
   <ng-container matColumnDef="id">
-    <!-- Table Header Cell for 'ID' -->
     <th mat-header-cell *matHeaderCellDef>ID</th>
-    <!-- Table Data Cell: Displays the 'id' property of each element -->
     <td mat-cell *matCellDef="let element">{{ element.id }}</td>
   </ng-container>
 
   <!-- Request Time Column -->
-  <!-- Displays the time when the request was made -->
   <ng-container matColumnDef="requestTime">
     <th mat-header-cell *matHeaderCellDef>Request Time</th>
-    <!-- Table Data Cell: Displays 'RequestTime' from the data -->
-    <td mat-cell *matCellDef="let element">{{ element.RequestTime }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.requestTime }}</td>
   </ng-container>
 
   <!-- Request Date Column -->
-  <!-- Displays the date when the request was made -->
   <ng-container matColumnDef="requestDate">
     <th mat-header-cell *matHeaderCellDef>Request Date</th>
-    <!-- Table Data Cell: Displays 'RequestDate' from the data -->
-    <td mat-cell *matCellDef="let element">{{ element.RequestDate }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.requestDate }}</td>
   </ng-container>
 
   <!-- Vehicle Number Column -->
-  <!-- Displays the vehicle number associated with the request -->
   <ng-container matColumnDef="vehicleId">
     <th mat-header-cell *matHeaderCellDef>Vehicle Number</th>
-    <!-- Table Data Cell: Displays 'VehicleId' -->
-    <td mat-cell *matCellDef="let element">{{ element.VehicleId }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.vehicleId }}</td>
   </ng-container>
 
   <!-- Registrations Column -->
-  <!-- Displays registration details related to the request -->
   <ng-container matColumnDef="registration">
     <th mat-header-cell *matHeaderCellDef>Registrations</th>
-    <!-- Table Data Cell: Displays 'Registration' -->
-    <td mat-cell *matCellDef="let element">{{ element.Registration }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.registration }}</td>
   </ng-container>
 
   <!-- Status Column -->
-  <!-- Displays the current status of the request (e.g., Pending, Approved) -->
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef>Status</th>
-    <!-- Table Data Cell: Displays 'status' -->
     <td mat-cell *matCellDef="let element">{{ element.status }}</td>
   </ng-container>
 
   <!-- Action Column -->
-  <!-- Provides action buttons for each request (e.g., View, Cancel) -->
-  <ng-container matColumnDef="action">
+  <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>Action</th>
     <td mat-cell *matCellDef="let element">
-      <!-- Link to View More Details About the Request -->
-      <!-- Navigates to a detailed view of the specific request -->
-      <a class="action-btn view-btn" routerLink="/police-requests/view" mat-button>
-        <!-- Visibility icon to symbolize 'view' -->
+      <!-- View Button -->
+      <button class="action-btn view-btn" mat-button (click)="goToView()">
         <mat-icon>visibility</mat-icon>
         View More
-      </a>
-      <!-- Button to Cancel the Request -->
-      <!-- Uses 'warn' color for the cancel button for emphasis -->
-      <button class="action-btn cancel-btn" mat-button color="warn">
-        <!-- Delete icon to represent cancel -->
+      </button>
+      <!-- Cancel Button -->
+      <button class="action-btn cancel-btn" mat-button color="warn" (click)="cancelRequest(element.id)">
         <mat-icon>delete</mat-icon>
         Cancel
       </button>
     </td>
   </ng-container>
 
-  <!-- Table Row Definitions -->
-  <!-- Header Row: Defines which columns appear in the table header -->
+  <!-- Header and Row Definitions -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-
-  <!-- Data Row: Defines the data rows based on the 'displayedColumns' configuration -->
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
 </table>
-

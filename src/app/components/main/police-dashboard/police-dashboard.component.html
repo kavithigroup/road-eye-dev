@@ -1,114 +1,21 @@
-<!-- Police Dashboard: Displays analytics, recent complaints, and a placeholder for future calendar integration -->
-<h1>Police Dashboard</h1>
-<mat-divider></mat-divider> <!-- Divider for separating title from content -->
+<!-- Dashboard Header -->
+<h1 class="dashboard-title">Police Dashboard</h1>
+<mat-divider></mat-divider>
+<br />
 
-<br><br>
-
-<!-- Dashboard Analytics Cards -->
-<div class="dash-cards">
-  <!-- Card 1: New Complaints -->
-  <div class="one-card">
-    <span class="card-content">
-      <p class="card-number">25</p> <!-- Total number of new complaints -->
-      <p>New Complaints</p>
-    </span>
-    <div class="vertical-line"></div> <!-- Vertical divider for visual separation -->
-    <span class="card-icon">
-      <mat-icon class="card-icon">car_crash</mat-icon> <!-- Icon representing complaints -->
-    </span>
+<!-- Dashboard Container -->
+<div class="dashboard-container">
+  <!-- Card for Police Stations -->
+  <div class="dashboard-card" routerLink="/police-stations">
+    <mat-icon class="card-icon">location_city</mat-icon>
+    <h2>Manage Police Stations</h2>
+    <p>View, add, and manage all police stations effectively.</p>
   </div>
 
-  <!-- Card 2: Complaints Resolved -->
-  <div class="one-card">
-    <span class="card-content">
-      <p class="card-number">14</p> <!-- Total number of resolved complaints -->
-      <p>Complaints Resolved</p>
-    </span>
-    <div class="vertical-line"></div>
-    <span class="card-icon">
-      <mat-icon class="card-icon">done</mat-icon> <!-- Icon representing resolved complaints -->
-    </span>
+  <!-- Card for Police Requests -->
+  <div class="dashboard-card" routerLink="/police-requests">
+    <mat-icon class="card-icon">assignment</mat-icon>
+    <h2>Manage Police Requests</h2>
+    <p>Track, view, and handle police requests efficiently.</p>
   </div>
-
-  <!-- Card 3: Inquiries -->
-  <div class="one-card">
-    <span class="card-content">
-      <p class="card-number">10</p> <!-- Total number of inquiries -->
-      <p>Inquiries</p>
-    </span>
-    <div class="vertical-line"></div>
-    <span class="card-icon">
-      <mat-icon class="card-icon">info</mat-icon> <!-- Icon representing inquiries -->
-    </span>
-  </div>
-
-  <!-- Card 4: Police Stations -->
-  <div class="one-card">
-    <span class="card-content">
-      <p class="card-number">9</p> <!-- Total number of police stations -->
-      <p>Police Stations</p>
-    </span>
-    <div class="vertical-line"></div>
-    <span class="card-icon">
-      <mat-icon class="card-icon">other_houses</mat-icon> <!-- Icon representing police stations -->
-    </span>
-  </div>
-</div>
-
-<br>
-
-<mat-divider></mat-divider> <!-- Divider between analytics cards and main content -->
-
-<br>
-
-<!-- Dashboard Content: Table and Calendar -->
-<div class="dash-content">
-  <!-- Recent Complaints Table -->
-  <div class="dash-table">
-    <h2>Recent Complaints</h2> <!-- Section header -->
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>ID</th> <!-- Table header -->
-        <td mat-cell *matCellDef="let element">{{element.id}}</td> <!-- Row data -->
-      </ng-container>
-
-      <!-- Complaint Time Column -->
-      <ng-container matColumnDef="complaintTime">
-        <th mat-header-cell *matHeaderCellDef>Complaint Time</th>
-        <td mat-cell *matCellDef="let element">{{element.complaintTime}}</td>
-      </ng-container>
-
-      <!-- Complaint Date Column -->
-      <ng-container matColumnDef="complaintDate">
-        <th mat-header-cell *matHeaderCellDef>Complaint Date</th>
-        <td mat-cell *matCellDef="let element">{{element.complaintDate}}</td>
-      </ng-container>
-
-      <!-- Complaint Subject Column -->
-      <ng-container matColumnDef="complaintSubject">
-        <th mat-header-cell *matHeaderCellDef>Complaint Subject</th>
-        <td mat-cell *matCellDef="let element">{{element.complaintSubject}}</td>
-      </ng-container>
-
-      <!-- Status Column -->
-      <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let element">{{element.status}}</td>
-      </ng-container>
-
-      <!-- Define Header and Row Structure -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
-
-  <!-- Placeholder for Calendar (Currently Commented Out) -->
-  <!-- Uncomment the below block to integrate a calendar -->
-  <!--
-  <div class="dash-calender">
-    <h2>Upcoming Appointments</h2>
-    <full-calendar [options]="calendarOptions"></full-calendar>
-  </div>
-  -->
 </div>

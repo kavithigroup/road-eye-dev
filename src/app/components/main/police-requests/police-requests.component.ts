@@ -34,8 +34,12 @@ export class PoliceRequestsComponent implements OnInit {
 
   addRequest() {
     this.router.navigate(['/police-requests/new']);
+    
   }
-
+  goToView() {
+    this.router.navigate(['/police-requests/view']);
+  }
+  
   viewRequest(requestId: number) {
     this.router.navigate(['/police-requests/view', requestId]);
   }

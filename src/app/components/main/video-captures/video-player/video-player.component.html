@@ -1,22 +1,21 @@
-<div>
-  <div class="video-container">
-    <video id="video-player" class="video-js vjs-default-skin" controls preload="auto" width="auto" height="480">
-      <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
-    </video>
-  </div>
-  <br>
-  <br>
+<h1>Video Details</h1>
+<mat-divider></mat-divider>
 
-  <div class="container">
-    <mat-form-field appearance="fill">
-      <mat-label>Start Time (seconds)</mat-label>
-      <input matInput type="number" [(ngModel)]="startTime" id="start-time">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>End Time (seconds)</mat-label>
-      <input matInput type="number" [(ngModel)]="endTime" id="end-time">
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="cropVideo()">Crop</button>
-  </div>
+<!-- Video Display and Information -->
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <!-- Title and Capture Date -->
+    <mat-card-title>{{ video }}</mat-card-title>
+    <mat-card-subtitle>{{ captureDate }} - {{ captureTime }}</mat-card-subtitle>
+  </mat-card-header>
 
-</div>
+  <!-- Video Player -->
+  <video mat-card-image controls [src]="'https://storage.cloud.google.com/road-eye/video-uploads/' + video + '.mp4'" alt="Video Capture"></video>
+<br>
+  <br>
+  <mat-card-content>
+    <p><strong>Vehicle Number:</strong> {{ vehicleNumber }}</p>
+    <p><strong>Capture Time:</strong> {{ captureTime }}</p>
+    <p><strong>Capture Date:</strong> {{ captureDate }}</p>
+  </mat-card-content>
+</mat-card>

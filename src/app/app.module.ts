@@ -100,6 +100,9 @@ import { PostsComponent } from './components/main/posts/posts.component';
 import { AddNewPostComponent } from './components/main/posts/add-new-post/add-new-post.component';
 import { ViewPostComponent } from './components/main/posts/view-post/view-post.component';
 import { LeaderboardComponent } from './components/public/landing-container/leaderboard/leaderboard.component';
+import { VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
+import {NgOptimizedImage} from "@angular/common";
+import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
 
 @NgModule({
   declarations: [
@@ -175,39 +178,42 @@ import { LeaderboardComponent } from './components/public/landing-container/lead
     PostsComponent,
     AddNewPostComponent,
     ViewPostComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    VideoPlayerComponent,
+    NewPostComponent
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    MatTooltipModule,
-    MatBadgeModule,
-    GoogleMapsModule,
-    MatDialogModule,
-    FormsModule,
-    MatSelectModule,
-    MatListModule,
-    QRCodeModule,
-    MatTabsModule,
-    MatGridListModule,
-    MatTableModule,
-    MatDatepickerModule,
-    FullCalendarModule,
-    MatCardModule,
-    MatStepperModule,
-    MatButtonToggleModule,
-    NgApexchartsModule,
-    MatSnackBarModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        MatTooltipModule,
+        MatBadgeModule,
+        GoogleMapsModule,
+        MatDialogModule,
+        FormsModule,
+        MatSelectModule,
+        MatListModule,
+        QRCodeModule,
+        MatTabsModule,
+        MatGridListModule,
+        MatTableModule,
+        MatDatepickerModule,
+        FullCalendarModule,
+        MatCardModule,
+        MatStepperModule,
+        MatButtonToggleModule,
+        NgApexchartsModule,
+        MatSnackBarModule,
+        HttpClientModule,
+        NgOptimizedImage
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,26 +1,46 @@
-import { Component } from '@angular/core';
-import {appointment} from "../appointments/appointments.component";
-export interface videocapture {
-  id: number;
-  captureTime: string;
-  captureDate: string;
-  vehicleNumber: string;
-  status: string;
-}
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {ApiService} from "../../../services/api.service";
+import {AuthService} from "../../../services/auth.service";
 
-const capture_DATA: videocapture[] = [
-  { id: 1, captureTime: '14:30', captureDate: '2024-07-27', vehicleNumber: 'WP CAB 1234', status: 'Pending' },
-  { id: 2, captureTime: '15:00', captureDate: '2024-07-27', vehicleNumber: 'SP LKR 5678', status: 'Uploaded' },
-  { id: 3, captureTime: '16:15', captureDate: '2024-07-27', vehicleNumber: 'EP BCD 2345', status: 'Uploaded' }
-];
 @Component({
   selector: 'app-video-captures',
   templateUrl: './video-captures.component.html',
   styleUrls: ['./video-captures.component.sass']
 })
-export class VideoCapturesComponent {
+export class VideoCapturesComponent implements OnInit{
+
+  video_capture: {
+    vehicle_number:string
+    reg_time: string
+    video:string
+
+  }[] = []
+
+  constructor(private dialog: MatDialog, private api: ApiService, private auth: AuthService) {
+  }
+
+  dataSource: any[] = []; // Initialize dataSource
+  displayedColumns = ['id', 'title', 'captureTime', 'captureDate', 'vehicleNumber', 'action'];
   gridView = true
-  displayedColumns: string[] = ['id', 'captureTime', 'captureDate', 'vehicleNumber', 'status', 'captureImage','action'];
-  dataSource = capture_DATA;
+
+  ngOnInit(){
+    this.api.post("/video-capture/user", {user: this.auth.user?.user_id}).subscribe(httpResponse => {
+      this.video_capture = httpResponse.body
+      console.log(this.video_capture)
+      this.dataSource = this.video_capture.map((item, index) => ({
+        id: index + 1,
+        title: item.video,
+        captureTime: item.reg_time.split('T')[1],
+        captureDate: item.reg_time.split('T')[0],
+        vehicleNumber: item.vehicle_number,
+        video: item.video
+      }));
+    })
+
+  }
+
+
+
 
 }

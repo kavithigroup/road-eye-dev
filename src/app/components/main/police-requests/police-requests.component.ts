@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';  // Import Router
-
-interface PoliceRequest {
-  id: number;
-  requestTime: string;
-  requestDate: string;
-  vehicleId: string;
-  registration: string;
-  status: string;
-}
+import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
+import { RequestDetailsPopupComponent } from './request-details-popup/request-details-popup.component';
 
 @Component({
   selector: 'app-police-requests',
@@ -16,35 +11,44 @@ interface PoliceRequest {
   styleUrls: ['./police-requests.component.sass']
 })
 export class PoliceRequestsComponent implements OnInit {
-  dataSource: PoliceRequest[] = [
-    // Initial data, replace with actual data or fetch from a service
-    { id: 1, requestTime: '2023-11-25 10:00 AM', requestDate: '2023-11-25', vehicleId: 'AB1234', registration: 'XYZ123', status: 'Pending' },
-    { id: 2, requestTime: '2023-11-26 02:00 PM', requestDate: '2023-11-26', vehicleId: 'CD5678', registration: 'PQR456', status: 'In Progress' }
+  displayedColumns: string[] = [
+    'request_id',
+    'request_date',
+    'requested_time',
+    'vehicle_id',
+    'registration_status',
+    'request_status',
+    'actions'
   ];
+  dataSource = new MatTableDataSource<any>([]);
 
-  displayedColumns: string[] = ['id', 'requestTime', 'requestDate', 'vehicleId', 'registration', 'status', 'actions'];
+  constructor(private api: ApiService, private dialog: MatDialog, private router: Router) {}
 
-  constructor(private router: Router) {}
-
-  ngOnInit() {
-    // this.policeRequestService.getPoliceRequests().subscribe(data => {
-    //   this.dataSource = data;
-    // });
+  ngOnInit(): void {
+    this.fetchPoliceRequests();
   }
 
   addRequest() {
     this.router.navigate(['/police-requests/new']);
-    
-  }
-  goToView() {
-    this.router.navigate(['/police-requests/view']);
-  }
-  
-  viewRequest(requestId: number) {
-    this.router.navigate(['/police-requests/view', requestId]);
   }
 
-  cancelRequest(requestId: number) {
-    // Implement cancellation logic
+  fetchPoliceRequests(): void {
+    const policeId = 1; // Hardcoded for now, replace with dynamic value as needed
+    this.api.get(`/police-requests/details/${policeId}`).subscribe(
+      (response: any) => {
+        this.dataSource.data = response;
+        console.log('Fetched data:', this.dataSource.data); // Debugging output
+      },
+      (error) => {
+        console.error('Failed to fetch police requests:', error);
+      }
+    );
+  }
+
+  openDetailsPopup(request: any): void {
+    this.dialog.open(RequestDetailsPopupComponent, {
+      width: '600px',
+      data: request
+    });
   }
 }

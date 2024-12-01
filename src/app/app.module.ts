@@ -102,6 +102,7 @@ import { ViewPostComponent } from './components/main/posts/view-post/view-post.c
 import { LeaderboardComponent } from './components/public/landing-container/leaderboard/leaderboard.component';
 import { VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
 import {NgOptimizedImage} from "@angular/common";
+import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
 
 @NgModule({
   declarations: [
@@ -178,7 +179,8 @@ import {NgOptimizedImage} from "@angular/common";
     AddNewPostComponent,
     ViewPostComponent,
     LeaderboardComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    NewPostComponent
 
   ],
     imports: [

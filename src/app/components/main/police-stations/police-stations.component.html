@@ -21,24 +21,86 @@
 </div>
 
 <!-- Button to Add a New Police Station -->
-<button class="add-vehicle-btn" mat-button (click)="addStation()">
-  Add Station
+<button class="add-vehicle-btn" mat-button (click)="toggleAddStationForm()">
+  {{ showAddForm ? 'Cancel' : 'Add Station' }}
 </button>
 
-<!-- Container for Displaying Police Station Cards -->
+<!-- Add Station Form -->
+<div *ngIf="showAddForm" class="add-station-form">
+  <form [formGroup]="addStationForm" (ngSubmit)="submitNewStation()">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>District</mat-label>
+      <input matInput formControlName="district" placeholder="Enter district" />
+      <mat-error *ngIf="addStationForm.get('district')?.hasError('required')">
+        District is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Branch</mat-label>
+      <input matInput formControlName="branch" placeholder="Enter branch" />
+      <mat-error *ngIf="addStationForm.get('branch')?.hasError('required')">
+        Branch is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone" placeholder="Enter phone" />
+      <mat-error *ngIf="addStationForm.get('phone')?.hasError('required')">
+        Phone number is required.
+      </mat-error>
+      <mat-error *ngIf="addStationForm.get('phone')?.hasError('pattern')">
+        Phone number must be between 10 and 15 digits.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Address</mat-label>
+      <textarea matInput formControlName="address" placeholder="Enter address"></textarea>
+      <mat-error *ngIf="addStationForm.get('address')?.hasError('required')">
+        Address is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Map Location</mat-label>
+      <input matInput formControlName="map_location" placeholder="Enter map location" />
+      <mat-error *ngIf="addStationForm.get('map_location')?.hasError('required')">
+        Map location is required.
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!addStationForm.valid">
+      Submit
+    </button>
+  </form>
+</div>
+
+<!-- List of Police Stations -->
 <div class="card-container">
   <div *ngFor="let station of filteredStations" class="card">
     <div class="card-title">
-      <h2>{{ station.name }}</h2>
-      <div [ngClass]="station.verified ? 'verified' : 'notverified'">
-        {{ station.verified ? 'Verified' : 'Not Verified' }}
+      <h2>{{ station.branch }} ({{ station.district }})</h2>
+      <div [ngClass]="station.status === 'verified' ? 'verified' : 'notverified'">
+        {{ station.status === 'verified' ? 'Verified' : 'Unverified' }}
       </div>
     </div>
-    <h3 class="contact-info">{{ station.contact }}</h3>
+    <h3 class="contact-info">{{ station.phone }}</h3>
     <h3 class="address">{{ station.address }}</h3>
-    <button class="map-btn" mat-button>
-      <mat-icon>pin_drop</mat-icon>
-      View on Map
-    </button>
+
+    <!-- Buttons Container -->
+    <div class="card-actions">
+      <!-- More Button -->
+      <button class="map-btn more-btn" mat-button (click)="viewStationDetails(station)">
+        <mat-icon>info</mat-icon>
+        More
+      </button>
+
+      <!-- Delete Button -->
+      <button class="delete-btn" mat-icon-button (click)="deleteStation(station.station_id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
   </div>
 </div>

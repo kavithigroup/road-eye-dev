@@ -1,47 +1,53 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {catchError, Observable, throwError, timeout} from "rxjs";
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { catchError, Observable, throwError, timeout } from 'rxjs';
 
-interface HttpParams {
-}
+interface HttpParams {}
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
+  baseUrl = 'http://localhost:5216/api';
 
-
-  // baseUrl = "http://localhost:5216/"
-  baseUrl = "http://localhost:5216/api"
-
-  constructor(private http: HttpClient, private snackBar: MatSnackBar) {
-  }
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 
   private handleError = (error: HttpErrorResponse) => {
-    this.snackBar.open("Error connecting to the server: " + (error.statusText || error.message), "close", {duration: 5000})
-    return throwError(error)
-  }
+    this.snackBar.open(
+      'Error connecting to the server: ' + (error.statusText || error.message),
+      'close',
+      { duration: 5000 }
+    );
+    return throwError(error);
+  };
+
   get(endpoint: string, params?: HttpParams, timeOut?: number): Observable<any> {
-    return this.http.get(this.baseUrl + endpoint, {
-      withCredentials: true,
-      // params: params,
-      responseType: "json",
-      // observe: "response",
-    }).pipe(
-      timeout(timeOut || 50000),
-      catchError(this.handleError)
-    )
+    return this.http
+      .get(this.baseUrl + endpoint, {
+        withCredentials: true,
+        responseType: 'json',
+      })
+      .pipe(timeout(timeOut || 50000), catchError(this.handleError));
   }
 
   post(endpoint: string, body?: object, timeOut?: number): Observable<any> {
-    return this.http.post(this.baseUrl + endpoint, body, {
-      withCredentials: true,
-      responseType: "json",
-      observe: "response"
-    }).pipe(
-      timeout(timeOut || 50000),
-      catchError(this.handleError)
-    )
+    return this.http
+      .post(this.baseUrl + endpoint, body, {
+        withCredentials: true,
+        responseType: 'json',
+        observe: 'response',
+      })
+      .pipe(timeout(timeOut || 50000), catchError(this.handleError));
+  }
+
+  delete(endpoint: string, timeOut?: number): Observable<any> {
+    return this.http
+      .delete(this.baseUrl + endpoint, {
+        withCredentials: true,
+        responseType: 'json',
+        observe: 'response',
+      })
+      .pipe(timeout(timeOut || 50000), catchError(this.handleError));
   }
 }

@@ -77,18 +77,48 @@ mat-divider
     color: $secondary-color
     margin: 0 0 $padding / 2
 
-  .map-btn
-    align-self: flex-start
-    background-color: lighten($primary-color, 30%)
-    color: $primary-color
-    font-weight: bold
-    border-radius: 4px
-    text-transform: capitalize
-    transition: background-color 0.3s ease, transform 0.3s ease
+  .card-actions
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-top: $padding / 2
 
-    &:hover
-      background-color: lighten($primary-color, 40%)
-      transform: scale(1.05)
+    .more-btn
+      align-self: flex-start
+      background-color: lighten($primary-color, 30%)
+      color: $primary-color
+      font-weight: bold
+      border-radius: 4px
+      text-transform: capitalize
+      padding: 8px 16px
+      display: flex
+      align-items: center
+      gap: 4px // Space between icon and text
+      transition: background-color 0.3s ease, transform 0.3s ease
+
+      &:hover
+        background-color: lighten($primary-color, 40%)
+        transform: scale(1.05)
+
+      mat-icon
+        font-size: 20px
+
+    .delete-btn
+      color: red
+      background-color: lighten(red, 50%)
+      border-radius: 50%
+      padding: 8px
+      display: flex
+      align-items: center
+      justify-content: center
+      transition: background-color 0.3s ease, transform 0.3s ease
+
+      mat-icon
+        font-size: 20px
+
+      &:hover
+        background-color: lighten(red, 60%)
+        transform: scale(1.1)
 
 // Responsive Adjustments
 @media (max-width: 768px)
@@ -105,7 +135,7 @@ mat-divider
   .card-title h2
     font-size: 1.3rem
 
-  .map-btn
+  .more-btn
     font-size: 0.9rem
 
 // Search Bar
@@ -127,19 +157,4 @@ mat-form-field
   padding: 8px
   margin-right: $padding / 2
 
-  &::ng-deep .mat-form-field-outline
-    border: none
-
-input[matInput]
-  font-size: 1rem
-  color: $secondary-color
-  border-radius: 8px
-
-mat-icon-button
-  background-color: lighten($primary-color, 50%)
-  border-radius: 50%
-  transition: all 0.3s ease
-  color: $primary-color
-
-  &:hover
-    background-color: lighten($primary-color, 60%)
+  &::ng-deep .mat-form

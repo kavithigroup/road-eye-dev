@@ -4,14 +4,15 @@
 <mat-divider></mat-divider>
 <br><br>
 
-<div class="complain-form">
+
+<form class="complain-form" [formGroup]="form" (ngSubmit)="submit()">
 
 
   <div class="row">
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
-        <input matInput required>
+        <input matInput  formControlName="title" required>
       </mat-form-field>
     </p>
 
@@ -46,6 +47,6 @@
   <button mat-raised-button class="btn-submit">Submit</button>
 
 
-</div>
+</form>
 
 

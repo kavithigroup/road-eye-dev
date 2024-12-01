@@ -65,8 +65,10 @@ import {PostsComponent} from "./components/main/posts/posts.component";
 import {ViewPostComponent} from "./components/main/posts/view-post/view-post.component";
 import {AddNewPostComponent} from "./components/main/posts/add-new-post/add-new-post.component";
 import {LeaderboardComponent} from "./components/public/landing-container/leaderboard/leaderboard.component";
+import {RequestDetailsPopupComponent} from "./components/main/police-requests/request-details-popup/request-details-popup.component";
 import {VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
 import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
+
 
 
 const routes: Routes = [
@@ -134,8 +136,10 @@ const routes: Routes = [
       {path: "posts", component:PostsComponent},
       {path: "posts/view", component:ViewPostComponent},
       {path: "posts/add-new", component:AddNewPostComponent},
+      {path: "police-requests/request-popup", component: RequestDetailsPopupComponent},
       {path: "video/view", component:VideoPlayerComponent},
       {path: "posts/new", component:NewPostComponent},
+
 
     ]
   },

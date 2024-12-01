@@ -101,6 +101,7 @@ import { AddNewPostComponent } from './components/main/posts/add-new-post/add-ne
 import { ViewPostComponent } from './components/main/posts/view-post/view-post.component';
 import { LeaderboardComponent } from './components/public/landing-container/leaderboard/leaderboard.component';
 import { VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -180,36 +181,37 @@ import { VideoPlayerComponent} from "./components/main/video-captures/video-play
     VideoPlayerComponent
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    MatTooltipModule,
-    MatBadgeModule,
-    GoogleMapsModule,
-    MatDialogModule,
-    FormsModule,
-    MatSelectModule,
-    MatListModule,
-    QRCodeModule,
-    MatTabsModule,
-    MatGridListModule,
-    MatTableModule,
-    MatDatepickerModule,
-    FullCalendarModule,
-    MatCardModule,
-    MatStepperModule,
-    MatButtonToggleModule,
-    NgApexchartsModule,
-    MatSnackBarModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        MatTooltipModule,
+        MatBadgeModule,
+        GoogleMapsModule,
+        MatDialogModule,
+        FormsModule,
+        MatSelectModule,
+        MatListModule,
+        QRCodeModule,
+        MatTabsModule,
+        MatGridListModule,
+        MatTableModule,
+        MatDatepickerModule,
+        FullCalendarModule,
+        MatCardModule,
+        MatStepperModule,
+        MatButtonToggleModule,
+        NgApexchartsModule,
+        MatSnackBarModule,
+        HttpClientModule,
+        NgOptimizedImage
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

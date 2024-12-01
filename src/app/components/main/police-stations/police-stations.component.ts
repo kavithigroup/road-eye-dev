@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from "@angular/material/dialog";
-import { AddStationComponent } from "./add-station/add-station.component";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-police-stations',
@@ -8,45 +9,104 @@ import { AddStationComponent } from "./add-station/add-station.component";
   styleUrls: ['./police-stations.component.sass']
 })
 export class PoliceStationsComponent implements OnInit {
-  searchText: string = ''; // For search input
-  stations = [
-    {
-      name: 'Colombo District | Kolpitty Branch',
-      contact: '0111234567',
-      address: 'WR7X+JJV, Galle Rd, Colombo 00300',
-      verified: true
-    },
-    {
-      name: 'Colombo District | Dehiwala Branch',
-      contact: '0111234789',
-      address: 'Hill St, Dehiwala-Mount Lavinia',
-      verified: false
-    }
-    // Add more station objects here
-  ];
-  filteredStations = [...this.stations]; // Filtered results
+  stations: any[] = [];
+  filteredStations: any[] = [];
+  searchText: string = '';
+  addStationForm: FormGroup;
+  showAddForm: boolean = false; // Controls visibility of the form
 
-  constructor(private dialog: MatDialog) {}
-
-  ngOnInit() {
-    this.filterStations(); // Initialize filtered stations
+  constructor(
+    private api: ApiService,
+    private fb: FormBuilder,
+    private router: Router // For navigation
+  ) {
+    // Initialize the form without the `status` field
+    this.addStationForm = this.fb.group({
+      district: ['', Validators.required],
+      branch: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10,15}$/)]], // Allow up to 15 digits
+      address: ['', Validators.required],
+      map_location: ['', Validators.required]
+    });
   }
 
-  addStation() {
-    this.dialog.open(AddStationComponent);
+  ngOnInit(): void {
+    this.fetchAllStations();
   }
 
-  filterStations() {
-    const lowerSearch = this.searchText.toLowerCase();
-    this.filteredStations = this.stations.filter(station =>
-      station.name.toLowerCase().includes(lowerSearch) ||
-      station.address.toLowerCase().includes(lowerSearch) ||
-      station.contact.includes(lowerSearch)
+  // Fetch all police stations from the backend
+  fetchAllStations(): void {
+    this.api.get('/stations/details/').subscribe(
+      (response: any) => {
+        this.stations = response.data;
+        this.filteredStations = [...this.stations];
+        console.log('Fetched stations:', this.stations);
+      },
+      (error) => {
+        console.error('Failed to fetch stations:', error);
+      }
     );
   }
 
-  clearSearch() {
-    this.searchText = ''; // Clear search text
-    this.filterStations(); // Reset filtered stations
+  // Filter stations based on the search input
+  filterStations(): void {
+    this.filteredStations = this.stations.filter((station) =>
+      station.district.toLowerCase().includes(this.searchText.toLowerCase()) ||
+      station.branch.toLowerCase().includes(this.searchText.toLowerCase()) ||
+      station.address.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+  }
+
+  // Clear the search input and reset the station list
+  clearSearch(): void {
+    this.searchText = '';
+    this.filteredStations = [...this.stations];
+  }
+
+  // Toggle the visibility of the add station form
+  toggleAddStationForm(): void {
+    this.showAddForm = !this.showAddForm; // Toggle form visibility
+  }
+
+  // Submit the form to create a new police station
+  submitNewStation(): void {
+    if (this.addStationForm.valid) {
+      const sanitizedData = { ...this.addStationForm.value, status: 'unverified' }; // Backend expects status
+
+      // Make API call to create the station
+      this.api.post('/stations/create', sanitizedData).subscribe(
+        (response: any) => {
+          console.log('Station created successfully:', response);
+          this.fetchAllStations(); // Refresh the station list
+          this.showAddForm = false; // Hide the form
+          this.addStationForm.reset(); // Reset the form
+        },
+        (error) => {
+          console.error('Failed to create station:', error);
+        }
+      );
+    } else {
+      console.warn('Form is invalid. Please fill out all required fields.');
+    }
+  }
+
+  // Delete a station by ID
+  deleteStation(stationId: number): void {
+    if (confirm('Are you sure you want to delete this station?')) {
+      this.api.delete(`/stations/delete/${stationId}`).subscribe(
+        (response: any) => {
+          console.log('Station deleted successfully:', response);
+          this.fetchAllStations(); // Refresh the station list
+        },
+        (error) => {
+          console.error('Failed to delete station:', error);
+        }
+      );
+    }
+  }
+
+  // Navigate to the police station details page
+  viewStationDetails(station: any): void {
+    this.router.navigate(['/police-station'], { state: { station } });
   }
 }

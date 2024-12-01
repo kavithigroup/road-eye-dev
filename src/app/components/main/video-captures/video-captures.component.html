@@ -62,7 +62,7 @@
       <th mat-header-cell *matHeaderCellDef> Action</th>
       <td mat-cell *matCellDef="let element">
         <a mat-button>
-          <mat-icon color="primary">download</mat-icon>
+          <mat-icon color="primary">View</mat-icon>
         </a>
         <button mat-button color="warn">
           <mat-icon>delete</mat-icon>
@@ -98,12 +98,12 @@
       </mat-card-content>
       <mat-card-actions>
         <!-- Download, Delete, and Share Buttons -->
-        <button mat-raised-button style="background-color: #001f3f; color: white">Download</button>
+        <button routerLink="/video/view"mat-raised-button style="background-color: #001f3f; color: white">View</button>
         <button mat-raised-button color="warn" style="margin-left: 5px">
           <mat-icon style="color: white">delete</mat-icon> Delete
         </button>
         <button mat-raised-button style="margin-left: 5px; background-color: #2f73d9">
-          <mat-icon>share</mat-icon> Share
+          <mat-icon>share</mat-icon> Post
         </button>
       </mat-card-actions>
     </mat-card>

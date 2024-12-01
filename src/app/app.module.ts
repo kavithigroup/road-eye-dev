@@ -100,6 +100,7 @@ import { PostsComponent } from './components/main/posts/posts.component';
 import { AddNewPostComponent } from './components/main/posts/add-new-post/add-new-post.component';
 import { ViewPostComponent } from './components/main/posts/view-post/view-post.component';
 import { LeaderboardComponent } from './components/public/landing-container/leaderboard/leaderboard.component';
+import { VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
 
 @NgModule({
   declarations: [
@@ -175,7 +176,8 @@ import { LeaderboardComponent } from './components/public/landing-container/lead
     PostsComponent,
     AddNewPostComponent,
     ViewPostComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    VideoPlayerComponent
 
   ],
   imports: [

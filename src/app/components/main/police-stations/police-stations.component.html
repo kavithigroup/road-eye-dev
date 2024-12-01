@@ -1,32 +1,44 @@
+<!-- Page Header -->
 <h1>Police Stations</h1>
 <mat-divider></mat-divider>
-<br>
-<button class="add-vehicle-btn" mat-button (click)="addStation()">Add Station</button>
+<br />
 
+<!-- Search Bar -->
+<div class="search-bar">
+  <mat-form-field class="search-input" appearance="outline">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="Search by name, location, etc."
+      [(ngModel)]="searchText"
+      (input)="filterStations()"
+    />
+    <button mat-icon-button matSuffix (click)="clearSearch()">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<!-- Button to Add a New Police Station -->
+<button class="add-vehicle-btn" mat-button (click)="addStation()">
+  Add Station
+</button>
+
+<!-- Container for Displaying Police Station Cards -->
 <div class="card-container">
-  <div class="card">
+  <div *ngFor="let station of filteredStations" class="card">
     <div class="card-title">
-      <h2>Colombo District | Kolpitty Branch </h2>
-      <div class="verified">Verified</div>
+      <h2>{{ station.name }}</h2>
+      <div [ngClass]="station.verified ? 'verified' : 'notverified'">
+        {{ station.verified ? 'Verified' : 'Not Verified' }}
+      </div>
     </div>
-
-
-    <h3>0111234567</h3>
-    <h3>WR7X+JJV, Galle Rd, Colombo 00300</h3>
-    <button mat-button>
+    <h3 class="contact-info">{{ station.contact }}</h3>
+    <h3 class="address">{{ station.address }}</h3>
+    <button class="map-btn" mat-button>
       <mat-icon>pin_drop</mat-icon>
       View on Map
     </button>
   </div>
-  <div class="card">
-    <div class="card-title">
-      <h2>Colombo District | Dehiwala Branch </h2>
-      <div class="notverified">Not Verified</div>
-    </div>
-    <h3>0111234789</h3>
-    <h3>Hill St, Dehiwala-Mount Lavinia</h3>
-    <button mat-button>
-      <mat-icon>pin_drop</mat-icon>
-      View on Map
-    </button>
 </div>

@@ -1,5 +1,71 @@
+// Variables for colors and spacing
+$primary-color: #006dab
+$secondary-color: #6c757d
+$background-color: #f8f9fa
+$padding: 16px
+
+// Title Styling
+h2
+  font-size: 1.8rem
+  font-weight: bold
+  color: $primary-color
+  text-align: center
+  margin-bottom: $padding / 2
+
+mat-divider
+  margin: $padding 0
+
+// Form Fields
+mat-form-field
+  margin-bottom: $padding
+  background-color: $background-color
+  border-radius: 8px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
+  input[matInput]
+    font-size: 1rem
+    padding: 8px
+    color: $secondary-color
+
+.full-width
+  width: 100%
+
+.half-width
+  width: 48%
+  margin-right: $padding / 4
+
+  &:last-child
+    margin-right: 0
+
 .row
   display: flex
-  gap: 20px
-  p
-    flex: 50%
+  justify-content: space-between
+  flex-wrap: wrap
+  margin-bottom: $padding
+
+// Action Buttons
+.action-btn, .cancel-btn
+  background-color: $primary-color
+  color: #fff
+  font-weight: bold
+  padding: 10px 20px
+  border-radius: 4px
+  text-transform: capitalize
+  transition: all 0.3s ease
+  margin-right: $padding / 2
+
+  &:hover
+    background-color: darken($primary-color, 10%)
+    transform: scale(1.05)
+
+.cancel-btn
+  background-color: $secondary-color
+
+  &:hover
+    background-color: darken($secondary-color, 10%)
+
+.flex-right
+  display: flex
+  justify-content: flex-end
+  gap: $padding / 2
+  margin-top: $padding

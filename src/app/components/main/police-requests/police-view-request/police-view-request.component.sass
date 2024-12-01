@@ -1,33 +1,65 @@
-.container
+// Variables for colors and spacing
+$primary-color: #006dab
+$secondary-color: #6c757d
+$danger-color: #dc3545
+$background-color: #f8f9fa
+$hover-color: rgba(0, 123, 255, 0.1)
+$font-family: 'Arial, sans-serif'
+$padding: 16px
+
+// Base styles
+body
+  font-family: $font-family
+  background-color: $background-color
+  margin: 0
+  padding: 0
+  color: $secondary-color
+
+h1
+  color: $primary-color
+  text-align: center
+  font-size: 2rem
+  font-weight: bold
+  margin-bottom: $padding
+
+.view-request-container
+  padding: $padding
+  margin: auto
+  max-width: 800px
+  background-color: #fff
+  border-radius: 8px
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+
+.details-header
+  font-size: 1.5rem
+  font-weight: bold
+  color: $primary-color
+  margin-bottom: 12px
+
+.request-details
+  list-style: none
+  padding: 0
+  margin: 0
+
+  li
+    margin-bottom: 8px
+    padding: 8px
+    border-bottom: 1px solid lighten($primary-color, 50%)
+
+    &:last-child
+      border-bottom: none
+
+    span.label
+      font-weight: bold
+      color: $secondary-color
+
+    span.value
+      color: $primary-color
+
+.actions
+  margin-top: 20px
   display: flex
+  justify-content: space-between
 
-  .main-content
-    flex: 2
-    .row1
-      display: flex
-      flex-direction: row
-      .col1, .col2
-        flex: 1
-
-  .container-side
-    flex: 1
-.add-vehicle-btn
-  margin-bottom: 20px
-  background-color: #006dab
-  color: #FFFFFF !important
-  margin-left: 10px
-  margin-top: 10px
-
-.remove-btn
-  margin-bottom: 20px
-  background-color: #e14128
-  color: #FFFFFF !important
-  margin-left: 10px
-  margin-top: 10px
-
-
-
-
-
-
-
+  .action-btn
+    background-c

@@ -1,12 +1,29 @@
+<!-- Dialog Title for Register Vehicle -->
 <h2 mat-dialog-title>Register Vehicle</h2>
+
+<!-- Divider for visual separation -->
 <mat-divider></mat-divider>
+
+<!-- Dialog content section with QR code instructions -->
 <mat-dialog-content><br>
-  <p>press "^" on the device for 5 seconds to scan the QR Code</p>
+
+  <!-- Instruction for the QR Code scan action -->
+  <p>Press "^" on the device for 5 seconds to scan the QR Code</p>
+
+  <!-- QR Code display area with dynamic QR data -->
   <div class="qrcode center">
-    <qrcode qrdata="hi ga" [scale]="8"></qrcode>
+    <qrcode qrdata="hi ga" [scale]="8"></qrcode> <!-- This is the QR code component -->
   </div>
+
 </mat-dialog-content>
+
+<!-- Divider to separate the content from dialog actions -->
 <mat-divider></mat-divider>
+
+<!-- Dialog action buttons -->
 <mat-dialog-actions class="flex-right">
+
+  <!-- Cancel button to close the dialog -->
   <button mat-button cdkFocusInitial>Cancel</button>
+
 </mat-dialog-actions>

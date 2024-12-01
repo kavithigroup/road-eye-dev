@@ -80,20 +80,20 @@
 <!-- If Grid View is Selected -->
 <ng-container *ngIf="gridView">
   <div class="card-container">
-    <mat-card class="example-card" appearance="outlined" *ngFor="let video of [0, 1, 1, 1, 1, 1]">
+    <mat-card class="example-card" appearance="outlined" *ngFor="let item of video_capture">
       <mat-card-header>
         <!-- Card Avatar (Could be a Thumbnail of the Video) -->
         <div mat-card-avatar class="example-header-image"></div>
         <!-- Title and Subtitle with Capture Date -->
-        <mat-card-title>Video Capture 1</mat-card-title>
-        <mat-card-subtitle>12/7/2024 - 15:30</mat-card-subtitle>
+        <mat-card-title>{{ item.video }}</mat-card-title>
+        <mat-card-subtitle>{{ item.reg_time }}</mat-card-subtitle>
       </mat-card-header>
       <!-- Sample Image (Replace with Actual Image or Video Preview) -->
-      <img mat-card-image src="https://www.shutterstock.com/image-photo/car-camera-260nw-527713312.jpg" alt="Sample Video Capture">
+      <img mat-card-image src="https://storage.cloud.google.com/road-eye/video-uploads/{{item.video}}" alt="Sample Video Capture">
       <mat-card-content class="content">
         <!-- Video Vehicle Number Info -->
         <p>
-          Vehicle Number - WP CAB 1234
+          Vehicle Number - {{ item.vehicle_number }}
         </p>
       </mat-card-content>
       <mat-card-actions>

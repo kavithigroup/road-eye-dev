@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import {appointment} from "../appointments/appointments.component";
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {ApiService} from "../../../services/api.service";
+import {AuthService} from "../../../services/auth.service";
+
 export interface videocapture {
   id: number;
   captureTime: string;
@@ -18,7 +21,26 @@ const capture_DATA: videocapture[] = [
   templateUrl: './video-captures.component.html',
   styleUrls: ['./video-captures.component.sass']
 })
-export class VideoCapturesComponent {
+export class VideoCapturesComponent implements OnInit{
+
+  video_capture: {
+    vehicle_number:string
+    reg_time: string
+    video:string
+
+  }[] = []
+
+  constructor(private dialog: MatDialog, private api: ApiService, private auth: AuthService) {
+  }
+
+  ngOnInit(){
+    this.api.get("/video-capture/user", {user: this.auth.user?.user_id}).subscribe(httpResponse => {
+      this.video_capture = httpResponse.body
+      console.log(this.video_capture)
+    })
+
+  }
+
   gridView = true
   displayedColumns: string[] = ['id', 'captureTime', 'captureDate', 'vehicleNumber', 'status', 'captureImage','action'];
   dataSource = capture_DATA;

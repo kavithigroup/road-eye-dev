@@ -1,41 +1,98 @@
-import { Component } from '@angular/core';
-import {Complaint} from "../complain/complain.component";
-
-import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../services/api.service';
+import { AuthService } from '../../../services/auth.service';
+import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 
-
-
-const COMPLAINT_DATA: Complaint[] = [
-  { id: 1, complaintTime: '14:30', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Pending Kavithma' },
-  { id: 2, complaintTime: '15:00', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Resolved' },
-  { id: 3, complaintTime: '16:15', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'In Progress' },
-  { id: 4, complaintTime: '14:30', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Pending Kavithma' },
-  { id: 5, complaintTime: '15:00', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Resolved' }
-];
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.sass']
+  styleUrls: ['./dashboard.component.sass'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  // Card data
+  totalPosts = 0;
+  totalComplaints = 0;
+  totalVehicles = 0;
+  totalVideoCaptures = 0;
 
+  // Table data
   displayedColumns: string[] = ['id', 'complaintTime', 'complaintDate', 'complaintSubject', 'status'];
-  dataSource = COMPLAINT_DATA;
+  dataSource: any[] = [];
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin, interactionPlugin],
     dateClick: this.handleDateClick.bind(this),
-    events: [
-      { title: 'Appointment 1', date: '2024-07-10' },
-      { title: 'Appointment 2', date: '2024-07-05' }
-    ]
+    events: [] // Will be populated with fetched events
   };
 
-  handleDateClick(arg: DateClickArg) {
-    alert('date click! ' + arg.dateStr);
+  constructor(private api: ApiService, private auth: AuthService) {}
+
+  ngOnInit() {
+    this.fetchDashboardData();
+    this.fetchComplaints();
   }
 
+  /**
+   * Fetches counts for posts, complaints, vehicles, and video captures
+   */
+  fetchDashboardData() {
+    const userId = this.auth.user?.user_id;
+
+    if (userId) {
+      // Use GET requests instead of POST
+      this.api.get(`/counts/posts/by-user/${userId}`).subscribe(
+        (response: any) => {
+          this.totalPosts = response.post_count;
+        },
+        (error) => console.error('Error fetching posts count:', error)
+      );
+
+      this.api.get(`/counts/complaints/by-user/${userId}`).subscribe(
+        (response: any) => {
+          this.totalComplaints = response.complaint_count;
+        },
+        (error) => console.error('Error fetching complaints count:', error)
+      );
+
+      this.api.get(`/counts/vehicles/by-user/${userId}`).subscribe(
+        (response: any) => {
+          this.totalVehicles = response.vehicle_count;
+        },
+        (error) => console.error('Error fetching vehicles count:', error)
+      );
+
+      this.api.get(`/counts/videos/by-user/${userId}`).subscribe(
+        (response: any) => {
+          this.totalVideoCaptures = response.video_count;
+        },
+        (error) => console.error('Error fetching video captures count:', error)
+      );
+    }
+  }
+
+
+  /**
+   * Fetches complaints for the logged-in user
+   */
+  fetchComplaints() {
+    const userId = this.auth.user?.user_id;
+
+    if (userId) {
+      this.api.post('/complain/user', { user: userId }).subscribe(
+        (complaints: any) => {
+          this.dataSource = complaints;
+        },
+        (error) => {
+          console.error('Error fetching complaints:', error);
+        }
+      );
+    }
+  }
+
+  handleDateClick(arg: DateClickArg) {
+    alert('Date clicked: ' + arg.dateStr);
+  }
 }

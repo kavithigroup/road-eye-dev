@@ -1,131 +1,86 @@
-
-<!--dashboard analytics card row-->
-
+<!-- Dashboard Analytics Card Row -->
 <div class="dash-cards">
   <div class="one-card">
-
     <span class="card-content">
-     <p class="card-number">25</p>
-      <p>Inquiries</p>
+      <p class="card-number">{{ totalComplaints }}</p>
+      <p>Complaints</p>
     </span>
-
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">info</mat-icon>
+      <mat-icon class="card-icon">car_crash</mat-icon>
     </span>
-
   </div>
 
   <div class="one-card">
-
     <span class="card-content">
-     <p class="card-number">125</p>
+      <p class="card-number">{{ totalUsers }}</p>
       <p>Users</p>
     </span>
-
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">account_circle</mat-icon>
+      <mat-icon class="card-icon">account_circle</mat-icon>
     </span>
-
   </div>
 
   <div class="one-card">
-
     <span class="card-content">
-     <p class="card-number">250,000</p>
+      <p class="card-number">{{ totalEarnings }}</p>
       <p>Earnings</p>
     </span>
-
     <div class="vertical-line"></div>
     <span class="card-icon">
-<mat-icon class="card-icon">payments</mat-icon>
+      <mat-icon class="card-icon">payments</mat-icon>
     </span>
-
   </div>
 
-    <div class="one-card">
-
-      <span class="card-content">
-      <p class="card-number">72</p>
-        <p>Vehicles Registered</p>
-      </span>
-
-    <div class="vertical-line"></div>
-    <span class="card-icon">
-<mat-icon class="card-icon">commute</mat-icon>
-    </span>
-
-  </div>
-
-<!--  <div class="one-card">
-
+  <div class="one-card">
     <span class="card-content">
-    <p class="card-number">72</p>
+      <p class="card-number">{{ totalVehicles }}</p>
       <p>Vehicles Registered</p>
     </span>
-
-  <div class="vertical-line"></div>
-  <span class="card-icon">
-<mat-icon class="card-icon">commute</mat-icon>
-  </span>
-
-</div> -->
-
+    <div class="vertical-line"></div>
+    <span class="card-icon">
+      <mat-icon class="card-icon">commute</mat-icon>
+    </span>
+  </div>
 </div>
 
-
-<br >
-
+<br>
 <mat-divider></mat-divider>
+<br>
 
-<br />
-<!--Recent paymenet section-->
-  <div class="dash-content">
+<!-- Hardcoded sections -->
+<div class="dash-content">
+  <div class="dash-table">
+    <h2>Recent Payments</h2>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
 
-    <div class="dash-table">
+      <ng-container matColumnDef="complaintTime">
+        <th mat-header-cell *matHeaderCellDef> Payment Time </th>
+        <td mat-cell *matCellDef="let element">{{ element.complaintTime }}</td>
+      </ng-container>
 
-      <h2>Recent Payments</h2>
+      <ng-container matColumnDef="complaintDate">
+        <th mat-header-cell *matHeaderCellDef> Payment Date </th>
+        <td mat-cell *matCellDef="let element">{{ element.complaintDate }}</td>
+      </ng-container>
 
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="complaintSubject">
+        <th mat-header-cell *matHeaderCellDef> Subscription Type </th>
+        <td mat-cell *matCellDef="let element">{{ element.complaintSubject }}</td>
+      </ng-container>
 
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef>ID</th>
-          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-        </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Payment Status </th>
+        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+      </ng-container>
 
-        <!-- Complaint Time Column -->
-        <ng-container matColumnDef="complaintTime">
-          <th mat-header-cell *matHeaderCellDef> Payment Time </th>
-          <td mat-cell *matCellDef="let element"> {{element.complaintTime}} </td>
-        </ng-container>
-
-        <!-- Complaint Date Column -->
-        <ng-container matColumnDef="complaintDate">
-          <th mat-header-cell *matHeaderCellDef> Payment Date </th>
-          <td mat-cell *matCellDef="let element"> {{element.complaintDate}} </td>
-        </ng-container>
-
-        <!-- Complaint Subject Column -->
-        <ng-container matColumnDef="complaintSubject">
-          <th mat-header-cell *matHeaderCellDef> Subscription Type </th>
-          <td mat-cell *matCellDef="let element"> {{element.complaintSubject}} </td>
-        </ng-container>
-
-        <!-- Status Column -->
-        <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef> Payment Status </th>
-          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
-        </ng-container>
-
-        <!-- Header and Row Definitions -->
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-      </table>
-    </div>
-
-
-
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 </div>
-

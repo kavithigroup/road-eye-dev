@@ -68,6 +68,9 @@ import {LeaderboardComponent} from "./components/public/landing-container/leader
 import {RequestDetailsPopupComponent} from "./components/main/police-requests/request-details-popup/request-details-popup.component";
 import {VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
 import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
+import {PoliceStationComponent} from "./components/main/police-stations/police-station/police-station.component";
+
+
 
 
 
@@ -139,6 +142,7 @@ const routes: Routes = [
       {path: "police-requests/request-popup", component: RequestDetailsPopupComponent},
       {path: "video/view", component:VideoPlayerComponent},
       {path: "posts/new", component:NewPostComponent},
+      {path: "police-stations/station", component:PoliceStationComponent},
 
 
     ]

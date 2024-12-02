@@ -88,8 +88,9 @@
 
           <div class="button-row">
             <button class="add-vehicle-btn" mat-stroked-button>Update</button>
-            <button class="add-vehicle-btn" mat-stroked-button>Upload Ownership Document</button>
+            <button class="add-vehicle-btn" mat-stroked-button (click)="fileUploadInput.click()">Upload Ownership Document</button>
             <button class="remove-btn" mat-stroked-button (click)="remove()">Remove</button>
+            <input type="file" #fileUploadInput (change)="uploadFiles($event)" hidden>
 
           </div>
         </section>

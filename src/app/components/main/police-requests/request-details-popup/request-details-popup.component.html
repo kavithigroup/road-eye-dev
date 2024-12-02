@@ -1,67 +1,105 @@
-<p>popup</p>
+<div class="popup-header">
+  <h1>Request Details</h1>
+  <mat-divider></mat-divider>
+</div>
 
-
-<!-- <h1>Request ID: {{ data.request_id }}</h1>
-<mat-divider></mat-divider>
-
-<div class="view-request-container">
-  <div class="details-header">Request Details</div>
-
-  <ul class="request-details">
-    <li>
+<div *ngIf="!isUpdateMode; else updateFormTemplate" class="popup-content">
+  <div class="request-summary">
+    <div class="summary-item">
       <span class="label">Incident Date:</span>
       <span class="value">{{ data.incident_date }}</span>
-    </li>
-    <li>
+    </div>
+    <div class="summary-item">
       <span class="label">Incident Time:</span>
       <span class="value">{{ data.incident_time }}</span>
-    </li>
-    <li>
+    </div>
+    <div class="summary-item">
       <span class="label">District:</span>
       <span class="value">{{ data.district }}</span>
-    </li>
-    <li>
+    </div>
+    <div class="summary-item">
       <span class="label">Location:</span>
       <span class="value">{{ data.location }}</span>
-    </li>
-    <li>
-      <span class="label">Vehicle ID:</span>
-      <span class="value">{{ data.vehicle_id }}</span>
-    </li>
-    <li>
-      <span class="label">Vehicle Type:</span>
-      <span class="value">{{ data.type }}</span>
-    </li>
-    <li>
-      <span class="label">Vehicle Color:</span>
-      <span class="value">{{ data.color }}</span>
-    </li>
-    <li>
+    </div>
+    <div class="summary-item">
       <span class="label">Reason:</span>
       <span class="value">{{ data.reason }}</span>
-    </li>
-    <li>
-      <span class="label">Registration Status:</span>
-      <span class="value">{{ data.registration_status }}</span>
-    </li>
-  </ul>
+    </div>
+    <div class="summary-item">
+      <span class="label">Vehicle ID:</span>
+      <span class="value">{{ data.vehicle_id }}</span>
+    </div>
+    <div class="summary-item">
+      <span class="label">Vehicle Type:</span>
+      <span class="value">{{ data.type }}</span>
+    </div>
+    <div class="summary-item">
+      <span class="label">Vehicle Color:</span>
+      <span class="value">{{ data.color }}</span>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
 
   <div class="actions">
-    <a class="action-btn" routerLink="/map">
-      <mat-icon>map</mat-icon>
-      View Map
-    </a>
-    <a class="action-btn" routerLink="/police-requests/view/history">
-      <mat-icon>history</mat-icon>
-      Tracking History
-    </a>
-    <button class="action-btn update-btn" mat-button>
+    <button mat-raised-button color="primary" class="action-btn" (click)="toggleUpdateMode()" style="align-self: center;">
       <mat-icon>edit</mat-icon>
       Update Request
     </button>
-    <button class="action-btn delete-btn" mat-button>
+    <button mat-raised-button color="primary" class="action-btn" (click)="goToTrackingHistory()" style="align-self: center;">
+      <mat-icon>history</mat-icon>
+      Tracking History
+    </button>
+    <button mat-raised-button color="warn" class="action-btn" (click)="deleteRequest()" style="align-self: flex-end;">
       <mat-icon>delete</mat-icon>
       Delete Request
     </button>
   </div>
-</div> -->
+</div>
+
+<ng-template #updateFormTemplate>
+  <form [formGroup]="updateForm" (ngSubmit)="updateRequest()" class="update-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Incident Date</mat-label>
+      <input matInput formControlName="incident_date" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Incident Time</mat-label>
+      <input matInput formControlName="incident_time" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>District</mat-label>
+      <input matInput formControlName="district" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <input matInput formControlName="location" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Reason</mat-label>
+      <textarea matInput formControlName="reason"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Vehicle ID</mat-label>
+      <input matInput formControlName="vehicle_id" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Vehicle Type</mat-label>
+      <input matInput formControlName="type" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Vehicle Color</mat-label>
+      <input matInput formControlName="color" />
+    </mat-form-field>
+    <div class="actions">
+      <button mat-raised-button color="primary" type="submit" class="action-btn">
+        <mat-icon>save</mat-icon>
+        Save Changes
+      </button>
+      <button mat-raised-button color="warn" type="button" class="action-btn" (click)="toggleUpdateMode()">
+        <mat-icon>cancel</mat-icon>
+        Cancel
+      </button>
+    </div>
+  </form>
+</ng-template>

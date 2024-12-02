@@ -69,6 +69,10 @@ import {RequestDetailsPopupComponent} from "./components/main/police-requests/re
 import {VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
 import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
 import {AddInquiryComponent} from "./components/main/inquiries/add-inquiry/add-inquiry.component";
+import {
+  VehicleSearchHistoryComponent
+} from "./components/main/locationrequests/vehicle-search-history/vehicle-search-history.component";
+
 
 
 
@@ -141,6 +145,8 @@ const routes: Routes = [
       {path: "police-requests/request-popup", component: RequestDetailsPopupComponent},
       {path: "video/view", component:VideoPlayerComponent},
       {path: "posts/new", component:NewPostComponent},
+      {path: "locationrequests/vehiclesearch/:vehicleId", component:VehicleSearchHistoryComponent},
+
 
 
     ]

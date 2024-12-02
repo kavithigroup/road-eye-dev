@@ -103,6 +103,7 @@ import { LeaderboardComponent } from './components/public/landing-container/lead
 import { VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
 import {NgOptimizedImage} from "@angular/common";
 import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
+import { VehicleSearchHistoryComponent } from './components/main/locationrequests/vehicle-search-history/vehicle-search-history.component';
 
 @NgModule({
   declarations: [
@@ -180,7 +181,8 @@ import {NewPostComponent} from "./components/main/posts/new-post/new-post.compon
     ViewPostComponent,
     LeaderboardComponent,
     VideoPlayerComponent,
-    NewPostComponent
+    NewPostComponent,
+    VehicleSearchHistoryComponent
 
   ],
     imports: [

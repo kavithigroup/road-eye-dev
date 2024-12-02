@@ -63,7 +63,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {CoporateDashboardComponent} from './components/main/coporate-dashboard/coporate-dashboard.component';
 import {PaymentsComponent} from './components/main/payments/payments.component';
-import {InquiriesComponent} from './components/main/inquiries/inquiries.component';
+import {InquiryComponent} from './components/main/inquiries/inquiries.component';
 import {NotificationsComponent} from './components/main/notifications/notifications.component';
 import {ProductsComponent} from './components/main/products/products.component';
 import {AddProductComponent} from './components/main/products/add-product/add-product.component';
@@ -105,6 +105,8 @@ import {NgOptimizedImage} from "@angular/common";
 import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
 import { PoliceStationComponent } from './components/main/police-stations/police-station/police-station.component';
 import { RequestDetailsPopupComponent } from './components/main/police-requests/request-details-popup/request-details-popup.component';
+import { VehicleSearchHistoryComponent } from './components/main/locationrequests/vehicle-search-history/vehicle-search-history.component';
+
 
 @NgModule({
   declarations: [
@@ -146,7 +148,7 @@ import { RequestDetailsPopupComponent } from './components/main/police-requests/
     AddStationComponent,
     CoporateDashboardComponent,
     PaymentsComponent,
-    InquiriesComponent,
+    InquiryComponent,
     NotificationsComponent,
     ProductsComponent,
     AddProductComponent,
@@ -184,7 +186,8 @@ import { RequestDetailsPopupComponent } from './components/main/police-requests/
     VideoPlayerComponent,
     NewPostComponent,
     PoliceStationComponent,
-    RequestDetailsPopupComponent
+    RequestDetailsPopupComponent,
+    VehicleSearchHistoryComponent
 
   ],
     imports: [

@@ -1,11 +1,6 @@
 <h1>Your Posts</h1>
-<!-- Main heading for the posts page -->
-
 <mat-divider></mat-divider>
-<!-- Divider component from Angular Material to visually separate sections -->
-
 <br>
-<!-- Adds spacing between the divider and the "Add New Post" button -->
 
 <!-- Button for navigating to the "Add New Post" page -->
 <a class="add-vehicle-btn" routerLink="/posts/new" mat-button>
@@ -14,50 +9,32 @@
 </a>
 
 <ng-container>
-  <!-- Wrapper to contain and manage dynamic content rendering -->
-
   <div class="card-container">
-    <!-- Container to hold a series of cards for displaying posts -->
-
-    <!-- Loop through a list of video posts (placeholder array in this case) -->
-    <mat-card class="example-card" appearance="outlined" *ngFor="let video of [0, 1, 1]">
-      <!-- Individual card for each post with a specific Angular Material styling -->
-
+    <!-- Loop through posts dynamically fetched from the backend -->
+    <mat-card class="example-card" appearance="outlined" *ngFor="let item of post">
       <mat-card-header>
-        <!-- Card header containing the title and subtitle -->
         <div mat-card-avatar class="example-header-image"></div>
-        <!-- Placeholder for an avatar or profile image -->
-
-        <mat-card-title>Incident report Post 1</mat-card-title>
-        <!-- Title of the post -->
-
-        <mat-card-subtitle>12/7/2024 - 15:30</mat-card-subtitle>
-        <!-- Subtitle to display the date and time of the post -->
+        <mat-card-title>{{ item.title }}</mat-card-title>
       </mat-card-header>
 
-      <!-- Image section within the card, representing a visual related to the post -->
-      <img mat-card-image src="https://www.shutterstock.com/image-photo/car-camera-260nw-527713312.jpg" alt="Photo of a Shiba Inu">
-
-      <mat-card-content class="content">
-        <!-- Content section to display detailed information -->
-        <p>
-          <br>
-          Vehicle Number - WP CAB 1234
-          <!-- Placeholder for vehicle-related details -->
-        </p>
-      </mat-card-content>
+      <!-- Post image -->
+      <video mat-card-image controls [src]="'https://storage.cloud.google.com/road-eye/video-uploads/' + item.video_link+ '.mp4'" alt="Sample Video Capture"></video>
 
       <mat-card-actions>
-        <!-- Action buttons for user interactions related to the post -->
-        <button mat-button>Share</button>
-        <!-- Button to allow users to share the post -->
-
-        <button routerLink="/posts/view" mat-button>View More details</button>
-        <!-- Button to navigate to a detailed view of the post -->
-
+        <button mat-button (click)="sharePost(item)">Share</button>
+        <button mat-button (click)="toggleDetails(item.id)">
+          {{ item.showDetails ? 'Hide Details' : 'View More Details' }}
+        </button>
         <button mat-button color="warn">Delete</button>
-        <!-- Button to delete the post with a warning color for emphasis -->
       </mat-card-actions>
+
+      <!-- Additional Post Details, shown/hidden based on the toggle flag -->
+      <div *ngIf="item.showDetails">
+        <p><strong>Description:</strong> {{ item.description }}</p>
+        <p><strong>Likes:</strong> {{ item.likes }}</p>
+        <p><strong>Views:</strong> {{ item.views }}</p>
+        <p><strong>Comments:</strong> {{ item.comments }}</p>
+      </div>
     </mat-card>
   </div>
 </ng-container>

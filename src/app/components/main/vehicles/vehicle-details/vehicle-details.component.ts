@@ -61,4 +61,23 @@ export class VehicleDetailsComponent implements OnInit {
       this.router.navigateByUrl("/vehicles").then()
     })
   }
+
+  uploadFiles(event: any) {
+    const file = event?.target?.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.api.post("/vehicle/file", {
+          first_name: "AAAA",
+          file: reader.result?.toString()
+        }).subscribe(httpResponse =>{
+            alert("File Uploaded!")
+        })
+      }
+      reader.readAsDataURL(file);
+    }
+  }
 }
+
+
+// filename = upload_file(data.file)

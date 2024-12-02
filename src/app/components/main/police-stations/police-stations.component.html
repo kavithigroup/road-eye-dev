@@ -71,6 +71,17 @@
       </mat-error>
     </mat-form-field>
 
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Police User Email</mat-label>
+      <input matInput formControlName="police_user" placeholder="Enter police user email" />
+      <mat-error *ngIf="addStationForm.get('police_user')?.hasError('required')">
+        Email is required.
+      </mat-error>
+      <mat-error *ngIf="addStationForm.get('police_user')?.hasError('pattern')">
+        Enter a valid email address.
+      </mat-error>
+    </mat-form-field>
+
     <button mat-raised-button color="primary" type="submit" [disabled]="!addStationForm.valid">
       Submit
     </button>
@@ -88,6 +99,7 @@
     </div>
     <h3 class="contact-info">{{ station.phone }}</h3>
     <h3 class="address">{{ station.address }}</h3>
+    <h4 class="email"><span>Assigned Police User:</span> {{ station.police_user }}</h4>
 
     <!-- Buttons Container -->
     <div class="card-actions">

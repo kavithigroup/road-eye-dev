@@ -31,9 +31,21 @@ export class ApiService {
       .pipe(timeout(timeOut || 50000), catchError(this.handleError));
   }
 
-  post(endpoint: string, body?: object, timeOut?: number): Observable<any> {
+  post(endpoint: string, body?: object, options?: { headers?: { [key: string]: any }, timeout?: number }): Observable<any> {
+    return this.http.post(this.baseUrl + endpoint, body, {
+      withCredentials: true,
+      responseType: "json",
+      observe: "response",
+      ...options // Spread the options object to include custom headers
+    }).pipe(
+      timeout(options?.timeout || 50000), // Use timeout from options if provided
+      catchError(this.handleError)
+    );
+  }
+  
+  delete(endpoint: string, timeOut?: number): Observable<any> {
     return this.http
-      .post(this.baseUrl + endpoint, body, {
+      .delete(this.baseUrl + endpoint, {
         withCredentials: true,
         responseType: 'json',
         observe: 'response',
@@ -53,7 +65,7 @@ export class ApiService {
 
   delete(endpoint: string, timeOut?: number): Observable<any> {
     return this.http
-      .delete(this.baseUrl + endpoint, {
+      .put(this.baseUrl + endpoint, body, {
         withCredentials: true,
         responseType: 'json',
         observe: 'response',

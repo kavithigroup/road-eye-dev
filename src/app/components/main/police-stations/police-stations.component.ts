@@ -20,13 +20,17 @@ export class PoliceStationsComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router // For navigation
   ) {
-    // Initialize the form without the `status` field
+    // Initialize the form with the `police_user` field
     this.addStationForm = this.fb.group({
       district: ['', Validators.required],
       branch: ['', Validators.required],
       phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10,15}$/)]], // Allow up to 15 digits
       address: ['', Validators.required],
-      map_location: ['', Validators.required]
+      map_location: ['', Validators.required],
+      police_user: [
+        '',
+        [Validators.required, Validators.email] // Validate email format
+      ]
     });
   }
 
@@ -35,18 +39,28 @@ export class PoliceStationsComponent implements OnInit {
   }
 
   // Fetch all police stations from the backend
-  fetchAllStations(): void {
-    this.api.get('/stations/details/').subscribe(
-      (response: any) => {
-        this.stations = response.data;
+fetchAllStations(): void {
+  this.api.get('/stations/details/').subscribe(
+    (response: any) => {
+      if (response && response.data) {
+        // Validate and assign data
+        this.stations = Array.isArray(response.data) ? response.data : [];
         this.filteredStations = [...this.stations];
         console.log('Fetched stations:', this.stations);
-      },
-      (error) => {
-        console.error('Failed to fetch stations:', error);
+      } else {
+        console.error('Unexpected response structure:', response);
+        this.stations = [];
+        this.filteredStations = [];
       }
-    );
-  }
+    },
+    (error) => {
+      console.error('Failed to fetch stations:', error);
+      this.stations = [];
+      this.filteredStations = [];
+    }
+  );
+}
+
 
   // Filter stations based on the search input
   filterStations(): void {
@@ -107,6 +121,6 @@ export class PoliceStationsComponent implements OnInit {
 
   // Navigate to the police station details page
   viewStationDetails(station: any): void {
-    this.router.navigate(['/police-station'], { state: { station } });
+    this.router.navigate(['police-stations/station'], { state: { station } });
   }
 }

@@ -103,7 +103,10 @@ import { LeaderboardComponent } from './components/public/landing-container/lead
 import { VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
 import {NgOptimizedImage} from "@angular/common";
 import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
+import { PoliceStationComponent } from './components/main/police-stations/police-station/police-station.component';
+import { RequestDetailsPopupComponent } from './components/main/police-requests/request-details-popup/request-details-popup.component';
 import { VehicleSearchHistoryComponent } from './components/main/locationrequests/vehicle-search-history/vehicle-search-history.component';
+
 
 @NgModule({
   declarations: [
@@ -182,6 +185,8 @@ import { VehicleSearchHistoryComponent } from './components/main/locationrequest
     LeaderboardComponent,
     VideoPlayerComponent,
     NewPostComponent,
+    PoliceStationComponent,
+    RequestDetailsPopupComponent,
     VehicleSearchHistoryComponent
 
   ],

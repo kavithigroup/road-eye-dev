@@ -68,10 +68,13 @@ import {LeaderboardComponent} from "./components/public/landing-container/leader
 import {RequestDetailsPopupComponent} from "./components/main/police-requests/request-details-popup/request-details-popup.component";
 import {VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
 import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
+import {PoliceStationComponent} from "./components/main/police-stations/police-station/police-station.component";
+
 import {AddInquiryComponent} from "./components/main/inquiries/add-inquiry/add-inquiry.component";
 import {
   VehicleSearchHistoryComponent
 } from "./components/main/locationrequests/vehicle-search-history/vehicle-search-history.component";
+
 
 
 
@@ -145,7 +148,10 @@ const routes: Routes = [
       {path: "police-requests/request-popup", component: RequestDetailsPopupComponent},
       {path: "video/view", component:VideoPlayerComponent},
       {path: "posts/new", component:NewPostComponent},
+      {path: "police-stations/station", component:PoliceStationComponent},
+=======
       {path: "locationrequests/vehiclesearch/:vehicleId", component:VehicleSearchHistoryComponent},
+
 
 
 

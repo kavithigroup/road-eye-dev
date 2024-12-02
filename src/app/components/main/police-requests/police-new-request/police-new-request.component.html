@@ -1,92 +1,82 @@
-<h1>New Request</h1>
-
+<h1>New Police Request</h1>
 <mat-divider></mat-divider>
-<br /><br />
+<br />
 
 <div class="complain-form">
-  <!--<p class="error">{{ error }}</p>-->
-  <!--<form [formGroup]="form">-->
-
+  <!-- Date and Time -->
   <div class="row">
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Type</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let type of types" [value]="type">{{
-            type
-          }}</mat-option>
-        </mat-select>
+        <mat-label>Incident Date</mat-label>
+        <input matInput type="date" [(ngModel)]="requestData.incident_date" required />
       </mat-form-field>
     </p>
 
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Color</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let color of colors" [value]="color">{{
-            color
-          }}</mat-option>
-        </mat-select>
+        <mat-label>Incident Time</mat-label>
+        <input matInput type="time" [(ngModel)]="requestData.incident_time" required />
       </mat-form-field>
     </p>
   </div>
 
-  <div class="row">
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Vehicle Number Plate</mat-label>
-        <input matInput required />
-      </mat-form-field>
-    </p>
-  </div>
-
+  <!-- District and Location -->
   <div class="row">
     <p>
       <mat-form-field appearance="outline">
         <mat-label>District</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let district of districts" [value]="district">{{
-            district
-          }}</mat-option>
+        <mat-select [(ngModel)]="requestData.district" required>
+          <mat-option *ngFor="let district of districts" [value]="district">{{ district }}</mat-option>
         </mat-select>
       </mat-form-field>
     </p>
+
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Location</mat-label>
-        <input matInput required />
+        <input matInput [(ngModel)]="requestData.location" />
       </mat-form-field>
     </p>
   </div>
 
+  <!-- Vehicle Information -->
   <div class="row">
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Subject</mat-label>
-        <input matInput required />
+        <mat-label>Vehicle Number Plate</mat-label>
+        <input matInput [(ngModel)]="requestData.vehicle_id" required />
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Vehicle Type</mat-label>
+        <mat-select [(ngModel)]="requestData.type" required>
+          <mat-option *ngFor="let type of types" [value]="type">{{ type }}</mat-option>
+        </mat-select>
       </mat-form-field>
     </p>
   </div>
 
+  <!-- Color and Reason -->
   <div class="row">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Vehicle Color</mat-label>
+        <mat-select [(ngModel)]="requestData.color">
+          <mat-option *ngFor="let color of colors" [value]="color">{{ color }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Reason</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput [(ngModel)]="requestData.reason" required></textarea>
       </mat-form-field>
     </p>
   </div>
 
-  <div class="row">
-    <p>Add vehicle footages if you already have</p>
-    <button mat-button class="add-vehicle-btn">Add</button>
-  </div>
-  <p>
-    <mat-checkbox class="example-margin" color="primary">
-      I need notification about status of the Request</mat-checkbox
-    >
-  </p>
-
-  <button mat-raised-button class="btn-submit">Submit</button>
-  <!--</form>-->
+  <!-- Submit Button -->
+  <button mat-raised-button color="primary" class="btn-submit" (click)="submitRequest()">Submit</button>
 </div>

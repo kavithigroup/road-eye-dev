@@ -34,7 +34,7 @@ import {SetOpeningHoursComponent} from "./components/main/set-opening-hours/set-
 import {AddStationComponent} from "./components/main/police-stations/add-station/add-station.component";
 import {CoporateDashboardComponent} from "./components/main/coporate-dashboard/coporate-dashboard.component";
 import {PaymentsComponent} from "./components/main/payments/payments.component";
-import {InquiriesComponent} from "./components/main/inquiries/inquiries.component";
+import {InquiryComponent} from "./components/main/inquiries/inquiries.component";
 import {NotificationsComponent} from "./components/main/notifications/notifications.component";
 import {ProductsComponent} from "./components/main/products/products.component";
 import {AddProductComponent} from "./components/main/products/add-product/add-product.component";
@@ -65,8 +65,11 @@ import {PostsComponent} from "./components/main/posts/posts.component";
 import {ViewPostComponent} from "./components/main/posts/view-post/view-post.component";
 import {AddNewPostComponent} from "./components/main/posts/add-new-post/add-new-post.component";
 import {LeaderboardComponent} from "./components/public/landing-container/leaderboard/leaderboard.component";
+import {RequestDetailsPopupComponent} from "./components/main/police-requests/request-details-popup/request-details-popup.component";
 import {VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
 import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
+import {AddInquiryComponent} from "./components/main/inquiries/add-inquiry/add-inquiry.component";
+
 
 
 const routes: Routes = [
@@ -110,7 +113,8 @@ const routes: Routes = [
       {path: "set-opening-hours", component: SetOpeningHoursComponent},
       {path: "coporate-dashboard", component: CoporateDashboardComponent},
       {path: "payments", component: PaymentsComponent},
-      {path: "inquiries", component: InquiriesComponent},
+      {path: "inquiries", component: InquiryComponent},
+      {path: "inquiries/new", component: AddInquiryComponent},
       {path: "notifications", component: NotificationsComponent},
       {path: "products", component: ProductsComponent},
       {path: "products/add", component: AddProductComponent},
@@ -134,8 +138,10 @@ const routes: Routes = [
       {path: "posts", component:PostsComponent},
       {path: "posts/view", component:ViewPostComponent},
       {path: "posts/add-new", component:AddNewPostComponent},
+      {path: "police-requests/request-popup", component: RequestDetailsPopupComponent},
       {path: "video/view", component:VideoPlayerComponent},
       {path: "posts/new", component:NewPostComponent},
+
 
     ]
   },

@@ -1,32 +1,43 @@
-import { Component } from '@angular/core';
-import {Complaint} from "../complain/complain.component";
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from "../../../services/api.service";
+import { AuthService } from "../../../services/auth.service";
 
 export interface Location {
   id: number;
   vehicleNumber: string;
-  model: string,
-  brand : string,
-  type: string,
-  color: string,
-  status: string,
-  date: string,
+  model: string;
+  brand: string;
+  type: string;
+  color: string;
+  status: string;
+  date: string;
 }
 
-const REQUEST_DATA: Location[] = [
-  { id: 1, vehicleNumber: 'KS1235', brand: 'Toyota', model: 'Aqua', color: 'black', status: 'Verified', type: 'Car', date:'2024-07-15'  },
-  { id: 2, vehicleNumber: 'AB1225', brand: 'Toyota', model: 'Aqua', color: 'black', status: 'Not Verified', type: 'Van' , date:'2024-07-15' },
-  { id: 3, vehicleNumber: 'GH1115', brand: 'Toyota', model: 'Aqua', color: 'black', status: 'Not Verified', type: 'Cab', date:'2024-07-15'  },
-  { id: 4, vehicleNumber: 'JK1005', brand: 'Toyota', model: 'Aqua', color: 'black', status: 'Verified', type: 'Car' , date:'2024-07-15' },
-
-];
 @Component({
   selector: 'app-locationrequests',
   templateUrl: './locationrequests.component.html',
   styleUrls: ['./locationrequests.component.sass']
 })
-export class LocationrequestsComponent {
+export class LocationrequestsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'vehicleNumber','brand', 'model','type','color', 'status', 'action'];
-  dataSource = REQUEST_DATA;
+  displayedColumns: string[] = ['id', 'vehicleNumber', 'brand', 'model', 'type', 'color', 'status', 'action'];
+  dataSource: Location[] = [];
 
+  constructor(private api: ApiService, private auth: AuthService) {}
+
+  ngOnInit() {
+    // Fetch the vehicle data from the backend
+    this.api.post("/vehicle/list", { user: this.auth.user?.user_id }).subscribe(response => {
+      this.dataSource = response.body.map((vehicle: any, index: number) => ({
+        id: index + 1,
+        vehicleNumber: vehicle.vehicle_number,
+        model: vehicle.model,
+        brand: vehicle.brand,
+        type: vehicle.type,
+        color: vehicle.color,
+        status: vehicle.is_verified ? "Verified" : "Not Verified", // Example if status comes differently
+        date: new Date(vehicle.reg_time).toLocaleDateString()
+      }));
+    });
+  }
 }

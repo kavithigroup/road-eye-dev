@@ -1,77 +1,89 @@
 <h1>Your Location Requests</h1>
+
+<!-- Divider for visual separation -->
 <mat-divider></mat-divider>
 
+<!-- Space between elements -->
 <br /><br />
 
-<h2>Remaining Tokens : 12</h2>
+<!-- Display Remaining Tokens -->
+<h2>Remaining Tokens: 12</h2>
 
+<!-- Action Buttons for Adding Requests, Searching Vehicles, and Viewing History -->
 <br />
-<a class="add-vehicle-btn" routerLink="/locationrequests/new" mat-button><mat-icon>add_circle_outline</mat-icon>Submit a Request</a>
-<a class="add-vehicle-btn" routerLink="/locationrequests/search" mat-button style="margin-left: 1rem"><mat-icon>search</mat-icon>Search Vehicle</a>
-<a class="add-vehicle-btn" routerLink="/locationrequests/history" mat-button style="margin-left: 1rem"><mat-icon>history</mat-icon>Search History</a>
+<a class="add-vehicle-btn" routerLink="/locationrequests/new" mat-button>
+  <mat-icon>add_circle_outline</mat-icon> Submit a Request
+</a>
+<a class="add-vehicle-btn" routerLink="/locationrequests/search" mat-button style="margin-left: 1rem">
+  <mat-icon>search</mat-icon> Search Vehicle
+</a>
+<a class="add-vehicle-btn" routerLink="/locationrequests/history" mat-button style="margin-left: 1rem">
+  <mat-icon>history</mat-icon> Search History
+</a>
 
-
+<!-- Vehicle Table -->
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+  <!-- ID Column -->
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>ID</th>
     <td mat-cell *matCellDef="let element"> {{element.id}} </td>
   </ng-container>
 
-  <!-- Complaint Time Column -->
+  <!-- Vehicle Number Column -->
   <ng-container matColumnDef="vehicleNumber">
-    <th mat-header-cell *matHeaderCellDef> Vehicle Number </th>
+    <th mat-header-cell *matHeaderCellDef>Vehicle Number</th>
     <td mat-cell *matCellDef="let element"> {{element.vehicleNumber}} </td>
   </ng-container>
 
-  <!-- Complaint Date Column -->
+  <!-- Vehicle Type Column -->
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef> Type</th>
+    <th mat-header-cell *matHeaderCellDef>Type</th>
     <td mat-cell *matCellDef="let element"> {{element.type}} </td>
   </ng-container>
 
-  <!-- Complaint Subject Column -->
+  <!-- Vehicle Brand Column -->
   <ng-container matColumnDef="brand">
-    <th mat-header-cell *matHeaderCellDef> Brand</th>
+    <th mat-header-cell *matHeaderCellDef>Brand</th>
     <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
   </ng-container>
 
-  <!-- Complaint Subject Column -->
+  <!-- Vehicle Model Column -->
   <ng-container matColumnDef="model">
-    <th mat-header-cell *matHeaderCellDef> Model</th>
+    <th mat-header-cell *matHeaderCellDef>Model</th>
     <td mat-cell *matCellDef="let element"> {{element.model}} </td>
   </ng-container>
 
-  <!-- Complaint Subject Column -->
+  <!-- Vehicle Color Column -->
   <ng-container matColumnDef="color">
-    <th mat-header-cell *matHeaderCellDef> Color </th>
+    <th mat-header-cell *matHeaderCellDef>Color</th>
     <td mat-cell *matCellDef="let element"> {{element.color}} </td>
   </ng-container>
 
-  <!-- Complaint Subject Column -->
+  <!-- Registration Date Column -->
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Sent Date</th>
+    <th mat-header-cell *matHeaderCellDef>Sent Date</th>
     <td mat-cell *matCellDef="let element"> {{element.date}} </td>
   </ng-container>
 
   <!-- Status Column -->
   <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <th mat-header-cell *matHeaderCellDef>Status</th>
     <td mat-cell *matCellDef="let element"> {{element.status}} </td>
   </ng-container>
 
   <!-- Action Column -->
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <th mat-header-cell *matHeaderCellDef>Upload Verification</th>
     <td mat-cell *matCellDef="let element">
-      <a routerLink="/locationrequests/view"  mat-button ><mat-icon>arrow_forward_ios</mat-icon> </a>
-
+      <!-- View Details Button -->
     </td>
   </ng-container>
 
-  <!-- Header and Row Definitions -->
+  <!-- Table Header Row -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <!-- Table Data Rows -->
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
-

@@ -1,75 +1,125 @@
+<!-- Dialog Title for Register Vehicle form -->
+<h2 mat-dialog-title>Register Vehicle</h2>
 
-<h1>New Vehicle searchHistory Request</h1>
-
+<!-- Divider for visual separation -->
 <mat-divider></mat-divider>
-<br><br>
 
-<div class="complain-form">
+<!-- Dialog content section that contains the form -->
+<mat-dialog-content><br>
 
-<!--  <form [formGroup]="form">-->
+  <!-- The form element for vehicle registration, bound to a form group in Angular -->
+  <form [formGroup]="form" id="addVehicle" (ngSubmit)="submit()">
 
-  <mat-form-field appearance="outline">
-    <mat-label>Vehicle Number</mat-label>
-    <input matInput formControlName="number" required>
+    <!-- Error message display if any error occurs during form submission -->
+    <p class="error">{{ error }}</p>
 
-  </mat-form-field>
-  <div class="row">
+    <!-- Vehicle Number field -->
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Vehicle Type</mat-label>
-        <input matInput formControlName="type" required>
-
+        <mat-label>Vehicle Number</mat-label> <!-- Label for the input field -->
+        <input matInput formControlName="vehicle_number" required> <!-- Input field for vehicle number -->
       </mat-form-field>
     </p>
 
+    <!-- Row layout for multiple fields -->
+    <div class="row">
+
+      <!-- Vehicle Type dropdown selector -->
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Vehicle Type</mat-label> <!-- Label for the vehicle type field -->
+          <mat-select formControlName="type">
+            <!-- Options for vehicle types -->
+            <mat-option value="bus">Bus</mat-option>
+            <mat-option value="car">Car</mat-option>
+            <mat-option value="dual_purpose">Dual Purpose</mat-option>
+            <mat-option value="lorry">Lorry</mat-option>
+            <mat-option value="motorcycle">Motorcycle</mat-option>
+            <mat-option value="threewheel">Threewheel</mat-option>
+            <mat-option value="van">Van</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+      <!-- Year of Manufacture input field -->
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Year of Manufacture</mat-label> <!-- Label for year of manufacture field -->
+          <input matInput formControlName="yom" required> <!-- Input field for year of manufacture -->
+        </mat-form-field>
+      </p>
+    </div>
+
+    <!-- Row layout for Brand and Model fields -->
+    <div class="row">
+
+      <!-- Brand input field -->
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Brand</mat-label> <!-- Label for the brand field -->
+          <input matInput formControlName="brand" required> <!-- Input field for vehicle brand -->
+        </mat-form-field>
+      </p>
+
+      <!-- Model input field -->
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Model</mat-label> <!-- Label for the model field -->
+          <input matInput formControlName="model" required> <!-- Input field for vehicle model -->
+        </mat-form-field>
+      </p>
+    </div>
+
+
+    <!-- Row layout for Millage and Color fields -->
+    <div class="row">
+
+      <!-- Millage input field with validation pattern for numeric values -->
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Millage</mat-label> <!-- Label for the millage field -->
+          <input matInput formControlName="millage" pattern="[0-9]{1,7}"> <!-- Input field for millage -->
+        </mat-form-field>
+      </p>
+
+      <!-- Color input field -->
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Color</mat-label> <!-- Label for the color field -->
+          <input matInput formControlName="color" required> <!-- Input field for vehicle color -->
+        </mat-form-field>
+      </p>
+    </div>
+
+    <!-- Checkbox to indicate whether the vehicle is owned by the user -->
+    <p>
+      <mat-checkbox (click)="setOwner()">Owned by Myself</mat-checkbox>
+    </p>
+
+    <!-- Owner input field -->
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Color</mat-label>
-        <input matInput formControlName="color" required>
-
+        <mat-label>Owner</mat-label> <!-- Label for the owner field -->
+        <input matInput formControlName="owner" required> <!-- Input field for vehicle owner -->
       </mat-form-field>
     </p>
 
-  </div>
 
-  <div class="row">
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Brand</mat-label>
-        <input matInput formControlName="brand" required>
+  </form>
 
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Model</mat-label>
-        <input matInput formControlName="model" required>
+</mat-dialog-content>
 
-      </mat-form-field>
-    </p>
+<!-- Divider to separate the form content from the dialog actions -->
+<mat-divider></mat-divider>
 
+<!-- Dialog action buttons -->
+<mat-dialog-actions class="flex-right">
 
+  <!-- Submit button to add the vehicle, linked to the form's submit method -->
+  <button mat-button type="submit" form="addVehicle">Add Vehicle</button>
 
-  </div>
+  <!-- Cancel button to close the dialog without submitting -->
+  <button mat-button cdkFocusInitial matDialogClose>Cancel</button>
 
-
-
-  <div class="row">
-
-    <button mat-button class="add-vehicle-btn">
-      Add Ownership Document
-    </button>
-
-    <button mat-button class="add-vehicle-btn">
-      Add Vehicle Image
-    </button>
-
-  </div>
-
-
-  <button mat-raised-button class="btn-submit">Submit</button>
-<!--  </form>-->
-
-</div>
-
-
+</mat-dialog-actions>

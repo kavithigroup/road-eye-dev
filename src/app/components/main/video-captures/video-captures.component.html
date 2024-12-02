@@ -81,6 +81,7 @@
       </mat-card-header>
       <!-- Sample Image (Replace with Actual Image or Video Preview) -->
       <video mat-card-image controls [src]="'https://storage.cloud.google.com/road-eye/video-uploads/' + item.video + '.mp4'" alt="Sample Video Capture"></video>
+      <br>
       <mat-card-content class="content">
         <!-- Video Vehicle Number Info -->
         <p>
@@ -89,7 +90,12 @@
       </mat-card-content>
       <mat-card-actions>
         <!-- Download, Delete, and Share Buttons -->
-        <button routerLink="/video/view"mat-raised-button style="background-color: #001f3f; color: white">View</button>
+        <button [routerLink]="['/video/view']" [queryParams]="{
+        video: item.video,
+        vehicle_number: item.vehicle_number,
+        capture_time: item.reg_time.split('T')[1],
+        capture_date: item.reg_time.split('T')[0]
+        }" mat-raised-button style="background-color: #001f3f; color: white">View</button>
         <button mat-raised-button color="warn" style="margin-left: 5px">
           <mat-icon style="color: white">delete</mat-icon> Delete
         </button>

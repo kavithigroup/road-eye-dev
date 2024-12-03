@@ -108,6 +108,7 @@ import { RequestDetailsPopupComponent } from './components/main/police-requests/
 import { VehicleSearchHistoryComponent } from './components/main/locationrequests/vehicle-search-history/vehicle-search-history.component';
 import { LiveMapComponent } from './components/main/live-map/live-map.component';
 import { HistoryMapComponent } from './components/main/vehivles/history-map/history-map.component';
+import { PoliceComplainsComponent } from './components/main/police-complains/police-complains.component';
 
 
 @NgModule({
@@ -191,7 +192,8 @@ import { HistoryMapComponent } from './components/main/vehivles/history-map/hist
     RequestDetailsPopupComponent,
     VehicleSearchHistoryComponent,
     LiveMapComponent,
-    HistoryMapComponent
+    HistoryMapComponent,
+    PoliceComplainsComponent
 
   ],
     imports: [

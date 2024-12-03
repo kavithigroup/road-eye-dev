@@ -28,6 +28,7 @@
 <!-- Add Station Form -->
 <div *ngIf="showAddForm" class="add-station-form">
   <form [formGroup]="addStationForm" (ngSubmit)="submitNewStation()">
+    <!-- District -->
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>District</mat-label>
       <input matInput formControlName="district" placeholder="Enter district" />
@@ -36,6 +37,7 @@
       </mat-error>
     </mat-form-field>
 
+    <!-- Branch -->
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Branch</mat-label>
       <input matInput formControlName="branch" placeholder="Enter branch" />
@@ -44,6 +46,7 @@
       </mat-error>
     </mat-form-field>
 
+    <!-- Phone -->
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Phone</mat-label>
       <input matInput formControlName="phone" placeholder="Enter phone" />
@@ -55,6 +58,7 @@
       </mat-error>
     </mat-form-field>
 
+    <!-- Address -->
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Address</mat-label>
       <textarea matInput formControlName="address" placeholder="Enter address"></textarea>
@@ -63,6 +67,7 @@
       </mat-error>
     </mat-form-field>
 
+    <!-- Map Location -->
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Map Location</mat-label>
       <input matInput formControlName="map_location" placeholder="Enter map location" />
@@ -71,6 +76,7 @@
       </mat-error>
     </mat-form-field>
 
+    <!-- Police User Email -->
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Police User Email</mat-label>
       <input matInput formControlName="police_user" placeholder="Enter police user email" />
@@ -104,7 +110,12 @@
     <!-- Buttons Container -->
     <div class="card-actions">
       <!-- More Button -->
-      <button class="map-btn more-btn" mat-button (click)="viewStationDetails(station)">
+      <button
+        class="map-btn more-btn"
+        mat-button
+        [disabled]="station.status !== 'verified'"
+        (click)="station.status === 'verified' && viewStationDetails(station)"
+      >
         <mat-icon>info</mat-icon>
         More
       </button>

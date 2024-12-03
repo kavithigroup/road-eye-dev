@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { ApiService } from '../../../services/api.service';
-import { AuthService } from '../../../services/auth.service';
-import { CalendarOptions } from '@fullcalendar/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
+import {ApiService} from '../../../services/api.service';
+import {AuthService} from '../../../services/auth.service';
+import {CalendarOptions} from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
+import interactionPlugin, {DateClickArg} from '@fullcalendar/interaction';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.sass'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements AfterViewInit {
   // Card data
   totalPosts = 0;
   totalComplaints = 0;
@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   // Table data
   displayedColumns: string[] = ['id', 'complaintTime', 'complaintDate', 'complaintSubject', 'status'];
-  dataSource:any[] = []
+  dataSource: any[] = []
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
@@ -29,11 +29,14 @@ export class DashboardComponent implements OnInit {
     events: [], // Will be populated with fetched events
   };
 
-  constructor(private api: ApiService, private auth: AuthService) {}
+  constructor(private api: ApiService, private auth: AuthService) {
+  }
 
-  ngOnInit() {
-    this.fetchDashboardData();
-    this.fetchComplaints();
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.fetchDashboardData();
+      this.fetchComplaints();
+    }, 300)
   }
 
   /**
@@ -80,9 +83,14 @@ export class DashboardComponent implements OnInit {
     const userId = this.auth.user?.user_id;
 
     if (userId) {
-      this.api.post('/complain/user', { user: userId }).subscribe(
-        (complaints: any) => {
-          this.dataSource = complaints; // Use MatTableDataSource to set data
+      this.api.post('/complain/user?test=123', {user: userId}).subscribe(r => {
+          this.dataSource = r.body.map((u: any) => ({
+            id: u.complain_id,
+            complaintTime: u.send_time,
+            complaintDate: u.send_time,
+            complaintSubject: u.subject,
+            status: u.status
+          }))
         },
         (error) => {
           console.error('Error fetching complaints:', error);

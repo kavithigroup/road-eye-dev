@@ -4,17 +4,19 @@
 <mat-divider></mat-divider>
 <br><br>
 
-<div class="complain-form">
+<form [formGroup]="form" id="addPost" (ngSubmit)="submit()" class="complain-form">
 
-
+  <p class="error">{{ error }}</p>
   <!--<p class="error">{{ error }}</p>-->
   <!--<form [formGroup]="form">-->
   <div class="row">
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Select Evidence Video</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let videos of Videos" [value]="videos">{{ videos }}</mat-option>
+        <mat-select [(ngModel)]="selectedVideo" formControlName="video_link">
+          <mat-option *ngFor="let video of videos" [value]="video.video">
+            {{ video.vehicle_number }} - {{ video.video }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
     </p>
@@ -26,7 +28,7 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Post Name</mat-label>
-        <input matInput required>
+        <input matInput formControlName="title" required>
       </mat-form-field>
     </p>
 
@@ -36,7 +38,7 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Post Description</mat-label>
-        <input matInput required>
+        <input matInput formControlName="description" required>
       </mat-form-field>
     </p>
 
@@ -45,8 +47,8 @@
 
 
   <button mat-raised-button class="btn-submit">Post</button>
-  <!--</form>-->
+  </form>
 
-</div>
+
 
 

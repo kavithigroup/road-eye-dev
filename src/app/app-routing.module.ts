@@ -34,7 +34,7 @@ import {SetOpeningHoursComponent} from "./components/main/set-opening-hours/set-
 import {AddStationComponent} from "./components/main/police-stations/add-station/add-station.component";
 import {CoporateDashboardComponent} from "./components/main/coporate-dashboard/coporate-dashboard.component";
 import {PaymentsComponent} from "./components/main/payments/payments.component";
-import {InquiriesComponent} from "./components/main/inquiries/inquiries.component";
+import {InquiryComponent} from "./components/main/inquiries/inquiries.component";
 import {NotificationsComponent} from "./components/main/notifications/notifications.component";
 import {ProductsComponent} from "./components/main/products/products.component";
 import {AddProductComponent} from "./components/main/products/add-product/add-product.component";
@@ -69,6 +69,11 @@ import {RequestDetailsPopupComponent} from "./components/main/police-requests/re
 import {VideoPlayerComponent} from "./components/main/video-captures/video-player/video-player.component";
 import {NewPostComponent} from "./components/main/posts/new-post/new-post.component";
 import {PoliceStationComponent} from "./components/main/police-stations/police-station/police-station.component";
+
+import {AddInquiryComponent} from "./components/main/inquiries/add-inquiry/add-inquiry.component";
+import {
+  VehicleSearchHistoryComponent
+} from "./components/main/locationrequests/vehicle-search-history/vehicle-search-history.component";
 
 
 
@@ -115,7 +120,8 @@ const routes: Routes = [
       {path: "set-opening-hours", component: SetOpeningHoursComponent},
       {path: "coporate-dashboard", component: CoporateDashboardComponent},
       {path: "payments", component: PaymentsComponent},
-      {path: "inquiries", component: InquiriesComponent},
+      {path: "inquiries", component: InquiryComponent},
+      {path: "inquiries/new", component: AddInquiryComponent},
       {path: "notifications", component: NotificationsComponent},
       {path: "products", component: ProductsComponent},
       {path: "products/add", component: AddProductComponent},
@@ -143,6 +149,10 @@ const routes: Routes = [
       {path: "video/view", component:VideoPlayerComponent},
       {path: "posts/new", component:NewPostComponent},
       {path: "police-stations/station", component:PoliceStationComponent},
+=======
+      {path: "locationrequests/vehiclesearch/:vehicleId", component:VehicleSearchHistoryComponent},
+
+
 
 
     ]

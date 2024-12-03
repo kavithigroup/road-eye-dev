@@ -62,4 +62,14 @@ export class ApiService {
       })
       .pipe(timeout(timeOut || 50000), catchError(this.handleError));
   }
+
+  delete(endpoint: string, timeOut?: number): Observable<any> {
+    return this.http
+      .put(this.baseUrl + endpoint, body, {
+        withCredentials: true,
+        responseType: 'json',
+        observe: 'response',
+      })
+      .pipe(timeout(timeOut || 50000), catchError(this.handleError));
+  }
 }

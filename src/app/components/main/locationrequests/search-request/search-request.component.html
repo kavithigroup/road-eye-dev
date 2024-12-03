@@ -3,19 +3,18 @@
 
 <br /><br />
 
-<h2>Remaining Tokens : 12</h2>
-<form [formGroup]="form">
+<h2>Remaining Tokens: 12</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Select Vehicle Number</mat-label>
-      <mat-select value="name" formControlName="number" >
-        <mat-option value="John">KS4567</mat-option>
-        <mat-option value="Peter">AB7841</mat-option>
-        <mat-option value="Ruby">XV7465</mat-option>
-
+      <mat-select formControlName="number">
+        <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.vehicle_number">
+          {{ vehicle.vehicle_number }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
   </p>
-<button mat-stroked-button class="add-vehicle-btn"> Search</button>
-
+  <button mat-stroked-button type="submit" class="add-vehicle-btn">Search</button>
 </form>

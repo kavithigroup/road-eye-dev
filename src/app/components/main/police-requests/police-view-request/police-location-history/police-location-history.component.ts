@@ -14,10 +14,10 @@ export interface Request {
 
 }
 const REQUEST_DATA: Request[] = [
-  { Date: '2024-07-27', Time: '14:30',Location: "colombo" },
-  { Date: '2024-07-28', Time: '17:30',Location: "hnugegoda" },
-  { Date: '2024-07-29', Time: '13:30',Location: "homagama" },
-  { Date: '2024-07-230', Time: '19:30',Location: "avissawella" },
+  { Date: '2024-07-27', Time: '14:30',Location: "maharagama" },
+  { Date: '2024-07-28', Time: '14:50',Location: "homagama" },
+  { Date: '2024-08-03', Time: '15:20',Location: "panagoda" },
+  { Date: '2024-08-10', Time: '16:10',Location: "avissawella" },
 
 ];
 

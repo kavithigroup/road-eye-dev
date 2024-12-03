@@ -76,6 +76,7 @@ import {
 } from "./components/main/locationrequests/vehicle-search-history/vehicle-search-history.component";
 import {LiveMapComponent} from "./components/main/live-map/live-map.component";
 import {HistoryMapComponent} from "./components/main/vehivles/history-map/history-map.component";
+import {PoliceComplainsComponent} from "./components/main/police-complains/police-complains.component";
 
 
 const routes: Routes = [
@@ -152,6 +153,10 @@ const routes: Routes = [
       {path: "police-stations/station", component: PoliceStationComponent},
       {path: "locationrequests/vehiclesearch/:vehicleId", component: VehicleSearchHistoryComponent},
       {path: "locationrequests/vehiclesearch/:vehicleId", component: VehicleSearchHistoryComponent},
+      {path: "police-complains", component: PoliceComplainsComponent},
+
+
+      
 
     ]
   },

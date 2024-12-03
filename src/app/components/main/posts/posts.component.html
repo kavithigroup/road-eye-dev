@@ -18,7 +18,7 @@
       </mat-card-header>
 
       <!-- Post image -->
-      <video mat-card-image controls [src]="'https://storage.cloud.google.com/road-eye/video-uploads/' + item.video_link+ '.mp4'" alt="Sample Video Capture"></video>
+      <video mat-card-image controls [src]="'https://storage.cloud.google.com/road-eye/' + item.video_link " alt="Sample Video Capture"></video>
 
       <mat-card-actions>
         <button mat-button (click)="sharePost(item)">Share</button>

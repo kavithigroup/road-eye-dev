@@ -26,7 +26,7 @@ export class VideoCapturesComponent implements OnInit{
 
   ngOnInit(){
     this.api.post("/video-capture/user", {user: this.auth.user?.user_id}).subscribe(httpResponse => {
-      this.video_capture = httpResponse.body
+      this.video_capture = httpResponse.body.reverse()
       console.log(this.video_capture)
       this.dataSource = this.video_capture.map((item, index) => ({
         id: index + 1,

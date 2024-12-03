@@ -26,7 +26,8 @@ export class NewPostComponent implements OnInit {
 
   videos: {
     video: string
-    vehicle_number: string
+    vehicle_number: string,
+    reg_time: number
 
   }[] = []
 

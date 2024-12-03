@@ -75,9 +75,7 @@ import {
   VehicleSearchHistoryComponent
 } from "./components/main/locationrequests/vehicle-search-history/vehicle-search-history.component";
 import {LiveMapComponent} from "./components/main/live-map/live-map.component";
-
-
-
+import {HistoryMapComponent} from "./components/main/vehivles/history-map/history-map.component";
 
 
 const routes: Routes = [
@@ -85,9 +83,9 @@ const routes: Routes = [
     path: "", component: PublicComponent, children: [
       {path: "", component: Home2Component},
       {path: "vendors", component: VendorsComponent},
-      {path: "media-wall", component:MediaWallComponent},
-      {path: "media-wall/one-video", component:OneVideoComponent},
-      {path: "leaderboard", component:LeaderboardComponent},
+      {path: "media-wall", component: MediaWallComponent},
+      {path: "media-wall/one-video", component: OneVideoComponent},
+      {path: "leaderboard", component: LeaderboardComponent},
     ]
   },
   {
@@ -99,6 +97,7 @@ const routes: Routes = [
       {path: "account", component: AccountComponent},
       {path: "orders", component: OrdersComponent},
       {path: "vehicles/details", component: VehicleDetailsComponent},
+      {path: "vehicles/map/:id", component: HistoryMapComponent},
       {path: "complaints", component: ComplainComponent},
       {path: "complaints/new", component: NewComplainComponent},
       {path: "complaints/view", component: ViewComplaintComponent},
@@ -143,16 +142,16 @@ const routes: Routes = [
       {path: "subscription", component: SubscriptionComponent},
       {path: "verification-center", component: VerificationCenterComponent},
       {path: "verification-center/user-verification-details", component: UserVerificationDetailsComponent},
-      {path: "posts", component:PostsComponent},
-      {path: "posts/view", component:ViewPostComponent},
-      {path: "posts/add-new", component:AddNewPostComponent},
+      {path: "posts", component: PostsComponent},
+      {path: "posts/view", component: ViewPostComponent},
+      {path: "posts/add-new", component: AddNewPostComponent},
       {path: "police-requests/request-popup", component: RequestDetailsPopupComponent},
-      {path: "video/view", component:VideoPlayerComponent},
-      {path: "posts/new", component:NewPostComponent},
-      {path: "livemap", component:LiveMapComponent},
-      {path: "police-stations/station", component:PoliceStationComponent},
-      {path: "locationrequests/vehiclesearch/:vehicleId", component:VehicleSearchHistoryComponent},
-      {path: "locationrequests/vehiclesearch/:vehicleId", component:VehicleSearchHistoryComponent},
+      {path: "video/view", component: VideoPlayerComponent},
+      {path: "posts/new", component: NewPostComponent},
+      {path: "livemap", component: MapComponent},
+      {path: "police-stations/station", component: PoliceStationComponent},
+      {path: "locationrequests/vehiclesearch/:vehicleId", component: VehicleSearchHistoryComponent},
+      {path: "locationrequests/vehiclesearch/:vehicleId", component: VehicleSearchHistoryComponent},
 
     ]
   },

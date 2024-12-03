@@ -1,14 +1,119 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {ApiService} from "../../../services/api.service";
 import {GoogleMap, MapMarker} from "@angular/google-maps";
-import {map} from "rxjs";
-import {an} from "@fullcalendar/core/internal-common";
 import {Router} from "@angular/router";
 
 export interface Marker {
   label: string;
   position: google.maps.LatLngLiteral,
   raw: any
+}
+
+export const mapOptions: google.maps.MapOptions = {
+  center: {
+    lat: 7.6697,
+    lng: 80.6459
+  },
+  zoom: 14,
+  fullscreenControl: false,
+  mapTypeId: "roadmap",
+  styles: [
+    {
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#f5f5f5"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.icon",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#616161"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.land_parcel",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#bdbdbd"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "labels",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#e0e0e0"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "labels",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "transit",
+      "elementType": "labels.icon",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#b3e5fc"
+        }
+      ]
+    }
+  ]
 }
 
 @Component({
@@ -18,112 +123,8 @@ export interface Marker {
 })
 export class MapComponent implements AfterViewInit {
 
-  mapOptions: google.maps.MapOptions = {
-    center: {
-      lat: 7.6697,
-      lng: 80.6459
-    },
-    zoom: 14,
-    fullscreenControl: false,
-    mapTypeId: "roadmap",
-    styles: [
-      {
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#f5f5f5"
-          }
-        ]
-      },
-      {
-        "elementType": "labels.icon",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#616161"
-          }
-        ]
-      },
-      {
-        "elementType": "labels.text.stroke",
-        "stylers": [
-          {
-            "color": "#ffffff"
-          }
-        ]
-      },
-      {
-        "featureType": "administrative.land_parcel",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#bdbdbd"
-          }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "geometry.fill",
-        "stylers": [
-          {
-            "color": "#ffffff"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "geometry.stroke",
-        "stylers": [
-          {
-            "color": "#e0e0e0"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "transit",
-        "elementType": "labels.icon",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#b3e5fc"
-          }
-        ]
-      }
-    ]
-  }
+  mapOptions = mapOptions
+
   markers: Marker[] = []
 
   @ViewChild("map") map!: GoogleMap
@@ -170,6 +171,6 @@ export class MapComponent implements AfterViewInit {
   protected readonly alert = alert;
 
   markerClicked(marker: Marker) {
-    this.router.navigateByUrl("/vehicles/details/" + marker.raw.vehicle_id).then()
+    this.router.navigateByUrl("/vehicles/map/" + marker.raw.vehicle_id).then()
   }
 }

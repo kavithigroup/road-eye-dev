@@ -1,1 +1,66 @@
-<p>add-inquiry works!</p>
+<h1>Add New Inquiry</h1>
+<mat-divider></mat-divider>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="inquiry-form">
+  <mat-form-field appearance="fill" class="row">
+    <mat-label>Title</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="title"
+      placeholder="Enter a title"
+    />
+    <mat-error *ngIf="formControls['title'].touched && formControls['title'].errors?.['required']">
+      Title is required
+    </mat-error>
+    <mat-error *ngIf="formControls['title'].errors?.['maxlength']">
+      Title cannot exceed 100 characters
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="row">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      formControlName="description"
+      placeholder="Enter your description"
+    ></textarea>
+    <mat-error *ngIf="formControls['description'].touched && formControls['description'].errors?.['required']">
+      Description is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="row">
+    <mat-label>Attachment</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="attachment"
+      placeholder="Enter attachment URL (optional)"
+    />
+  </mat-form-field>
+
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div class="button-group">
+    <button
+      mat-raised-button
+      color="primary"
+      class="btn-submit"
+      [disabled]="isSubmitting"
+    >
+      Submit Inquiry
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      class="btn-cancel"
+      [disabled]="isSubmitting"
+      (click)="onCancel()"
+    >
+      Cancel
+    </button>
+  </div>
+</form>

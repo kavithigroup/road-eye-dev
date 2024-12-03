@@ -1,52 +1,45 @@
-<h1>Your Complaints</h1>
+<h1>Your Inquiries</h1>
 <mat-divider></mat-divider>
 
 <br /><br />
 
-<button class="add-vehicle-btn" mat-raised-button (click) = "openDialog()">New Inquiry</button>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<a class="add-vehicle-btn" routerLink="/inquiries/new" mat-button>
+  <mat-icon>add_circle_outline</mat-icon> Submit an Inquiry
+</a>
 
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>ID</th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
   </ng-container>
 
-  <!-- Complaint Time Column -->
-  <ng-container matColumnDef="complaintTime">
-    <th mat-header-cell *matHeaderCellDef> Complaint Time </th>
-    <td mat-cell *matCellDef="let element"> {{element.complaintTime}} </td>
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let element"> {{ element.title }} </td>
   </ng-container>
 
-  <!-- Complaint Date Column -->
-  <ng-container matColumnDef="complaintDate">
-    <th mat-header-cell *matHeaderCellDef> Complaint Date </th>
-    <td mat-cell *matCellDef="let element"> {{element.complaintDate}} </td>
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let element"> {{ element.description }} </td>
   </ng-container>
 
-  <!-- Complaint Subject Column -->
-  <ng-container matColumnDef="complaintSubject">
-    <th mat-header-cell *matHeaderCellDef> Complaint Subject </th>
-    <td mat-cell *matCellDef="let element"> {{element.complaintSubject}} </td>
+  <ng-container matColumnDef="reply">
+    <th mat-header-cell *matHeaderCellDef>Reply</th>
+    <td mat-cell *matCellDef="let element"> {{ element.reply || 'Pending' }} </td>
   </ng-container>
 
-  <!-- Status Column -->
-  <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef> Status </th>
-    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
-  </ng-container>
-
-  <!-- Action Column -->
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <th mat-header-cell *matHeaderCellDef>Action</th>
     <td mat-cell *matCellDef="let element">
-      <a routerLink="/complaints/view" mat-button ><mat-icon>pencil</mat-icon> View More</a>
-      <button mat-button color="warn" ><mat-icon>delete</mat-icon>Cancel</button>
+      <button mat-button color="primary" (click)="viewDetails(element.id)">
+        View More
+      </button>
+      <button mat-button color="warn" >
+        <mat-icon>delete</mat-icon> Delete
+      </button>
     </td>
   </ng-container>
 
-  <!-- Header and Row Definitions -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
 </table>
-

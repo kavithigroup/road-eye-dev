@@ -1,33 +1,49 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../services/api.service';
+import { AuthService } from '../../../services/auth.service';
 
-export interface inquiry {
+export interface InquiryItem {
   id: number;
-  complaintTime: string;
-  complaintDate: string;
-  complaintSubject: string;
-  status: string;
+  userid: number;
+  title: string;
+  description: string;
+  attachment?: string;
+  reply?: string;
 }
 
-const COMPLAINT_DATA: inquiry[] = [
-  { id: 1, complaintTime: '14:30', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Complete' },
-  { id: 2, complaintTime: '15:00', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Complete' },
-  { id: 3, complaintTime: '16:15', complaintDate: '2024-07-27', complaintSubject: 'Subject', status: 'Complete' }
-];
-
 @Component({
-  selector: 'app-inquiries',
+  selector: 'app-inquiry',
   templateUrl: './inquiries.component.html',
-  styleUrls: ['./inquiries.component.sass']
+  styleUrls: ['./inquiries.component.sass'],
 })
-export class InquiriesComponent {
-  displayedColumns: string[] = ['id', 'complaintTime', 'complaintDate', 'complaintSubject', 'status', 'action'];
-  dataSource = COMPLAINT_DATA;
+export class InquiryComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'title', 'description', 'reply', 'action'];
+  dataSource: InquiryItem[] = [];
 
-  constructor(private dialog: MatDialog){
+  constructor(private api: ApiService, private auth: AuthService) {}
 
+  ngOnInit() {
+    this.fetchInquiries();
   }
-  openDialog(){
-    // this.dialog.open(AddInquiryComponent)
+
+  fetchInquiries() {
+    const userId = this.auth.user?.user_id;
+    if (userId) {
+      this.api.post('/inquiry/user', { userid: userId }).subscribe(
+        (response: InquiryItem[]) => {
+          this.dataSource = response;
+        },
+        (error) => {
+          console.error('Error fetching inquiries:', error);
+        }
+      );
+    }
   }
+
+  viewDetails(id: number) {
+    console.log(`View details for Inquiry ID: ${id}`);
+    // Implement navigation if needed
+  }
+
+
 }

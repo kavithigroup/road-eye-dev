@@ -27,7 +27,7 @@
 
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef>Title</th>
-      <td mat-cell *matCellDef="let element"> {{ element.title }}</td>
+      <td mat-cell *matCellDef="let element"> Video Capture</td>
     </ng-container>
 
     <!-- Capture Time Column -->
@@ -52,7 +52,7 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action</th>
       <td mat-cell *matCellDef="let element">
-        <a mat-button [href]="'https://storage.cloud.google.com/road-eye/video-uploads/' + element.video + '.mp4'" download="{{ element.video }}.mp4">
+        <a mat-button [href]="'https://storage.cloud.google.com/road-eye/' + element.video + '.mp4'" download="{{ element.video }}.mp4">
           <mat-icon color="primary">download</mat-icon> Download
         </a>
         <button mat-button color="warn">
@@ -74,13 +74,13 @@
         <!-- Card Avatar (Could be a Thumbnail of the Video) -->
         <div mat-card-avatar class="example-header-image"></div>
         <!-- Title and Subtitle with Capture Date -->
-        <mat-card-title>{{ item.video }}</mat-card-title>
+        <mat-card-title>Video Capture</mat-card-title>
         <mat-card-subtitle>
           {{ item.reg_time.split('T')[0] }} - {{ item.reg_time.split('T')[1] }}
         </mat-card-subtitle>
       </mat-card-header>
       <!-- Sample Image (Replace with Actual Image or Video Preview) -->
-      <video mat-card-image controls [src]="'https://storage.cloud.google.com/road-eye/video-uploads/' + item.video + '.mp4'" alt="Sample Video Capture"></video>
+      <video mat-card-image controls src="https://storage.cloud.google.com/road-eye/{{item.video}}" alt="Sample Video Capture"></video>
       <br>
       <mat-card-content class="content">
         <!-- Video Vehicle Number Info -->

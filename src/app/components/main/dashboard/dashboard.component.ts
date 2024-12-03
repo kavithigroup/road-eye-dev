@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from '../../../services/api.service';
 import { AuthService } from '../../../services/auth.service';
 import { CalendarOptions } from '@fullcalendar/core';
@@ -19,13 +20,13 @@ export class DashboardComponent implements OnInit {
 
   // Table data
   displayedColumns: string[] = ['id', 'complaintTime', 'complaintDate', 'complaintSubject', 'status'];
-  dataSource: any[] = [];
+  dataSource = new MatTableDataSource<any>([]);
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin, interactionPlugin],
     dateClick: this.handleDateClick.bind(this),
-    events: [] // Will be populated with fetched events
+    events: [], // Will be populated with fetched events
   };
 
   constructor(private api: ApiService, private auth: AuthService) {}
@@ -42,7 +43,6 @@ export class DashboardComponent implements OnInit {
     const userId = this.auth.user?.user_id;
 
     if (userId) {
-      // Use GET requests instead of POST
       this.api.get(`/counts/posts/by-user/${userId}`).subscribe(
         (response: any) => {
           this.totalPosts = response.post_count;
@@ -73,7 +73,6 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-
   /**
    * Fetches complaints for the logged-in user
    */
@@ -83,7 +82,7 @@ export class DashboardComponent implements OnInit {
     if (userId) {
       this.api.post('/complain/user', { user: userId }).subscribe(
         (complaints: any) => {
-          this.dataSource = complaints;
+          this.dataSource.data = complaints; // Use MatTableDataSource to set data
         },
         (error) => {
           console.error('Error fetching complaints:', error);

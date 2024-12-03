@@ -14,7 +14,10 @@ export class SearchRequestComponent implements OnInit {
     number: new FormControl()
   });
 
-  vehicles: { vehicle_number: string }[] = [];
+  dataSource: any[] = []
+  displayedColumns = ["number_plate"]
+
+  vehicles: { vehicle_number: string }[] = [{vehicle_number: "ABK 1223"}];
   error?: string;
 
   constructor(
@@ -47,6 +50,9 @@ export class SearchRequestComponent implements OnInit {
     const selectedVehicle = this.form.get('number')?.value;
     if (selectedVehicle) {
       this.snackBar.open(`Selected Vehicle: ${selectedVehicle}`, 'Close', { duration: 3000 });
+      this.api.get("/company/search/" + selectedVehicle).subscribe((r =>{
+        this.dataSource = r
+      }))
     }
   }
 }

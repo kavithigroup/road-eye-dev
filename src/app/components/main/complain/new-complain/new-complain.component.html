@@ -2,7 +2,7 @@
 <mat-divider></mat-divider>
 <br><br>
 
-<!--Add new complaint form-->
+<!-- Add new complaint form -->
 <div class="complain-form">
   <form [formGroup]="form" id="addComplain" (ngSubmit)="submit()">
     <div class="row">
@@ -37,7 +37,7 @@
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Your Name</mat-label>
-          <input  matInput formControlName="name">
+          <input matInput formControlName="name">
         </mat-form-field>
       </p>
       <p>
@@ -61,13 +61,13 @@
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Contact Number</mat-label>
-          <input  matInput formControlName="contact">
+          <input matInput formControlName="contact">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Email Address</mat-label>
-          <input   matInput formControlName="email">
+          <input matInput formControlName="email">
         </mat-form-field>
       </p>
     </div>
@@ -76,7 +76,7 @@
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Subject of the Complaint</mat-label>
-          <input formControlName="subject"   matInput required>
+          <input formControlName="subject" matInput required>
         </mat-form-field>
       </p>
     </div>
@@ -85,48 +85,23 @@
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Complaint</mat-label>
-          <textarea  matInput formControlName="complain"></textarea>
+          <textarea matInput formControlName="complain"></textarea>
         </mat-form-field>
       </p>
     </div>
-
 
     <div class="row">
       <p>
         <mat-form-field appearance="outline">
-          <mat-label>Video</mat-label>
+          <mat-label>Select Evidence Video</mat-label>
           <mat-select formControlName="proof">
-            <mat-option value="viddeo 1">Video 1</mat-option>
-            <mat-option value="video 2">Video 2</mat-option>
+            <mat-option *ngFor="let video of videos" [value]="video.video">
+              {{ video.vehicle_number }} - {{ video.video }}
+            </mat-option>
           </mat-select>
         </mat-form-field>
       </p>
     </div>
-
-<!--    <div class="row">-->
-<!--      <button mat-button type="button" class="add-vehicle-btn" (click)="fileInput.click()">-->
-<!--        Add Files-->
-<!--      </button>-->
-<!--      &lt;!&ndash; Hidden file input &ndash;&gt;-->
-<!--      <input #fileInput type="file" (change)="onFileSelected($event)" style="display:none" />-->
-<!--    </div>-->
-
-<!--    <div *ngIf="fileName">-->
-<!--      <p>Selected File: {{ fileName }}</p>-->
-<!--      <img *ngIf="filePreview" [src]="filePreview" alt="Preview" width="100" />-->
-<!--    </div>-->
-
-<!--    <div class="row">-->
-<!--      <button mat-button type="button" class="add-vehicle-btn">-->
-<!--        Add Files-->
-<!--      </button>-->
-<!--    </div>-->
-
-<!--    <p>-->
-<!--      <mat-checkbox formControlName="notify" class="example-margin" color="primary">-->
-<!--        I need notification about status of the complaint-->
-<!--      </mat-checkbox>-->
-<!--    </p>-->
 
     <button mat-raised-button type="submit" color="primary" class="btn-submit">Submit</button>
   </form>

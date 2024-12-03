@@ -1,3 +1,16 @@
+
+<div class="floating-card">
+  <div class="card-title">
+    <h2>{{ vehicleDetails?.vehicle_number }} | {{ vehicleDetails?.brand }} {{ vehicleDetails?.model }}</h2>
+
+    <!-- Displaying other vehicle details -->
+    <h3>Status: {{ vehicleDetails?.type }}</h3>
+    <h3>Color: {{ vehicleDetails?.color}}</h3>
+    <h3>Millage: {{ vehicleDetails?.millage }} km</h3>
+    <h3>Year of Manufacture: {{ vehicleDetails?.yom}}</h3>
+  </div>
+</div>
+
 <div class="map-container">
   <google-map #map width="100%" height="100%" [options]="mapOptions">
     <map-polyline [path]="points" [options]="polylineOptions"></map-polyline>

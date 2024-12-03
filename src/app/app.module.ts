@@ -106,6 +106,7 @@ import {NewPostComponent} from "./components/main/posts/new-post/new-post.compon
 import { PoliceStationComponent } from './components/main/police-stations/police-station/police-station.component';
 import { RequestDetailsPopupComponent } from './components/main/police-requests/request-details-popup/request-details-popup.component';
 import { VehicleSearchHistoryComponent } from './components/main/locationrequests/vehicle-search-history/vehicle-search-history.component';
+import { LiveMapComponent } from './components/main/live-map/live-map.component';
 
 
 @NgModule({
@@ -187,7 +188,8 @@ import { VehicleSearchHistoryComponent } from './components/main/locationrequest
     NewPostComponent,
     PoliceStationComponent,
     RequestDetailsPopupComponent,
-    VehicleSearchHistoryComponent
+    VehicleSearchHistoryComponent,
+    LiveMapComponent
 
   ],
     imports: [

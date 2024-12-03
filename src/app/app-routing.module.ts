@@ -74,6 +74,7 @@ import {AddInquiryComponent} from "./components/main/inquiries/add-inquiry/add-i
 import {
   VehicleSearchHistoryComponent
 } from "./components/main/locationrequests/vehicle-search-history/vehicle-search-history.component";
+import {LiveMapComponent} from "./components/main/live-map/live-map.component";
 
 
 
@@ -148,11 +149,10 @@ const routes: Routes = [
       {path: "police-requests/request-popup", component: RequestDetailsPopupComponent},
       {path: "video/view", component:VideoPlayerComponent},
       {path: "posts/new", component:NewPostComponent},
+      {path: "livemap", component:LiveMapComponent},
       {path: "police-stations/station", component:PoliceStationComponent},
       {path: "locationrequests/vehiclesearch/:vehicleId", component:VehicleSearchHistoryComponent},
-
-
-
+      {path: "locationrequests/vehiclesearch/:vehicleId", component:VehicleSearchHistoryComponent},
 
     ]
   },

@@ -9,7 +9,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 
 //New appointment form controls
 export class NewAppointmentComponent {
-  form=new FormGroup({
+  form1=new FormGroup({
     vehicleNumber: new FormControl(),
     brand: new FormControl(),
     model: new FormControl(),
@@ -18,6 +18,14 @@ export class NewAppointmentComponent {
     color: new FormControl(),
     owner: new FormControl(),
     absolute_owner: new FormControl()
+  })
+
+  form = new FormGroup({
+    date: new FormControl(),
+    time: new FormControl(),
+    vendor: new FormControl(),
+    remarks: new FormControl(),
+
   })
 
 }

@@ -32,4 +32,13 @@ export class LoginComponent {
       }
     })
   }
+
+  test(){
+    this.api.post("/sample/test", {
+      username: 222
+    }).subscribe(httpResponse =>{
+      let data = httpResponse.body
+
+    })
+  }
 }

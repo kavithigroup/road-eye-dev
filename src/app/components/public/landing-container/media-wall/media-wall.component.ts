@@ -24,7 +24,8 @@ export class MediaWallComponent implements OnInit {
   ngOnInit(): void {
     this.api.get('/post/all')
       .subscribe(httpResponse => {
-        const posts = httpResponse.body || [];  // Make sure to access the 'body' if it's wrapped
+        const posts = httpResponse;  // Make sure to access the 'body' if it's wrapped
+        console.log(httpResponse)
         this.post = posts.map((item: any) => ({
           id: item.id,
           title: item.title,

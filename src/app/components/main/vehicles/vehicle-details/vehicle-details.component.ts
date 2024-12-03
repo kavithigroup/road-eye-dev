@@ -69,6 +69,8 @@ export class VehicleDetailsComponent implements OnInit {
       reader.onload = () => {
         this.api.post("/vehicle/file", {
           first_name: "AAAA",
+          vehicle_number: this.vehicle?.vehicle_number,
+          user: this.auth.user?.user_id,
           file: reader.result?.toString()
         }).subscribe(httpResponse =>{
             alert("File Uploaded!")

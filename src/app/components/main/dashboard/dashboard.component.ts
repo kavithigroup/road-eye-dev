@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   // Table data
   displayedColumns: string[] = ['id', 'complaintTime', 'complaintDate', 'complaintSubject', 'status'];
-  dataSource = new MatTableDataSource<any>([]);
+  dataSource:any[] = []
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
@@ -82,7 +82,7 @@ export class DashboardComponent implements OnInit {
     if (userId) {
       this.api.post('/complain/user', { user: userId }).subscribe(
         (complaints: any) => {
-          this.dataSource.data = complaints; // Use MatTableDataSource to set data
+          this.dataSource = complaints; // Use MatTableDataSource to set data
         },
         (error) => {
           console.error('Error fetching complaints:', error);

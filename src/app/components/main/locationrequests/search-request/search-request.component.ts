@@ -14,10 +14,10 @@ export class SearchRequestComponent implements OnInit {
     number: new FormControl()
   });
 
-  dataSource: any[] = []
-  displayedColumns = ["number_plate"]
+  dataSource: any[] = [];
+  displayedColumns = ["number_plate", "lon", "lat", "timestamp", "device"];
 
-  vehicles: { vehicle_number: string }[] = [{vehicle_number: "ABK 1223"}];
+  vehicles: { vehicle_number: string }[] = [{ vehicle_number: "ABK 1223" }];
   error?: string;
 
   constructor(
@@ -27,7 +27,6 @@ export class SearchRequestComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Fetch vehicles for the logged-in user
     const userId = this.auth.user?.user_id;
     if (userId) {
       this.api.post('/vehicle/list', { user: userId }).subscribe({
@@ -50,9 +49,12 @@ export class SearchRequestComponent implements OnInit {
     const selectedVehicle = this.form.get('number')?.value;
     if (selectedVehicle) {
       this.snackBar.open(`Selected Vehicle: ${selectedVehicle}`, 'Close', { duration: 3000 });
-      this.api.get("/company/search/" + selectedVehicle).subscribe((r =>{
-        this.dataSource = r
-      }))
+      this.api.get("/company/search/" + selectedVehicle).subscribe((r: any[]) => {
+        this.dataSource = r.map(item => {
+          const [date, time] = item.reg_time.split('T');
+          return { ...item, formattedRegTime: `${date} - ${time}` };
+        });
+      });
     }
   }
 }

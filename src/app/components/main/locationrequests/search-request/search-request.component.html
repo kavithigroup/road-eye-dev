@@ -19,34 +19,41 @@
   <button mat-stroked-button type="submit" class="add-vehicle-btn">Search</button>
 </form>
 
-<!--<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">-->
-<!--  &lt;!&ndash; Timestamp Column &ndash;&gt;-->
-<!--  <ng-container matColumnDef="timestamp">-->
-<!--    <th mat-header-cell *matHeaderCellDef>Timestamp</th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{ element.timestamp }} </td>-->
-<!--  </ng-container>-->
 
-<!--  &lt;!&ndash; Longitude Column &ndash;&gt;-->
-<!--  <ng-container matColumnDef="lon">-->
-<!--    <th mat-header-cell *matHeaderCellDef>Longitude</th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{ element.lon }} </td>-->
-<!--  </ng-container>-->
 
-<!--  &lt;!&ndash; Latitude Column &ndash;&gt;-->
-<!--  <ng-container matColumnDef="lat">-->
-<!--    <th mat-header-cell *matHeaderCellDef>Latitude</th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{ element.lat }} </td>-->
-<!--  </ng-container>-->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Timestamp Column -->
+  <ng-container matColumnDef="timestamp">
+    <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+    <td mat-cell *matCellDef="let element"> {{ element.formattedRegTime }} </td>
+  </ng-container>
 
-<!--  &lt;!&ndash; Device Column &ndash;&gt;-->
-<!--  <ng-container matColumnDef="device">-->
-<!--    <th mat-header-cell *matHeaderCellDef>Device</th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{ element.device }} </td>-->
-<!--  </ng-container>-->
+  <!-- Longitude Column -->
+  <ng-container matColumnDef="lon">
+    <th mat-header-cell *matHeaderCellDef>Longitude</th>
+    <td mat-cell *matCellDef="let element"> {{ element.lon }} </td>
+  </ng-container>
 
-<!--  &lt;!&ndash; Table Header Row &ndash;&gt;-->
-<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+  <!-- Latitude Column -->
+  <ng-container matColumnDef="lat">
+    <th mat-header-cell *matHeaderCellDef>Latitude</th>
+    <td mat-cell *matCellDef="let element"> {{ element.lat }} </td>
+  </ng-container>
 
-<!--  &lt;!&ndash; Table Data Rows &ndash;&gt;-->
-<!--  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
-<!--</table>-->
+  <!-- Device Column -->
+  <ng-container matColumnDef="number_plate">
+    <th mat-header-cell *matHeaderCellDef>Number Plate</th>
+    <td mat-cell *matCellDef="let element"> {{ element.number_plate}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="device">
+    <th mat-header-cell *matHeaderCellDef>Device</th>
+    <td mat-cell *matCellDef="let element"> {{ element.device }} </td>
+  </ng-container>
+
+  <!-- Table Header Row -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <!-- Table Data Rows -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

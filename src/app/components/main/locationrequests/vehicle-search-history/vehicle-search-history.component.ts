@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 export interface Track {
-  timestamp: number;
+  timestamp: number | string; // Handle both number and string formats
   lon: number;
   lat: number;
   device: number;
+  number_plate: string;
 }
 
 @Component({
@@ -15,20 +17,30 @@ export interface Track {
 })
 export class VehicleSearchHistoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['timestamp', 'lon', 'lat', 'device'];
+  displayedColumns: string[] = ['timestamp', 'lon', 'lat', 'device', 'number_plate'];
   dataSource: Track[] = [];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private api: ApiService) {}
 
   ngOnInit() {
-    // Retrieve the vehicle ID from the route
     const vehicleId = this.route.snapshot.paramMap.get('vehicleId');
+    if (vehicleId) {
+      this.api.get(`/company/search/${vehicleId}`).subscribe((response: any[]) => {
+        this.dataSource = response.map(item => {
+          // Convert timestamp to ISO string if it's a number
+          const timestamp = typeof item.timestamp === 'number'
+            ? new Date(item.timestamp).toISOString()
+            : item.timestamp;
 
-    // Hardcoded data for demonstration
-    this.dataSource = [
-      { timestamp: 1633036800, lon: 79.861244, lat: 6.927079, device: 1 },
-      { timestamp: 1633123200, lon: 79.863144, lat: 6.929979, device: 2 },
-      { timestamp: 1633209600, lon: 79.865044, lat: 6.932879, device: 3 },
-    ];
+          // Split the ISO string into date and time
+          const [date, time] = timestamp.split('T');
+          return {
+            ...item,
+            formattedRegTime: `${date} - ${time}`
+          };
+        });
+      });
+    }
   }
+
 }

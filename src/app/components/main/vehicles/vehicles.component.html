@@ -11,31 +11,7 @@
 <div class="card-container">
 
   <!-- Sample card for a specific vehicle -->
-  <div class="card">
-    <div class="card-title">
-      <!-- Vehicle Number and Brand/Model -->
-      <h2>KS 2354 | Toyota Aqua </h2>
-      <!-- Verified status for this vehicle -->
-      <div class="verified">Verified</div>
-    </div>
-    <!-- Driving speed information -->
-    <h3>Driving: 20 - 44 km/h</h3>
-    <!-- Status of recent activity -->
-    <h3>No recent suspicious activity</h3>
-    <!-- Button to view the vehicle's location on the map -->
-    <button mat-button>
-      <mat-icon>pin_drop</mat-icon>
-      View on Map
-    </button>
-    <!-- Last updated information -->
-    <h5>Last updated less than 1m ago</h5>
-    <br>
-    <!-- Button to view more details about the vehicle -->
-    <a routerLink="/vehicles/details" mat-button class="viewmore">
-      <mat-icon>arrow_drop_down</mat-icon>
-      View More
-    </a>
-  </div>
+
 
   <!-- Dynamic cards for each vehicle -->
   <div class="card" *ngFor="let vehicle of vehicles">

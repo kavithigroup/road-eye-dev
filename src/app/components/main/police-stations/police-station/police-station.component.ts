@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-police-station',
@@ -9,58 +8,28 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class PoliceStationComponent implements OnInit {
   stationId!: number; // Station ID retrieved from the route
-  stationDetails: any = {}; // Store station details
-  complaints: any[] = []; // Store complaints related to this station
+  stationDetails: any = { branch: 'Police Station' }; // Placeholder station details
+  complaints: any[] = []; // Placeholder complaints
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private api: ApiService
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     // Get station ID from route parameters
     this.route.params.subscribe((params) => {
       this.stationId = +params['id']; // Convert to a number
-      this.fetchStationDetails(); // Fetch station details from backend
-      this.fetchComplaints(); // Fetch complaints related to the station
+      this.loadStationData(); // Load station name and dummy complaints
     });
   }
 
-  // Fetch station details using the station_id
-  fetchStationDetails(): void {
-    this.api.get(`/stations/details/${this.stationId}`).subscribe(
-      (response: any) => {
-        if (response && response.data) {
-          this.stationDetails = response.data;
-        } else {
-          console.error('Station not found, redirecting...');
-          this.router.navigate(['/police-stations']); // Redirect if no data
-        }
-      },
-      (error) => {
-        console.error('Failed to fetch station details:', error);
-        this.router.navigate(['/police-stations']); // Redirect on error
-      }
-    );
-  }
-
-  // Fetch complaints related to this station (currently using dummy data)
-  fetchComplaints(): void {
-    // Replace with an API call when the backend is ready
+  // Load dummy station name and complaints
+  loadStationData(): void {
     this.complaints = [
-      { complaint_id: 1, description: 'Noise complaint', status: 'Resolved' },
-      { complaint_id: 2, description: 'Parking violation', status: 'Pending' },
-      { complaint_id: 3, description: 'Theft report', status: 'Under Investigation' }
+      { complaint_id: 1, name: 'Samantha Perera', type: 'Accident', summary: 'Car collided with a motorcycle at a junction', location: 'No. 10, High Level Road, Maharagama' },
+      { complaint_id: 2, name: 'Priyantha Silva', type: 'Reckless Driving', summary: 'Bus overtaking dangerously near a pedestrian crossing', location: 'No. 120, Galle Road, Mount Lavinia' },
+      { complaint_id: 3, name: 'Ruwantha Fernando', type: 'Hit-and-Run', summary: 'Vehicle fled after hitting a pedestrian on the main road', location: 'No. 55, Kandy Road, Kadawatha' },
+      { complaint_id: 4, name: 'Dilani Weerasinghe', type: 'Traffic Obstruction', summary: 'Truck parked on the roadside blocking traffic flow', location: 'No. 8, Negombo Road, Ja-Ela' },
+      { complaint_id: 5, name: 'Nuwan Jayasuriya', type: 'Theft', summary: 'Motorbike stolen while parked near a shopping complex', location: 'No. 77, Old Moor Street, Colombo 12' }
     ];
-  }
-
-  // Handle deletion of a complaint
-  deleteComplaint(complaintId: number): void {
-    if (confirm('Are you sure you want to delete this complaint?')) {
-      console.log(`Deleting complaint with ID: ${complaintId}`);
-      this.complaints = this.complaints.filter(c => c.complaint_id !== complaintId); // Remove from list
-      // Add API call for deletion here if needed
-    }
+    
   }
 }

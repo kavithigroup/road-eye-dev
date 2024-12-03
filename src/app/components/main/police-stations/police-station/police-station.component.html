@@ -1,44 +1,31 @@
-<!-- Station Details -->
-<h1>{{ stationDetails.branch }} Police Station</h1>
-<p><strong>District:</strong> {{ stationDetails.district }}</p>
-<p><strong>Phone:</strong> {{ stationDetails.phone }}</p>
-<p><strong>Address:</strong> {{ stationDetails.address }}</p>
-<mat-divider></mat-divider>
+<!-- Station Name -->
+<h1>{{ stationDetails.branch || 'Police Station' }}</h1>
 
-<!-- Complaints Section -->
-<h2>Complaints</h2>
+<!-- Complaints Summary -->
+<h2>Complaints Summary</h2>
+<hr />
+
+<!-- Complaints Table -->
 <div *ngIf="complaints.length > 0; else noComplaints">
-  <table mat-table [dataSource]="complaints" class="mat-elevation-z8">
-    <!-- Complaint ID Column -->
-    <ng-container matColumnDef="complaint_id">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let complaint"> {{ complaint.complaint_id }} </td>
-    </ng-container>
-
-    <!-- Description Column -->
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef> Description </th>
-      <td mat-cell *matCellDef="let complaint"> {{ complaint.description }} </td>
-    </ng-container>
-
-    <!-- Status Column -->
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef> Status </th>
-      <td mat-cell *matCellDef="let complaint"> {{ complaint.status }} </td>
-    </ng-container>
-
-    <!-- Actions Column -->
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let complaint">
-        <button mat-icon-button color="warn" (click)="deleteComplaint(complaint.complaint_id)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="['complaint_id', 'description', 'status', 'actions']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['complaint_id', 'description', 'status', 'actions']"></tr>
+  <table class="complaints-table">
+    <thead>
+      <tr>
+        <th>Complaint ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Summary</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let complaint of complaints">
+        <td>{{ complaint.complaint_id }}</td>
+        <td>{{ complaint.name }}</td>
+        <td>{{ complaint.type }}</td>
+        <td>{{ complaint.summary }}</td>
+        <td>{{ complaint.location }}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
 <ng-template #noComplaints>

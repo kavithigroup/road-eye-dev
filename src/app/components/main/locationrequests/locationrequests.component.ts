@@ -23,6 +23,7 @@ export class LocationrequestsComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'vehicleNumber', 'brand', 'model', 'type', 'color', 'status', 'action'];
   dataSource: Location[] = [];
+  private error: any;
 
   constructor(
     private api: ApiService,
@@ -51,16 +52,23 @@ export class LocationrequestsComponent implements OnInit {
     this.router.navigate(['locationrequests/vehiclesearch', vehicleNumber]);
   }
 
-  uploadFiles(event: any) {
+  uploadFiles(event: any, vehicleNumber: string) {
     const file = event?.target?.files[0];
+    console.log(vehicleNumber)
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         this.api.post('/vehicle/file', {
           first_name: 'AAAA',
+          user: this.auth.user?.user_id,
+          vehicle_number: vehicleNumber,
           file: reader.result?.toString()
         }).subscribe(httpResponse => {
-          alert('File Uploaded!');
+          this.error = httpResponse.error;
+          if (this.error === "ok")
+            alert('File Uploaded!');
+          else
+            alert('File Uploaded!');
         });
       };
       reader.readAsDataURL(file);

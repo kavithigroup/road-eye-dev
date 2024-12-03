@@ -63,7 +63,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {CoporateDashboardComponent} from './components/main/coporate-dashboard/coporate-dashboard.component';
 import {PaymentsComponent} from './components/main/payments/payments.component';
-import {InquiryComponent} from './components/main/inquiries/inquiries.component';
+import {InquiriesComponent} from './components/main/inquiries/inquiries.component';
 import {NotificationsComponent} from './components/main/notifications/notifications.component';
 import {ProductsComponent} from './components/main/products/products.component';
 import {AddProductComponent} from './components/main/products/add-product/add-product.component';
@@ -148,7 +148,7 @@ import { VehicleSearchHistoryComponent } from './components/main/locationrequest
     AddStationComponent,
     CoporateDashboardComponent,
     PaymentsComponent,
-    InquiryComponent,
+    InquiriesComponent,
     NotificationsComponent,
     ProductsComponent,
     AddProductComponent,

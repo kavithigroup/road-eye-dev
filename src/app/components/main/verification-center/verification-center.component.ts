@@ -21,17 +21,6 @@ export interface vehicleVerification {
   leasing: string;
 }
 
-const USER_TABLE_DATA: userVerification[] = [
-  {date: '2024-08-06', firstname: "Saman", lastname: "Kumara", email: "saman@gmail.com", phone: "0775693344"},
-  {date: '2024-08-06', firstname: "Amal", lastname: "Perera", email: "amal@email.com", phone: "0783324555"},
-  {date: '2024-08-06', firstname: "Nimal", lastname: "Pathirana", email: "npathirana@email.com", phone: "0715543766"},
-];
-
-const VEHICLE_TABLE_DATA: vehicleVerification[] = [
-  {date: '2024-08-06', vehicleNumber: "KU-5643", owner: "Saman Kumara", leasing: "No leasing"},
-  {date: '2024-08-06', vehicleNumber: "ABB-3375", owner: "Nimal Perera", leasing: "Have leasing"},
-  {date: '2024-08-06', vehicleNumber: "ACD-7788", owner: "Saman Kumara", leasing: "Have leasing"},
-]
 
 
 @Component({
@@ -40,16 +29,14 @@ const VEHICLE_TABLE_DATA: vehicleVerification[] = [
   styleUrls: ['./verification-center.component.sass']
 })
 export class VerificationCenterComponent implements OnInit {
-  displayedColumns: string[] = ['date', 'firstname', 'lastname', 'email', 'phone', 'action'];
   displayedColumnsVehicles: string[] = ['date', 'vehicleNumber', 'owner', 'leasing', 'action'];
-  dataSource = USER_TABLE_DATA;
-  dataSourceVehicle = VEHICLE_TABLE_DATA;
+  protected dataSourceVehicle: any;
 
   constructor(private dialog: MatDialog, private api: ApiService, private auth: AuthService) {
   }
 
   ngOnInit() {
-
+    this.fetchNonVerifiedVehicles(); //
   }
 
   viewVerificationDetails() {
@@ -61,4 +48,55 @@ export class VerificationCenterComponent implements OnInit {
       this.ngOnInit()
     })
   }
+
+  private fetchNonVerifiedVehicles() {
+    this.api.get('/nonverify-vehicle').subscribe(
+      (response: any) => {
+        console.log(response)
+        this.dataSourceVehicle = response.map((v: any) => ({
+          date: v.created_at,
+          vehicleNumber: v.vehicle_number,
+          file:v.file_path,
+          owner: v.user || 'N/A',
+          leasing: v.status || 'N/A',
+        }));
+        console.log(this.dataSourceVehicle)
+      },
+      (error) => {
+        console.error('Error fetching vehicles:', error);
+      }
+    );
+  }
+
+  Verify(vehicleNumber: any) {
+
+    const data = { vehicle_number: vehicleNumber };
+
+    this.api.put('/verify-vehicle', data).subscribe(
+      (response: any) => {
+        console.log('Vehicle verified:', response);
+        // Optionally, refresh the data after successful verification
+        this.fetchNonVerifiedVehicles(); // Re-fetch the updated data
+      },
+      (error) => {
+        console.error('Error verifying vehicle:', error);
+      }
+    );
+  }
+
+  downloadFile(filePath: string) {
+    // Check if the filePath is valid
+    if (filePath) {
+      // Create an invisible <a> element to trigger the download
+      const link = document.createElement('a');
+      link.href = "https://storage.cloud.google.com/road-eye/"+filePath;
+      // link.download = filePath.split('/').pop();
+
+      // Trigger the click event to start the download
+      link.click();
+    } else {
+      console.error('Invalid file path');
+    }
+  }
 }
+

@@ -4,7 +4,7 @@
 <mat-divider></mat-divider>
 <!-- Angular Material divider for visual separation -->
 
-<br /><br />
+<br/><br/>
 <!-- Adds spacing between the heading and the table -->
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -14,7 +14,7 @@
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>ID</th>
     <!-- Table header for the ID column -->
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
     <!-- Displays the unique ID of each payment record -->
   </ng-container>
 
@@ -22,7 +22,7 @@
   <ng-container matColumnDef="complaintTime">
     <th mat-header-cell *matHeaderCellDef>Time</th>
     <!-- Table header for the Time column -->
-    <td mat-cell *matCellDef="let element"> {{element.complaintTime}} </td>
+    <td mat-cell *matCellDef="let element"> {{ element.complaintTime | date: 'HH:mm:ss' }}</td>
     <!-- Displays the time when the payment was recorded -->
   </ng-container>
 
@@ -30,7 +30,7 @@
   <ng-container matColumnDef="complaintDate">
     <th mat-header-cell *matHeaderCellDef>Date</th>
     <!-- Table header for the Date column -->
-    <td mat-cell *matCellDef="let element"> {{element.complaintDate}} </td>
+    <td mat-cell *matCellDef="let element"> {{ element.complaintDate| date: 'yyyy-MM-dd' }}</td>
     <!-- Displays the date when the payment was recorded -->
   </ng-container>
 
@@ -38,7 +38,7 @@
   <ng-container matColumnDef="complaintSubject">
     <th mat-header-cell *matHeaderCellDef>Remark</th>
     <!-- Table header for the Remark column -->
-    <td mat-cell *matCellDef="let element"> {{element.complaintSubject}} </td>
+    <td mat-cell *matCellDef="let element"> {{ element.complaintSubject }}</td>
     <!-- Displays a remark or note associated with the payment -->
   </ng-container>
 
@@ -46,7 +46,7 @@
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef>Status</th>
     <!-- Table header for the Status column -->
-    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    <td mat-cell *matCellDef="let element"> {{ element.status }}</td>
     <!-- Displays the current status of the payment -->
   </ng-container>
 
@@ -60,9 +60,6 @@
         <mat-icon>download</mat-icon>
       </a>
       <!-- Button to delete the payment record -->
-      <button mat-button color="warn">
-        <mat-icon>delete</mat-icon>
-      </button>
     </td>
   </ng-container>
 

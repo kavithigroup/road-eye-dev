@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ApiService} from "../../../services/api.service";
+import {loadStripe} from '@stripe/stripe-js';
 
 // import * as CryptoJS from 'crypto-js';
 
@@ -10,6 +11,8 @@ interface SubscriptionPlan {
   features: string[];
   duration: string;
   popular?: boolean;
+  price_id?: string
+  value?: number
 }
 
 @Component({
@@ -34,7 +37,7 @@ export class SubscriptionComponent {
     },
     {
       name: 'Gold',
-      price: '$10/month',
+      price: '3,000.00 LKR/month',
       features: [
         'Up to 100 Searches',
         '100 Tokens',
@@ -42,18 +45,22 @@ export class SubscriptionComponent {
         'Email support'
       ],
       duration: '3 months',
-      popular: true
+      popular: true,
+      price_id: "price_1QS4KMC3Jv8Pj3OftWTslIbl",
+      value: 3000
     },
     {
       name: 'Platinum',
-      price: '$50/month',
+      price: '10,000.00 LKR/month',
       features: [
         'Unlimited Searches',
         'Unlimited Tokens',
         'Unlimited Searches',
         '24/7 support'
       ],
-      duration: '5 months'
+      price_id: "price_1QS4LEC3Jv8Pj3OfVToMXjdK",
+      duration: '5 months',
+      value: 10000
     }
   ];
 
@@ -65,53 +72,17 @@ export class SubscriptionComponent {
   constructor(private api: ApiService) {
   }
 
-  onPaymentClick() {
-    this.api.post("/payment").subscribe(httpResponse => {
-      let obj = httpResponse.body
-      // @ts-ignore
-      let payhere: any = window.payhere;
-      // @ts-ignore
-      payhere.onCompleted = function onCompleted(orderId) {
-        console.log("Payment completed. OrderID:" + orderId);
-        // Note: validate the payment and show success or failure page to the customer
-      };
+  stripePromise = loadStripe('pk_test_51Nx6nOC3Jv8Pj3OfnPLyr1azi6BiZJpHepUdvnY7wm2VQbA48IOmEOa7co8A98XYGg79Tz65sTwQxLMoZWUAsf1U00M9XOmIX7');
 
-      // Payment window closed
-      payhere.onDismissed = function onDismissed() {
-        // Note: Prompt user to pay again or show an error page
-        console.log("Payment dismissed");
-      };
-
-      // Error occurred
-      // @ts-ignore
-      payhere.onError = function onError(error) {
-        // Note: show an error page
-        console.log("Error:" + error);
-      };
-      console.log(obj);
-      // Put the payment variables here
-      // var payment = {
-      //   "sandbox": true,
-      //   "merchant_id": obj["merchant_id"], // Replace your Merchant ID
-      //   "return_url": obj['return_url'], // Important
-      //   "cancel_url": obj['cancel_url'], // Important
-      //   "notify_url": undefined,
-      //   "order_id": obj["order_id"],
-      //   "items": 'topup',
-      //   "amount": obj["amount"],
-      //   "currency": obj["currency"],
-      //   "hash": obj['hash'], // *Replace with generated hash retrieved from backend
-      //   "first_name": obj["first_name"],
-      //   "last_name": obj["last_name"],
-      //   "email": obj["email"],
-      //   "phone": obj["phone"],
-      //   "address": obj["address"],
-      //   "city": obj["city"],
-      //   "country": "Sri Lanka",
-      // };
-      // obj["return_url"] = undefined
-      // obj["cancel_url"] = undefined
-      payhere.startPayment(obj);
+   onPaymentClick(plan: SubscriptionPlan) {
+    this.api.post("/payment/done", plan).subscribe(async r => {
+      const stripe = await this.stripePromise;
+      stripe?.redirectToCheckout({
+        lineItems: [{price: plan?.price_id, quantity: 1}],
+        mode: 'payment',
+        successUrl: 'http://localhost:4200/success',
+        cancelUrl: 'http://localhost:4200/cancel',
+      });
     })
   }
 }

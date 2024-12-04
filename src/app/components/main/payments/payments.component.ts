@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ApiService} from "../../../services/api.service";
 
 /**
  * Interface representing the structure of a payment record.
@@ -53,5 +54,17 @@ export class PaymentsComponent {
   /**
    * Data source for the table, containing the list of payment records.
    */
-  dataSource = COMPLAINT_DATA;
+  dataSource: Complaint[] = [];
+
+  constructor(private api: ApiService) {
+    api.get("/payment/history").subscribe(r =>{
+      this.dataSource = r.map((u: any) =>({
+        id: u.payment_id,
+        complaintTime: u.reg_time,
+        complaintDate: u.reg_time,
+        complaintSubject: "Subscription fee - payment",
+        status: "Completed"
+      }))
+    })
+  }
 }

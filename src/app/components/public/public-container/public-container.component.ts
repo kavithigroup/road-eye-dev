@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./public-container.component.sass']
 })
 export class PublicContainerComponent {
-
+ constructor() {
+ }
 }

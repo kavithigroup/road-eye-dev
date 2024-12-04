@@ -147,9 +147,7 @@ export class MapComponent implements AfterViewInit {
         lat: this.markers.map(u => u.position.lat).reduce((sum: number, value: number) => sum + value, 0) / this.markers.length,
         lng: this.markers.map(u => u.position.lng).reduce((sum: number, value: number) => sum + value, 0) / this.markers.length
       })
-
     })
-
   }
 
   ngAfterViewInit() {

@@ -18,6 +18,7 @@ export class VehiclesComponent implements OnInit {
     vehicle_number: string
     brand: string
     model: string
+    status:string
 
   }[] = []
 

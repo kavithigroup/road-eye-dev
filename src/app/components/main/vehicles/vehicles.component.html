@@ -19,7 +19,7 @@
       <!-- Display Vehicle Number, Brand, and Model with transformations -->
       <h2>{{ vehicle.vehicle_number | uppercase }} | {{ vehicle.brand | titlecase }} {{ vehicle.model | titlecase }}</h2>
       <!-- Display verification status -->
-      <div class="notverified">Not Verified</div>
+      <div class="notverified">{{ vehicle.status }}</div>
     </div>
     <!-- Button to link a device to the vehicle -->
     <button mat-button (click)="linkDevice()">Link Device</button>

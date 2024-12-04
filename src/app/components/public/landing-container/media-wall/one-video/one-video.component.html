@@ -1,4 +1,4 @@
-<h1 class="title">Road Accident Near Colombo</h1>
+<h1 class="title"> {{ videoDetails?.title }}</h1>
 
 
 <div class="row">
@@ -7,33 +7,33 @@
 
     <mat-card class="example-card" appearance="outlined">
 
-      <img mat-card-image src="https://avnetlaw.com/wp-content/uploads/2019/02/car-accident-1200x800.jpg" alt="Photo of a Shiba Inu">
+<!--      <img mat-card-image src="https://avnetlaw.com/wp-content/uploads/2019/02/car-accident-1200x800.jpg" alt="Photo of a Shiba Inu">-->
+
+
+      <video mat-card-image controls
+             [src]="'https://storage.cloud.google.com/road-eye/video-uploads/' +videoDetails?.video_link +'.mp4'"
+             alt="Video">
+      </video>
 
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Unknown</mat-card-title>
-        <mat-card-subtitle>2 hrs ago</mat-card-subtitle>
+        <mat-card-title>Road Eye user</mat-card-title>
+        <mat-card-subtitle>{{ getTimeAgo(videoDetails?.date) }}</mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content>
         <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
+          {{ videoDetails?.description }}
         </p>
       </mat-card-content>
 
       <mat-card-actions class="actions">
-        <button mat-stroked-button color="primary" style="margin-right: 10px">23 <mat-icon>thumb_up</mat-icon></button>
-        <button mat-stroked-button color="primary"> 50 <mat-icon>visibility</mat-icon></button>
+        <button mat-stroked-button color="primary" style="margin-right: 10px">{{ videoDetails?.likes }}<mat-icon>thumb_up</mat-icon></button>
+        <button mat-stroked-button color="primary"> {{ videoDetails?.views }} <mat-icon>visibility</mat-icon></button>
       </mat-card-actions>
 
       <br>
-
 <!--      Comment Sections-->
-
-
-
         <button mat-flat-button class="comment-btn" (click)="addComment()" >Add Comment</button>
 
       <mat-card appearance="outlined" class="comment-box">

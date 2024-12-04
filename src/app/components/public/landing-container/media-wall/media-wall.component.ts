@@ -17,6 +17,7 @@ export class MediaWallComponent implements OnInit {
     description: string;
     views: number;
     showDetails: boolean;
+    date :string;
   }[] = [];
 
   constructor(private api: ApiService, private auth: AuthService) {}
@@ -34,7 +35,8 @@ export class MediaWallComponent implements OnInit {
           views: item.views,
           comments: item.comments || 0, // Handle missing 'comments' gracefully
           description: item.description,
-          showDetails: false
+          showDetails: false,
+          date: item.date_time
         }));
         console.log(this.post);
       }, error => {
@@ -52,7 +54,7 @@ export class MediaWallComponent implements OnInit {
 
   // Handle like button click
   likePost(post: any): void {
-    this.api.put('/post/like', { id: post.id })
+    this.api.put(`/post/like/${post.id}`, { id: post.id })
       .subscribe(() => {
         post.likes += 1; // Update likes on the front end immediately
       }, error => {
@@ -62,12 +64,33 @@ export class MediaWallComponent implements OnInit {
 
   // Handle video view increment
   onVideoPlayed(post: any): void {
-    this.api.put('/post/view', { id: post.id })
+    this.api.put(`/post/view/${post.id}`, { id: post.id })
       .subscribe(() => {
         post.views += 1; // Update views on the front end immediately
       }, error => {
         console.error('Error updating views:', error);
       });
+  }
+
+  getTimeAgo(dateString: string): string {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+
+    const seconds = Math.floor(diffMs / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) {
+      return `${days} day${days > 1 ? 's' : ''} ago`;
+    } else if (hours > 0) {
+      return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+    } else if (minutes > 0) {
+      return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    } else {
+      return `Just now`;
+    }
   }
 
   sharePost(post: any): void {

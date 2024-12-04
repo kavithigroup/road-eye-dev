@@ -85,7 +85,7 @@ const routes: Routes = [
       {path: "", component: Home2Component},
       {path: "vendors", component: VendorsComponent},
       {path: "media-wall", component: MediaWallComponent},
-      {path: "media-wall/one-video", component: OneVideoComponent},
+      {path: "media-wall/one-video/:id", component: OneVideoComponent},
       {path: "leaderboard", component: LeaderboardComponent},
     ]
   },
@@ -156,7 +156,7 @@ const routes: Routes = [
       {path: "police-complains", component: PoliceComplainsComponent},
 
 
-      
+
 
     ]
   },

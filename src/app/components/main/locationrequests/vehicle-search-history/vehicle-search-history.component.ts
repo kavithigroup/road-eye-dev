@@ -8,6 +8,7 @@ export interface Track {
   lat: number;
   device: number;
   number_plate: string;
+  city?: string
 }
 
 @Component({
@@ -17,7 +18,7 @@ export interface Track {
 })
 export class VehicleSearchHistoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['timestamp', 'lon', 'lat', 'device', 'number_plate'];
+  displayedColumns: string[] = ['timestamp', "city", 'lon', 'lat', 'device', 'number_plate'];
   dataSource: Track[] = [];
 
   constructor(private route: ActivatedRoute, private api: ApiService) {}

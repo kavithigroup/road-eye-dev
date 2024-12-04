@@ -11,7 +11,7 @@
 
       <!-- Post image/video -->
       <video mat-card-image controls
-             [src]="'https://storage.cloud.google.com/road-eye/video-uploads/' + item.video_link + '.mp4'"
+             [src]="'https://storage.cloud.google.com/road-eye/' + item.video_link"
              alt="Video"
              (play)="onVideoPlayed(item)">
       </video>

@@ -52,7 +52,7 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action</th>
       <td mat-cell *matCellDef="let element">
-        <a mat-button [href]="'https://storage.cloud.google.com/road-eye/' + element.video + '.mp4'" download="{{ element.video }}.mp4">
+        <a mat-button [href]="'https://storage.cloud.google.com/road-eye/' + element.video" download="{{ element.video }}.mp4">
           <mat-icon color="primary">download</mat-icon> Download
         </a>
         <button mat-button color="warn">
